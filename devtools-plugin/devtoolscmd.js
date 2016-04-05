@@ -64,7 +64,7 @@ var hash = crypto.createHash('sha1').update(current_date + random).digest('hex')
       hash: hash,
       src: 'src' + myString,
       dst: r,
-      name: r.slice(ind),
+      name: r.slice(ind + 1),
   };
       jso.push(pj);
       
