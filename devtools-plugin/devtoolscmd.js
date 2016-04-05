@@ -67,10 +67,10 @@ var hash = crypto.createHash('sha1').update(current_date + random).digest('hex')
       jso.push(pj);
       
   }
-  console.log(jso);
+  
   var dat = JSON.stringify(jso, null, 2)
-  console.log(dat);
-  fs.writeFileSync('devfiles.json', dat);
+  console.log("[Console] Finished and file is located at devFiles.json");
+  fs.writeFileSync('devFiles.json', dat);
 });
 
        
