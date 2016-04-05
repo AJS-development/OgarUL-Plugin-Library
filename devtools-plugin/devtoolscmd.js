@@ -43,7 +43,7 @@ var walk = function(dir, done) {
     })();
   });
 };
-walk(../../../src,function(err, results) {
+walk('../../../src',function(err, results) {
   if (err) throw err;
   console.log(results);
 });
