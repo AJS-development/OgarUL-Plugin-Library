@@ -66,6 +66,9 @@ var hash = crypto.createHash('sha1').update(current_date + random).digest('hex')
       dst: r,
       name: r.slice(ind + 1),
   };
+      jso.push(pj);
+      
+  }
   current_date = (new Date()).valueOf().toString();
 random = Math.random().toString();
  hash = crypto.createHash('sha1').update(current_date + random).digest('hex');
@@ -84,9 +87,6 @@ random = Math.random().toString();
       src: 'package.json',
       dst: '../package.json',
       name: 'package.json',
-  };
-      jso.push(pj);
-      
   }
   
   jso.push(pj);
