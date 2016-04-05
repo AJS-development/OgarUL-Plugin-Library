@@ -36,7 +36,7 @@ var walk = function(dir, done) {
             next();
           });
         } else {
-          if (file.indexOf('plugins') == -1 && file.indexOf('.txt') == -1 && file.indexOf('filesTemp.json') == -1 && file.indexOf('devFiles.json') == -1) {
+          if (file.indexOf('plugins') == -1 && file.indexOf('.txt') == -1 && file.indexOf('filesTemp.json') == -1 && file.indexOf('devFiles.json') == -1 && file.indexOf('.log') == -1) {
           results.push(file);
             }
           next();
