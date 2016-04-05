@@ -43,8 +43,9 @@ var walk = function(dir, done) {
     })();
   });
 };
-walk('../../../src',function(err, results) {
+walk('.',function(err, results) {
   if (err) throw err;
+  console.log("[Console] Scanned src...");
   console.log(results);
 });
 
