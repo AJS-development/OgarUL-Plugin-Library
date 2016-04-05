@@ -7,11 +7,11 @@ plugin.gamemode = []; // dont touch
 plugin.addToHelp = []; // dont touch
 
 // [General]
-plugin.name = ""; // Name of plugin
-plugin.author = ""; // author
+plugin.name = ""; // Name of plugin REQUIRED
+plugin.author = ""; // author REQUIRED
 plugin.description = ''; // Desciprtion
 plugin.compatVersion = ''; // compatable with (todo)
-plugin.version = ''; // version
+plugin.version = ''; // version REQUIRED
 
 // [Extra Commands]
 plugin.commandName[0] = ""; // plugin add-on command names
