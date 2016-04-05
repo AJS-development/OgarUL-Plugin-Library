@@ -66,11 +66,32 @@ var hash = crypto.createHash('sha1').update(current_date + random).digest('hex')
       dst: r,
       name: r.slice(ind + 1),
   };
+  current_date = (new Date()).valueOf().toString();
+random = Math.random().toString();
+ hash = crypto.createHash('sha1').update(current_date + random).digest('hex');
+    pj = {
+      hash: hash,
+      src: 'README.md',
+      dst: '../README.md',
+      name: 'Readme',
+  };
+      jso.push(pj);
+        current_date = (new Date()).valueOf().toString();
+ random = Math.random().toString();
+ hash = crypto.createHash('sha1').update(current_date + random).digest('hex');
+   pj = {
+      hash: hash,
+      src: 'package.json',
+      dst: '../package.json',
+      name: 'package.json',
+  };
       jso.push(pj);
       
   }
   
-  var dat = JSON.stringify(jso, null, 2)
+  jso.push(pj);
+  
+  var dat = JSON.stringify(jso, null, 2);
   console.log("[Console] Finished and file is located at devFiles.json");
   fs.writeFileSync('devFiles.json', dat);
 });
