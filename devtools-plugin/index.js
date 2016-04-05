@@ -7,11 +7,11 @@ plugin.gamemode = []; // dont touch
 plugin.addToHelp = []; // dont touch
 
 // [General]
-plugin.name = ""; // Name of plugin
-plugin.author = ""; // author
-plugin.description = ''; // Desciprtion
+plugin.name = "Devtools"; // Name of plugin
+plugin.author = "andrews54757"; // author
+plugin.description = 'Adds commands useful to devs'; // Desciprtion
 plugin.compatVersion = ''; // compatable with (todo)
-plugin.version = ''; // version
+plugin.version = '1.0.0'; // version
 
 // [Extra Commands]
 plugin.commandName[0] = ""; // plugin add-on command names
