@@ -1,1 +1,3 @@
-index.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt
+index.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/index.js
+tptoplayer.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/tptoplayer.js
+sffa.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/sffa.js
