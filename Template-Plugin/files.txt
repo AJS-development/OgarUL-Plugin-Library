@@ -1,1 +1,1 @@
-
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/index.js
