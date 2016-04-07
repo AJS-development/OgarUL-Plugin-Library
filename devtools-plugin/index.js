@@ -15,7 +15,7 @@ plugin.version = '1.0.0'; // version
 
 // [Extra Commands]
 plugin.commandName[0] = "dev"; // plugin add-on command names
-plugin.addToHelp[0] = "dev"; // help command add-on (adds this string to the help command)
+plugin.addToHelp[0] = "dev        : Devtools plugin command"; // help command add-on (adds this string to the help command)
 plugin.command[0] = require('./devtoolscmd.js'); // extra command location
 
 // [Extra Gamemodes]
