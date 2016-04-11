@@ -54,7 +54,7 @@ if (plugin.stage == 0) {
         }
       });
  var time = new Date().toISOString();
-  time.replace(/T/, ' ').      // replace T with a space
+  time.replace(/T/, ' ')     // replace T with a space
   time.replace(/\..+/, '')
   lb[0] = "~~~~~~~~~~Stats~~~~~~~~~~";
   lb[1] = "Players: " + humans + "  Minions: " + minions;
