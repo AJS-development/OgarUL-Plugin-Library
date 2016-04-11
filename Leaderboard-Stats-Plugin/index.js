@@ -59,9 +59,9 @@ if (plugin.stage == 0) {
   lb[0] = "~~~~~~Stats~~~~~~";
   lb[1] = "Players: " + humans;
   lb[2] = "Minions: " + minions;
-  lb[2] = "Bots: " + bots + " Time: ";
-  lb[3] = time;
-  lb[4] = "~~~~~~~~~~~~~~~~~";
+  lb[3] = "Bots: " + bots + " Time: ";
+  lb[4] = time;
+  lb[5] = "~~~~~~~~~~~~~~~~~";
   if (plugin.tick > 7) {
     plugin.tick = 0;
     plugin.stage = 1;
