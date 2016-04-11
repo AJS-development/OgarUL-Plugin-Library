@@ -62,7 +62,7 @@ if (plugin.stage == 0) {
   lb[3] = "Bots: " + bots + " Time: ";
   lb[4] = time;
   lb[5] = "~~~~~~~~~~~~~~~~~";
-  if (plugin.tick > 7) {
+  if (plugin.tick > 5) {
     plugin.tick = 0;
     plugin.stage = 1;
     
@@ -79,7 +79,7 @@ if (plugin.stage == 0) {
   lb[3] = "Old HS Holder: " + Math.floor(gameServer.oldtopscores.score);
   lb[4] = "~~~~~~~~~~~~~~~~~";
   
-  if (plugin.tick > 7) {
+  if (plugin.tick > 5) {
     plugin.tick = 0;
     plugin.stage = 0;
     
