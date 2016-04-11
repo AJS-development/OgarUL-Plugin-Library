@@ -7,9 +7,9 @@ face 1
 
 ```
 ~~~~~~Stats~~~~~~
-Players: 
-Bots:
-Runtime:
+Players: Minions:
+Bots:   Time:
+[time]
 ~~~~~~~~~~~~~~~~~
 ```
 
