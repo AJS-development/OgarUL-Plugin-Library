@@ -62,11 +62,12 @@ if (plugin.stage == 0) {
   lb[3] = "Bots: " + bots + " Time: ";
   lb[4] = time;
   lb[5] = "~~~~~~~~~~~~~~~~~";
-  if (plugin.tick > 6) {
+  if (plugin.tick > 7) {
     plugin.tick = 0;
     plugin.stage = 1;
     
   } else {
+    if (isNaN(plugin.tick)) plugin.tick = 1;
     plugin.tick ++;
   }
   
@@ -78,7 +79,7 @@ if (plugin.stage == 0) {
   lb[3] = "Old HS Holder: " + Math.floor(gameServer.oldtopscores.score);
   lb[4] = "~~~~~~~~~~~~~~~~~";
   
-  if (plugin.tick > 6) {
+  if (plugin.tick > 7) {
     plugin.tick = 0;
     plugin.stage = 0;
     
