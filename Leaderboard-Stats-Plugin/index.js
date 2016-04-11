@@ -70,7 +70,7 @@ if (plugin.stage == 0) {
   }
   
   
-} else if (c == 1) {
+} else if (plugin.stage == 1) {
   lb[0] = "~~~~~~~~~~Stats~~~~~~~~~~";
   lb[1] = "Highscore: " + Math.floor(gameServer.topscore);
   lb[2] = "By: " + gameServer.topusername;
