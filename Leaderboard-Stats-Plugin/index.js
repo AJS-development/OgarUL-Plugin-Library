@@ -56,12 +56,12 @@ if (plugin.stage == 0) {
  var time = new Date().toISOString();
   time.replace(/T/, ' ')     // replace T with a space
   time.replace(/\..+/, '')
-  lb[0] = "~~~~~~Stats~~~~~~";
+  lb[0] = "~~~~~Stats~~~~~";
   lb[1] = "Players: " + humans;
   lb[2] = "Minions: " + minions;
   lb[3] = "Bots: " + bots + " Time: ";
   lb[4] = time;
-  lb[5] = "~~~~~~~~~~~~~~~~~";
+  lb[5] = "~~~~~~~~~~~~~~~";
   if (plugin.tick > 5) {
     plugin.tick = 0;
     plugin.stage = 1;
@@ -73,11 +73,11 @@ if (plugin.stage == 0) {
   
   
 } else if (plugin.stage == 1) {
-  lb[0] = "~~~~~~Stats~~~~~~";
+  lb[0] = "~~~~~Stats~~~~~";
   lb[1] = "Highscore: " + Math.floor(gameServer.topscore);
   lb[2] = "By: " + gameServer.topusername;
   lb[3] = "Old HS Holder: " + Math.floor(gameServer.oldtopscores.score);
-  lb[4] = "~~~~~~~~~~~~~~~~~";
+  lb[4] = "~~~~~~~~~~~~~~~";
   
   if (plugin.tick > 5) {
     plugin.tick = 0;
