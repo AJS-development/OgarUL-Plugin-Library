@@ -99,6 +99,9 @@ if (plugin.stage == 0) {
   
   
 }
+} else {
+  lb = [];
+  
 }
 
 if (gameServer.extraLBCustom) {
