@@ -114,6 +114,9 @@ if (isNaN(gameServer.eLBCDuration)) gameServer.eLBCDuration = 1;
 
 gameServer.customLBEnd = lb;
   // called every second
+} else {
+  
+  gameServer.customLBEnd = [];
 }
 };
 
