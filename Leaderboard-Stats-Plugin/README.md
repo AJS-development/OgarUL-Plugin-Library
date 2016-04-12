@@ -13,11 +13,12 @@ customlb [command] [arg]
  custom - Use this if you want to add your own thingsat the end of the leaderboard. Its custom then [duration] [msg1] [msg2] [msg...]
 
 
-
+## The stats part goes trhough the faces for 6 seconds 
 
 face 1
 ~~~~~~Stats~~~~~~
-Players: Minions:
+Players:
+Minions:
 Bots:   Time:
 [time]
 ~~~~~~~~~~~~~~~~~
