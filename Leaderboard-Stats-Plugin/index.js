@@ -29,11 +29,12 @@ plugin.tick = 0;
 plugin.init = function (gameServer) {
   // init, Used to do stuff such as overriding things
 console.log("[LBStats] Started up and enabled. Use the CustomLB command to interact with this plugin");
+console.log("[LBStats] Stats are not turned on, do customlb stats to turn it on");
 
 gameServer.extraLBcustom = '';
 gameServer.eLBCDuration = 0;
 gameServer.LBSP = true;
-gameServer.LBSPS = true;
+gameServer.LBSPS = false;
 
 };
 
