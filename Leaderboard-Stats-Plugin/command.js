@@ -39,7 +39,7 @@ module.exports = function(gameServer,split) {
     newLB[i - 3] = split[i];
   }
   
-  gameServer.extraLBcustom = newLB;
+  gameServer.extraLBCustom = newLB;
   gameServer.eLBCDuration = dur;
     console.log("[Console] Set your text in the bottom of the leaderboard for " + dur);
   } else {
