@@ -80,7 +80,7 @@ if (plugin.stage == 0) {
   lb[0] = "~~~~~Stats~~~~~";
   lb[1] = "Highscore: " + Math.floor(gameServer.topscore);
   lb[2] = "By: " + gameServer.topusername;
-  lb[3] = "Old HS Holder: " + Math.floor(gameServer.oldtopscores.score);
+  lb[3] = "Prev: " + gameServer.oldtopscores.name;
   lb[4] = "~~~~~~~~~~~~~~~";
   
   if (plugin.tick > 5) {
