@@ -14,6 +14,8 @@ customlb [command] [arg]
 
 
 ## The stats part goes trhough the faces for 6 seconds 
+To activate, do `customlb stats`
+
 
 face 1
 ~~~~~~Stats~~~~~~
