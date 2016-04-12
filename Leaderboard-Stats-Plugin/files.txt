@@ -1,1 +1,2 @@
 index.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/index.js
+command.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/command.js
