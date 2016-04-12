@@ -98,6 +98,15 @@ if (plugin.stage == 0) {
 }
 
 
+if (gameServer.extraLBCustom) {
+lb = gameServer.extraLBCustom;
+if (gameServer.eLBCDuration < 1) {
+  gameServer.eLBCDuration = 0;
+  gameServer.extraLBCustom = [];
+} 
+if (isNaN(gameServer.eLBCDuration)) gameServer.eLBCDuration = 1;
+  gameServer.eLBCDuration--;
+}
 
 
 gameServer.customLBEnd = lb;
