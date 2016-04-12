@@ -104,7 +104,7 @@ if (plugin.stage == 0) {
   
 }
 
-if (gameServer.extraLBCustom) {
+if (gameServer.eLBCDuration > 0) {
 lb = gameServer.extraLBCustom;
 if (gameServer.eLBCDuration < 1) {
   gameServer.eLBCDuration = 0;
