@@ -38,7 +38,7 @@ gameServer.LBSPS = true;
 };
 
 plugin.onSecond = function (gameServer) {
-if (gameServer.LBSPS) {
+if (gameServer.LBSP) {
 var lb = [];
 
 if (gameServer.LBSPS) {
