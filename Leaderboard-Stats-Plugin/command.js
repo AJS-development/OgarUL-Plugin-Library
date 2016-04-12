@@ -28,15 +28,15 @@ module.exports = function(gameServer,split) {
     }
     
   } else if (c == "custom") {
-    var dur = parseInt(split[2])
+    var dur = parseInt(split[3])
     if (!isNaN(dur)) {
       console.log("[Console] Please specify a duration in seconds");
-      
+      return;
     }
     
     var newLB = [];
-  for (var i = 3; i < split.length; i++) {
-    newLB[i - 3] = split[i];
+  for (var i = 4; i < split.length; i++) {
+    newLB[i - 4] = split[i];
   }
   
   gameServer.extraLBcustom = newLB;
