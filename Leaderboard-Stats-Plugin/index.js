@@ -32,13 +32,16 @@ console.log("[LBStats] Started up and enabled. Use the CustomLB command to inter
 
 gameServer.extraLBcustom = '';
 gameServer.eLBCDuration = 0;
+gameServer.LBSP = true;
+gameServer.LBSPS = true;
 
 };
 
 plugin.onSecond = function (gameServer) {
+if (gameServer.LBSPS) {
 var lb = [];
 
-
+if (gameServer.LBSPS) {
 if (plugin.stage == 0) {
   
   var humans = 0;
@@ -96,7 +99,7 @@ if (plugin.stage == 0) {
   
   
 }
-
+}
 
 if (gameServer.extraLBCustom) {
 lb = gameServer.extraLBCustom;
@@ -111,6 +114,7 @@ if (isNaN(gameServer.eLBCDuration)) gameServer.eLBCDuration = 1;
 
 gameServer.customLBEnd = lb;
   // called every second
+}
 };
 
 
