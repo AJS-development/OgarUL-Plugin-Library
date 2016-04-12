@@ -58,8 +58,8 @@ if (plugin.stage == 0) {
         }
       });
  var time = new Date().toISOString();
-  time.replace(/T/, ' ')     // replace T with a space
-  time.replace(/\..+/, '')
+ var ttime = time.replace(/T/, ' ');     // replace T with a space
+time = ttime.replace(/\..+/, '');
   lb[0] = "~~~~~Stats~~~~~";
   lb[1] = "Players: " + humans;
   lb[2] = "Minions: " + minions;
