@@ -29,7 +29,7 @@ module.exports = function(gameServer,split) {
     
   } else if (c == "custom") {
     var dur = parseInt(split[2])
-    if (!isNaN(dur)) {
+    if (isNaN(dur)) {
       console.log("[Console] Please specify a duration in seconds");
       return;
     }
