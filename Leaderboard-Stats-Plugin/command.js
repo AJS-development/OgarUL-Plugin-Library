@@ -10,7 +10,7 @@ module.exports = function(gameServer,split) {
       
     }
     
-    
+    return;
   }
   if (!gameServer.LBSP) {
     console.log("[Console] Please enable plugin again by doing customLB power to access other commands!");
