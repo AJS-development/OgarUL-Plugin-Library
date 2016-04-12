@@ -2,6 +2,15 @@
 
 this  plugin displays stats on the leaderboard
 
+##It also adds the customLB command to control this plugin.
+
+customlb [command] [arg]
+
+###COMMANDS
+
+ Power - toggles the plugin
+ Stats - toggles stats
+ custom - Use this if you want to add your own thingsat the end of the leaderboard. Its custom then [duration] [msg1] [msg2] [msg...]
 
 
 
