@@ -13,7 +13,7 @@ This is the fun part, creating your own plugins. There is an example plugin you 
 
 ### Files.txt files
 (use this to download plugins)
-1. Devtools - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt`
-2. LBStats - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt`
-3. Example - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt`
-4. Template - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt`
+ 1. Devtools - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt`
+ 2. LBStats - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt`
+ 3. Example - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt`
+ 4. Template - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt`
