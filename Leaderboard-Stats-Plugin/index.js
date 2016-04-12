@@ -15,9 +15,9 @@ plugin.compatVersion = ''; // compatable with (todo)
 plugin.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
-plugin.commandName[0] = ""; // plugin add-on command names
-plugin.addToHelp[0] = ""; // help command add-on (adds this string to the help command)
-plugin.command[0] = ''; // extra command location
+plugin.commandName[0] = "customlb"; // plugin add-on command names
+plugin.addToHelp[0] = "customLB   : lB Stats plugin command"; // help command add-on (adds this string to the help command)
+plugin.command[0] = require('./command.js'); // extra command location
 
 // [Extra Gamemodes]
 plugin.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
@@ -28,9 +28,10 @@ plugin.tick = 0;
 // [Functions]
 plugin.init = function (gameServer) {
   // init, Used to do stuff such as overriding things
-console.log("[LBStats] Started up and enabled");
+console.log("[LBStats] Started up and enabled. Use the CustomLB command to interact with this plugin");
 
-
+gameServer.extraLBcustom = '';
+gameServer.eLBCDuration = 0;
 
 };
 
