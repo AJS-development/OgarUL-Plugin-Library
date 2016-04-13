@@ -35,10 +35,11 @@ plugin.configfile = 'config.ini';
 
 
 // [Functions]
-plugin.init = function (gameServer) {
+plugin.init = function (gameServer, config) {
+  this.config = config;
   // init, Used to do stuff such as overriding things
 console.log("[LBStats] Started up and enabled. Use the CustomLB command to interact with this plugin");
-if (plugin.config.showstats != 1) {
+if (config.showstats != 1) {
 console.log("[LBStats] Stats are not turned on, do customlb stats to turn it on");
 gameServer.LBSPS = false;
 } else {
