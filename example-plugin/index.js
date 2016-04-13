@@ -19,7 +19,8 @@ plugin.gamemodeId[0] = 80;
 plugin.gamemode[0] = require("./sffa.js");
 
 
-plugin.init = function (gameServer) {
+plugin.init = function (gameServer, config) {
+  this.config = config;
   // init, Used to do stuff such as overriding things
 
 
