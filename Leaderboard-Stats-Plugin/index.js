@@ -31,6 +31,8 @@ plugin.config = {
   
 }
 
+plugin.configfile = 'config.ini';
+
 
 // [Functions]
 plugin.init = function (gameServer) {
