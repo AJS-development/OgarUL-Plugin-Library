@@ -22,6 +22,15 @@ plugin.command[0] = ''; // extra command location
 plugin.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 plugin.gamemode[0] = ''; // gamemode location
 
+// [Configs]
+plugin.config = {
+// this.config1 = 0;
+  
+  
+}
+plugin.configfile = 'config.ini'
+
+
 // [Functions]
 plugin.init = function (gameServer) {
   // init, Used to do stuff such as overriding things
