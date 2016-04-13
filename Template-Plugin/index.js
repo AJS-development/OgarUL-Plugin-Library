@@ -24,7 +24,7 @@ plugin.gamemode[0] = ''; // gamemode location
 
 // [Configs]
 plugin.config = {
-// this.config1 = 0;
+// config1: 0,
   
   
 }
