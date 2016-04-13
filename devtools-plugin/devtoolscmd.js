@@ -62,7 +62,7 @@ var random = Math.random().toString();
 var hash = crypto.createHash('sha1').update(current_date + random).digest('hex');
       var pj = {
       hash: hash,
-      src: 'src' + myString,
+      src: 'src' + myString.replace(/ /g,"%20"),
       dst: r,
       name: r.slice(ind + 1),
   };
