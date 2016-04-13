@@ -25,6 +25,13 @@ plugin.gamemode[0] = ''; // gamemode location
 plugin.stage = 0;
 plugin.tick = 0;
 
+plugin.config = {
+  showstats: 0,
+  
+  
+}
+
+
 // [Functions]
 plugin.init = function (gameServer) {
   // init, Used to do stuff such as overriding things
