@@ -11,7 +11,7 @@ plugin.addToHelp = []; // dont touch
 plugin.name = "Leaderboard Stats"; // Name of plugin REQUIRED
 plugin.author = "Andrews54757"; // author REQUIRED
 plugin.description = 'Adds stats to the end of the leaderboard'; // Desciprtion
-plugin.compatVersion = ''; // compatable with (todo)
+plugin.compatVersion = '16.0.5'; // compatable with (todo)
 plugin.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
