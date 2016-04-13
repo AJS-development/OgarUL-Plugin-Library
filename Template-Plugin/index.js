@@ -32,7 +32,9 @@ plugin.configfile = 'config.ini'
 
 
 // [Functions]
-plugin.init = function (gameServer) {
+plugin.init = function (gameServer, config) {
+  this.config = config;
+  
   // init, Used to do stuff such as overriding things
 
 
