@@ -29,6 +29,7 @@ requirelogin: 0,
 plugin: 1,
 allowregister: 1,
 recordint: 100,
+reservename: 0,
 }
 this.configfile = 'config.ini'
 
@@ -56,6 +57,7 @@ this.init = function (gameServer, config) {
 };
 
 this.onSecond = function (gameServer) {
+  if (gameServer.auon == 1) {
 if (!this.up) this.up = 0;
 if (this.up < this.config.recordint) {
   this.up ++;
@@ -63,6 +65,7 @@ if (this.up < this.config.recordint) {
 } else {
   this.up = 0;
   fs.writeFileSync('accounts.json',JSON.stringify(gameServer.account, null, 2));
+}
 }
 
   // called every second
