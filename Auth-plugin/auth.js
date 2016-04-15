@@ -8,10 +8,10 @@ this.default = 0;
 
 this.beforespawn = function (player,gameServer) {
   
-  if (player.name == player.olname && gameServer.auon == 1) {
-    player.name = player.aname;
+  if (player.name == player.olname && gameServer.auon == 1 && player.un) {
+    player.name = player.un;
   }
-if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.aname)) && gameServer.auon == 1) {
+if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.un)) && gameServer.auon == 1) {
   player.frozen = true;
   if (this.index.config.allowregister != 1 && this.index.config.requirelogin != 1) this.default = 1;
   
