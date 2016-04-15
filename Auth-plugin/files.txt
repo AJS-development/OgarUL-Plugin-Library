@@ -1,6 +1,6 @@
 files.txt|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt
 index.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/index.js
 auth.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/auth.js
-accounts.json|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/account.json
+accounts.json|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/accounts.json
 command.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/command.js
 config.ini|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/config.ini
