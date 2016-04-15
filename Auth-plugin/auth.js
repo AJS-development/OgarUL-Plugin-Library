@@ -1,5 +1,6 @@
 
-this.init = function(index) {
+this.init = function(index, gameServer) {
+  this.gameServer = gameServer;
 this.index = index;
 }
 
