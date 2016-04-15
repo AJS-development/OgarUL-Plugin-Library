@@ -98,13 +98,13 @@ if (player.astage > -1 && player.astage < 3) {
   player.astage = 100;
   return false
 } else if (player.astage == 5) {
-player.cells.forEach((cell)=>this.removeNode(cell));
+player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
 player.astage = 6;
 } else if (player.astage == 50) {
-  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 0;
 } else if (player.astage == 7) {
-  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 8;
   } else {
   return true;
@@ -113,7 +113,7 @@ return false;
 };
 this.beforesplit = function(player) {
 if (player.astage == 0 && this.index.config.allowregister == 1) {
-  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 5;
 } else {
   return true;
@@ -126,7 +126,7 @@ this.beforeq = function(player) {
     player.name = player.aname;
     player.astage = 50
   } else if (player.astage > 0 && player.astage < 100) {
-    player.cells.forEach((cell)=>this.removeNode(cell));
+    player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 0;
     
   }
