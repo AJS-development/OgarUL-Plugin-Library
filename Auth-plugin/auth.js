@@ -119,7 +119,7 @@ return true;
 };
 this.beforeeject = function(player, gameServer) {
   if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
-  if (player.astage = 0) {
+  if (player.astage == 0) {
     
   player.name = 'Username: (press w)';
   player.astage = 2
