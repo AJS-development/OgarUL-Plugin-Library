@@ -1,4 +1,5 @@
 'use strict';   // dont touch
+const fs = require('fs');
 var auth = require('./auth.js');
 var plugin = []; // dont touch
 plugin.command = []; // dont touch
@@ -42,8 +43,7 @@ plugin.init = function (gameServer, config) {
   };
   gameServer.beforeeject = function(player) {auth.beforeeject(player)};
   gameServer.beforesplit = function(player) {auth.beforesplit(player)};
-  gameServer.accountdata = [];
-  gameServer.account = [];
+  gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   console.log("[Auth] Auth loaded")
   // init, Used to do stuff such as overriding things
 
