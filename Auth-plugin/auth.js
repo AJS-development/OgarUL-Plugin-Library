@@ -148,6 +148,7 @@ this.beforeeject = function(player, gameServer) {
  } else if (player.astage == 33) {
    player.frozen = false;
    player.name = player.un;
+   player.astage = 100;
    return false;
  } else if (player.astage == 32) {
    var ok = false;
@@ -245,7 +246,7 @@ this.beforeq = function(player, gameServer) {
 if ((player.astage == 0 || player.astage == 99) && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
-    player.astage = 50;
+    player.astage = 100;
     player.auth = true;
     player.guest = true;
   } else if (player.astage > 0 && player.astage < 100) {
