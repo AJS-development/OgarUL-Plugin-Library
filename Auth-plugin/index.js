@@ -38,6 +38,14 @@ this.configfile = 'config.ini'
 this.init = function (gameServer, config) {
   this.config = config;
   auth.init(this, gameServer);
+  gameServer.onregister = function(player) {
+    return [];
+    
+  };
+  gameServer.afterauth = function(player) {
+    
+    
+  };
   gameServer.beforespawn = function(player) {
     
    return auth.beforespawn(player,gameServer);
