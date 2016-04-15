@@ -41,9 +41,12 @@ plugin.init = function (gameServer, config) {
     
     auth.beforespawn(player);
   };
-  gameServer.beforeq = function(player) {auth.beforeq(player)};
-  gameServer.beforeeject = function(player) {auth.beforeeject(player)};
-  gameServer.beforesplit = function(player) {auth.beforesplit(player)};
+  gameServer.beforeq = function(player) {
+    return auth.beforeq(player);
+    
+  };
+  gameServer.beforeeject = function(player) {return auth.beforeeject(player);};
+  gameServer.beforesplit = function(player) {return auth.beforesplit(player);};
   gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   console.log("[Auth] Auth loaded")
   // init, Used to do stuff such as overriding things
