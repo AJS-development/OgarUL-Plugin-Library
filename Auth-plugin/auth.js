@@ -96,11 +96,23 @@ player.astage = 6;
 return false;
 };
 this.beforesplit = function(player) {
-
-
+if (player.astage == 0 && this.index.config.allowregister == 1) {
+  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.astage = 5;
+} else {
+  return true;
+}
+return false;
 };
 this.beforeq = function(player) {
-  
+  if (player.astage == 0) {
+    
+    
+  } else if (player.astage > 0 && player.astage < 100) {
+    player.cells.forEach((cell)=>this.removeNode(cell));
+  player.astage = 0;
+    
+  }
   
   
 }
