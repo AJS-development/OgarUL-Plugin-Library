@@ -29,6 +29,27 @@ if (!player.auth) {
   } else if (player.astage == 3) {
     player.pa = player.name;
     player.name = 'Press w to confirm';
+  } else if (player.astage == 5) {
+    player.name = 'Username (press w)';
+    
+  } else if (player.astage == 6) {
+    ok = true;
+    for (var i in gameServer.account) {
+      if (gameServer.account[i].username == player.name) {
+        ok = false
+        break;
+      }
+      
+    }
+    if (ok) {
+    player.pa = player.name;
+    player.name = 'Pass: (pres w)';
+    player.astage = 7;
+    } else {
+      player.name = 'Username taken (press w)';
+      player.astage = 50;
+    }
+    
   }
   
   return true;
@@ -39,6 +60,7 @@ this.beforeeject = function(player) {
 if (player.astage > -1 && player.astage < 3) {
   player.cells.forEach((cell)=>this.removeNode(cell));
   player.astage ++;
+  return false;
 } else if (player.astage == 3) {
   var ok = false;
   for (var i in gameServer.account) {
@@ -49,10 +71,29 @@ if (player.astage > -1 && player.astage < 3) {
      break;
    }
   }
-  if (ok)
-  
+  if (!ok) {
+    player.name = 'Wrong pass or username , press w';
+    player.astage = 50;
+  } else {
+    player.name = 'Success, press w'
+    player.astage = 4;
+  }
+  return false
+} else if (player.astage == 4) {
+  player.frozen = false;
+  player.name = player.aname;
+  player.astage = 100;
+  return false
+} else if (player.astage == 5) {
+player.cells.forEach((cell)=>this.removeNode(cell));
+player.astage = 6;
+} else if (player.astage == 50) {
+  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.astage = 0;
+} else {
+  return true;
 }
-
+return false;
 };
 this.beforesplit = function(player) {
 
