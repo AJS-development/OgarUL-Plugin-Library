@@ -17,6 +17,11 @@ this.beforesplit = function(player) {
 
 
 };
+this.beforeq = function(player) {
+  
+  
+  
+}
 module.exports = this;
 
 
