@@ -46,7 +46,7 @@ if (c == 'record') {
   for (var i in gameServer.account) {
     var account = gameServer.account[i];
     if (account.username == split[2]) {
-      acc = acount;
+      acc = account;
       break;
     }
   }
