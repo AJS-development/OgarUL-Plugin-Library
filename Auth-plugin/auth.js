@@ -71,7 +71,7 @@ return true;
 };
 this.beforeeject = function(player, gameServer) {
 if (player.astage > -1 && player.astage < 3) {
-  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage ++;
   return false;
 } else if (player.astage == 3) {
