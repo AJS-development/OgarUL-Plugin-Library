@@ -27,6 +27,7 @@ if (!player.auth && gameServer.auon == 1) {
       if (ok) {
         if (this.index.config.allowregister == 1) {
           player.un = player.name;
+          player.aname = player.name;
         player.name = 'Account Unregistered, press w to register it!';
         if (this.index.config.requirelogin != 1) player.name = player.name + ', Press q to play as guest';
         player.astage = 99;
