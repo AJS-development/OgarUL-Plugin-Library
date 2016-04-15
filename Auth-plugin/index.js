@@ -28,6 +28,7 @@ this.config = {
 requirelogin: 0,
 plugin: 1,
 allowregister: 1,
+recordint = 100,
 }
 this.configfile = 'config.ini'
 
@@ -56,7 +57,7 @@ this.init = function (gameServer, config) {
 
 this.onSecond = function (gameServer) {
 if (!this.up) this.up = 0;
-if (this.up < 100) {
+if (this.up < this.config.recordint) {
   this.up ++;
   
 } else {
