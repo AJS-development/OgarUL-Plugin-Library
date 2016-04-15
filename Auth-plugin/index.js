@@ -49,7 +49,7 @@ this.init = function (gameServer, config) {
   gameServer.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
   gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   gameServer.auon = this.config.plugin;
-  console.log("[Auth] Auth loaded")
+  console.log("[Auth] Auth loaded. Accounts located in accounts.json")
   // init, Used to do stuff such as overriding things
 
 
