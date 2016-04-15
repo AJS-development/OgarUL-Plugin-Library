@@ -10,7 +10,7 @@ plugin.addToHelp = []; // dont touch
 plugin.name = ""; // Name of plugin REQUIRED
 plugin.author = ""; // author REQUIRED
 plugin.description = ''; // Desciprtion
-plugin.compatVersion = ''; // compatable with (todo)
+plugin.compatVersion = ''; // compatable with
 plugin.version = ''; // version REQUIRED
 
 // [Extra Commands]
