@@ -38,14 +38,14 @@ this.init = function (gameServer, config) {
   auth.init(this, gameServer);
   gameServer.beforespawn = function(player) {
     
-   return auth.beforespawn(player);
+   return auth.beforespawn(player,gameServer);
   };
   gameServer.beforeq = function(player) {
-    return auth.beforeq(player);
+    return auth.beforeq(player, gameServer);
     
   };
-  gameServer.beforeeject = function(player) {return auth.beforeeject(player);};
-  gameServer.beforesplit = function(player) {return auth.beforesplit(player);};
+  gameServer.beforeeject = function(player) {return auth.beforeeject(player,gameServer);};
+  gameServer.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
   gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   gameServer.auon = this.config.plugin;
   console.log("[Auth] Auth loaded")
