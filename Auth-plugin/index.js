@@ -24,9 +24,9 @@ plugin.gamemode[0] = ''; // gamemode location
 
 // [Configs]
 plugin.config = {
-// config1: 0,
-  
-  
+requirelogin: 0,
+plugin: 1,
+allowregister: 1,
 }
 plugin.configfile = 'config.ini'
 
