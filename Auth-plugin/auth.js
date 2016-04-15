@@ -175,7 +175,7 @@ this.beforeeject = function(player, gameServer) {
     for (var i in re) p[i] = re[i];
    gameServer.account.push(p);
    player.name = 'Success! Press w to log in';
-   player.astage == 50
+   player.astage = 50
    return false;
  } else if (player.astage == 95) {  
    player.name = 'Pass: (pressw)';
