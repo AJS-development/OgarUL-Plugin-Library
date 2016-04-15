@@ -56,7 +56,9 @@ if (!player.auth && gameServer.auon == 1) {
   } else if (player.astage == 97) {
     player.pas = player.name;
     player.name = 'Press w to confirm';
-    
+  } else if (player.astage == 31) {
+    player.pas = player.name;
+    player.name = 'Press w to confirm'
   } else if (player.astage == 1) {
     player.name = 'Login, Username: (press w)';
     
@@ -125,6 +127,9 @@ this.beforeeject = function(player, gameServer) {
  } else if (player.astage == 31) {
    player.cells.forEach((cell)=>gameServer.removeNode(cell));
    player.astage = 32;
+ } else if (player.astage == 33) {
+   player.frozen = false;
+   player.name = player.un;
  } else if (player.astage == 32) {
    var ok = false;
    for (var i in gameServer.account) {
@@ -132,9 +137,14 @@ this.beforeeject = function(player, gameServer) {
        ok = true;
        player.accountid = i;
        player.auth = true;
-       player.astage = 100;
+       player.astage = 33;
+       player.name = 'success! press w';
      }
      
+   } 
+   if (!ok) {
+     player.name = 'login fail, press w'
+     player.astage = 50;
    }
    
  } else if (player.astage == 99) {
