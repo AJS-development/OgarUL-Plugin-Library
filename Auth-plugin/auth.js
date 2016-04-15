@@ -42,7 +42,7 @@ if (!player.auth) {
       
     }
     if (ok) {
-    player.pa = player.name;
+    player.un = player.name;
     player.name = 'Pass: (pres w)';
     player.astage = 7;
     } else {
