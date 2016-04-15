@@ -28,7 +28,7 @@ this.config = {
 requirelogin: 0,
 plugin: 1,
 allowregister: 1,
-recordint = 100,
+recordint: 100,
 }
 this.configfile = 'config.ini'
 
