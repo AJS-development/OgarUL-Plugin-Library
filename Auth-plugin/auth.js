@@ -100,6 +100,8 @@ if (!player.auth && gameServer.auon == 1) {
       pass: player.pass,
       
     };
+    var re = gameServer.onregister(player);
+    for (var i in re) ac[i] = re[i];
     gameServer.account.push(ac);
     
     player.name = 'Success!, Press w to login'
@@ -108,7 +110,8 @@ if (!player.auth && gameServer.auon == 1) {
   
   return true;
 }
-if (!player.guest) gameServer.afterauth(player);
+if (!player.spawna) gameServer.afterauth(player);
+player.spawna = true;
 return true;
 
 };
@@ -159,6 +162,8 @@ this.beforeeject = function(player, gameServer) {
      username: player.un,
      pass: player.pas,
    }
+    var re = gameServer.onregister(player);
+    for (var i in re) p[i] = re[i];
    gameServer.account.push(p);
    player.name = 'Success! Press w to log in';
    player.astage == 96
