@@ -7,9 +7,9 @@ this.index = index;
 
 this.beforespawn = function (player) {
 if (!player.auth) {
-  player.frozen = true;
   if (!player.astage) player.astage = 0;
   if (player.astage == 0) {
+    player.frozen = true;
     player.aname = player.name;
   var name = 'w = login';
   if (this.index.config.allowregister == 1) {
