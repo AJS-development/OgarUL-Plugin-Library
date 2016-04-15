@@ -31,7 +31,9 @@ if (!player.auth && gameServer.auon == 1) {
         if (this.index.config.requirelogin != 1) player.name = player.name + ', Press q to play as guest';
         player.astage = 99;
         } else {
-          
+          player.astage = 100;
+          player.frozen = false;
+          player.auth = true;
           return true;
         }
       } else {
