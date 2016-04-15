@@ -33,9 +33,9 @@ if (!player.auth) {
     player.name = 'Username (press w)';
     
   } else if (player.astage == 6) {
-    ok = true;
-    for (var i in gameServer.account) {
-      if (gameServer.account[i].username == player.name) {
+    var ok = true;
+    for (var i in this.gameServer.account) {
+      if (this.gameServer.account[i].username == player.name) {
         ok = false
         break;
       }
@@ -58,7 +58,7 @@ if (!player.auth) {
       pass: player.pass,
       
     };
-    gameServer.account.push(ac);
+    this.gameServer.account.push(ac);
     
     player.name = 'Success!, Press w to login'
     player.astage = 50;
@@ -76,8 +76,8 @@ if (player.astage > -1 && player.astage < 3) {
   return false;
 } else if (player.astage == 3) {
   var ok = false;
-  for (var i in gameServer.account) {
-    var account = gameServer.account[i];
+  for (var i in this.gameServer.account) {
+    var account = this.gameServer.account[i];
    if (account && account.pass == player.pa && account.un == account.username) {
      ok = true;
      player.accountid = i;
@@ -96,7 +96,6 @@ if (player.astage > -1 && player.astage < 3) {
   player.frozen = false;
   player.name = player.aname;
   player.astage = 100;
-  player.auth = true;
   return false
 } else if (player.astage == 5) {
 player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
@@ -125,8 +124,7 @@ this.beforeq = function(player) {
   if (player.astage == 0 && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
-    player.astage = 100
-    player.auth = true;
+    player.astage = 50
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 0;
@@ -136,7 +134,6 @@ this.beforeq = function(player) {
   
 }
 module.exports = this;
-
 
 
 
