@@ -7,11 +7,9 @@ this.default = 0;
 
 
 this.beforespawn = function (player,gameServer) {
-  console.log(player.olname);
   
   if (player.name == player.olname && gameServer.auon == 1) {
     player.name = player.aname;
-    console.log(player.aname)
   }
 if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.aname)) && gameServer.auon == 1) {
   player.frozen = true;
