@@ -11,8 +11,8 @@ this.addToHelp = []; // dont touch
 this.name = "Auth"; // Name of plugin REQUIRED
 this.author = "andrews54757"; // author REQUIRED
 this.description = 'An auth plugin'; // Desciprtion
-this.compatVersion = ''; // compatable with
-this.version = '1.0.0'; // version REQUIRED
+this.compatVersion = '16.0.9'; // compatable with
+this.version = '1.2.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = "auth"; // plugin add-on command names
