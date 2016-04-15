@@ -15,7 +15,7 @@ if (!player.auth && gameServer.auon == 1) {
   if (!player.astage) player.astage = this.default;
   if (player.astage == 0) {
     if (this.index.config.reservename == 1) {
-      var ok true;
+      var = ok true;
       for (var i in gameServer.account) {
         var account = gameServer.account[i];
         if (account.username == player.name) {
