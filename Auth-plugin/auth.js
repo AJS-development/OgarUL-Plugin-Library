@@ -7,7 +7,10 @@ this.default = 0;
 
 
 this.beforespawn = function (player,gameServer) {
-if (!player.auth && gameServer.auon == 1) {
+  if (this.name == player.olname && gameServer.auon == 1) {
+    this.name = player.un;
+  }
+if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.un)) && gameServer.auon == 1) {
   player.frozen = true;
   if (this.index.config.allowregister != 1 && this.index.config.requirelogin != 1) this.default = 1;
   
@@ -57,9 +60,11 @@ if (!player.auth && gameServer.auon == 1) {
   player.name = name;
     }
   } else if (player.astage == 97) {
+    player.olname = player.name;
     player.pas = player.name;
     player.name = 'Press w to confirm';
   } else if (player.astage == 31) {
+    player.olname = player.name;
     player.pas = player.name;
     player.name = 'Press w to confirm';
   } else if (player.astage == 1) {
@@ -70,6 +75,7 @@ if (!player.auth && gameServer.auon == 1) {
     player.name = 'pass: (press w)';
     
   } else if (player.astage == 3) {
+    player.olname = player.name;
     player.pa = player.name;
     player.name = 'Press w to confirm';
   } else if (player.astage == 5) {
