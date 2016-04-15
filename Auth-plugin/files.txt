@@ -4,3 +4,4 @@ auth.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/m
 accounts.json|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/accounts.json
 command.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/command.js
 config.ini|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/config.ini
+README.md|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/README.md
