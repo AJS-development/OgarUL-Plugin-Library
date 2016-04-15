@@ -108,6 +108,7 @@ if (!player.auth && gameServer.auon == 1) {
   
   return true;
 }
+if (!player.guest) gameServer.afterauth(player);
 return true;
 
 };
@@ -221,6 +222,8 @@ this.beforeq = function(player, gameServer) {
     player.frozen = false;
     player.name = player.aname;
     player.astage = 50
+    player.auth = true;
+    player.guest = true;
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage = this.default;
