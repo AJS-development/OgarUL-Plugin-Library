@@ -35,7 +35,7 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
-  auth.init(plugin, gameServer);
+  auth.init(this, gameServer);
   gameServer.beforespawn = function(player) {
     
     auth.beforespawn(player);
