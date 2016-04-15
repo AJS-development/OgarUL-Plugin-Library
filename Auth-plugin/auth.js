@@ -3,7 +3,7 @@ this.init = function(index, gameServer) {
   this.gameServer = gameServer;
 this.index = index;
 this.default = 0;
-}
+};
 
 
 this.beforespawn = function (player,gameServer) {
@@ -61,7 +61,7 @@ if (!player.auth && gameServer.auon == 1) {
     player.name = 'Press w to confirm';
   } else if (player.astage == 31) {
     player.pas = player.name;
-    player.name = 'Press w to confirm'
+    player.name = 'Press w to confirm';
   } else if (player.astage == 1) {
     player.name = 'Login, Username: (press w)';
     
@@ -81,7 +81,7 @@ if (!player.auth && gameServer.auon == 1) {
     var ok = true;
     for (var i in gameServer.account) {
       if (gameServer.account[i].username == player.name) {
-        ok = false
+        ok = false;
         break;
       }
       
@@ -107,7 +107,7 @@ if (!player.auth && gameServer.auon == 1) {
     for (var i in re) ac[i] = re[i];
     gameServer.account.push(ac);
     
-    player.name = 'Success!, Press w to login'
+    player.name = 'Success!, Press w to login';
     player.astage = 50;
   }
   
@@ -123,7 +123,7 @@ this.beforeeject = function(player, gameServer) {
   if (player.astage == 0) {
     
   player.name = 'Username: (press w)';
-  player.astage = 2
+  player.astage = 2;
   return false;
  } else if (player.astage > 0 && player.astage < 3) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
@@ -154,7 +154,7 @@ this.beforeeject = function(player, gameServer) {
      
    } 
    if (!ok) {
-     player.name = 'login fail, press w'
+     player.name = 'login fail, press w';
      player.astage = 50;
    }
    return false;
@@ -170,12 +170,12 @@ this.beforeeject = function(player, gameServer) {
    var p = {
      username: player.un,
      pass: player.pas,
-   }
+   };
     var re = gameServer.onregister(player);
     for (var i in re) p[i] = re[i];
    gameServer.account.push(p);
    player.name = 'Success! Press w to log in';
-   player.astage = 50
+   player.astage = 50;
    return false;
  } else if (player.astage == 95) {  
    player.name = 'Pass: (pressw)';
@@ -195,16 +195,16 @@ this.beforeeject = function(player, gameServer) {
     player.name = 'Wrong pass or username , press w';
     player.astage = 50;
   } else {
-    player.name = 'Success, press w'
+    player.name = 'Success, press w';
     player.astage = 4;
     player.auth = true;
   }
-  return false
+  return false;
 } else if (player.astage == 4) {
   player.frozen = false;
   player.name = player.aname;
   player.astage = 100;
-  return false
+  return false;
 } else if (player.astage == 5) {
 player.cells.forEach((cell)=>gameServer.removeNode(cell));
 player.astage = 6;
@@ -224,7 +224,7 @@ return false;
 this.beforesplit = function(player,gameServer) {
    if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
 if (player.astage == 0 && this.index.config.allowregister == 1) {
-  player.name = 'Username: (press w)'
+  player.name = 'Username: (press w)';
   player.astage = 6;
 } else {
   return true;
@@ -237,7 +237,7 @@ this.beforeq = function(player, gameServer) {
 if ((player.astage == 0 || player.astage == 99) && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
-    player.astage = 50
+    player.astage = 50;
     player.auth = true;
     player.guest = true;
   } else if (player.astage > 0 && player.astage < 100) {
