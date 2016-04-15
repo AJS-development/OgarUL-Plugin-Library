@@ -61,7 +61,7 @@ if (this.up < 100) {
   
 } else {
   this.up = 0;
-  fs.writeFileSync('accounts.json', gameServer.account);
+  fs.writeFileSync('accounts.json',JSON.stringify(gameServer.account, null, 2));
 }
 
   // called every second
