@@ -15,7 +15,7 @@ if (!player.auth && gameServer.auon == 1) {
   if (!player.astage) player.astage = this.default;
   if (player.astage == 0) {
     if (this.index.config.reservename == 1) {
-      var = ok true;
+      var ok = true;
       for (var i in gameServer.account) {
         var account = gameServer.account[i];
         if (account.username == player.name) {
@@ -123,6 +123,7 @@ this.beforeeject = function(player, gameServer) {
     
   player.name = 'Username: (press w)';
   player.astage = 2
+  return false;
  } else if (player.astage > 0 && player.astage < 3) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage ++;
@@ -130,12 +131,15 @@ this.beforeeject = function(player, gameServer) {
  } else if (player.astage == 30) {
    player.name = 'Pass: (press w)';
    player.astage = 31;
+   return false;
  } else if (player.astage == 31) {
    player.cells.forEach((cell)=>gameServer.removeNode(cell));
    player.astage = 32;
+   return false;
  } else if (player.astage == 33) {
    player.frozen = false;
    player.name = player.un;
+   return false;
  } else if (player.astage == 32) {
    var ok = false;
    for (var i in gameServer.account) {
@@ -152,13 +156,15 @@ this.beforeeject = function(player, gameServer) {
      player.name = 'login fail, press w'
      player.astage = 50;
    }
-   
+   return false;
  } else if (player.astage == 99) {
   player.name = 'Password: (pressw)';
   player.astage = 98;
+  return false;
  } else if (player.astage == 98) {
    player.cells.forEach((cell)=>gameServer.removeNode(cell));
    player.astage = 97;
+   return false;
  } else if (player.astage == 97) { 
    var p = {
      username: player.un,
@@ -169,9 +175,11 @@ this.beforeeject = function(player, gameServer) {
    gameServer.account.push(p);
    player.name = 'Success! Press w to log in';
    player.astage == 96
+   return false;
  } else if (player.astage == 95) {  
    player.name = 'Pass: (pressw)';
    player.astage = 30;
+   return false;
 } else if (player.astage == 3) {
   var ok = false;
   for (var i in gameServer.account) {
