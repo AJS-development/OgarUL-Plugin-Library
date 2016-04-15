@@ -35,10 +35,13 @@ plugin.configfile = 'config.ini'
 // [Functions]
 plugin.init = function (gameServer, config) {
   this.config = config;
-  auth.init(plugin);
-  gameServer.beforespawn = auth.beforespawn
-  gameServer.beforeeject = auth.beforeeject
-  gameServer.beforesplit = auth.beforesplit
+  auth.init(plugin, gameServer);
+  gameServer.beforespawn = function(player) {
+    
+    auth.beforespawn(player);
+  };
+  gameServer.beforeeject = function(player) {auth.beforeeject(player)};
+  gameServer.beforesplit = function(player) {auth.beforesplit(player)};
   gameServer.accountdata = [];
   gameServer.account = [];
   console.log("[Auth] Auth loaded")
