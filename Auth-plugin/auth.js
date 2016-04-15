@@ -13,7 +13,7 @@ this.beforespawn = function (player,gameServer) {
   }
 if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.un)) && gameServer.auon == 1) {
   player.frozen = true;
-  if (this.index.config.reservename == 1 && player.name != player.un) player.astage = this.default;
+  if (this.index.config.reservename == 1 && player.name != player.un && player.astage = 100) player.astage = this.default;
   if (this.index.config.allowregister != 1 && this.index.config.requirelogin != 1) this.default = 1;
   
   
