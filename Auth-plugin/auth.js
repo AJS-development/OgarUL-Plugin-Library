@@ -50,6 +50,18 @@ if (!player.auth) {
       player.astage = 50;
     }
     
+  } else if (player.astage == 8) {
+    player.pass = player.name;
+    player.astage = 9;
+    var ac = {
+      username: player.un,
+      pass: player.pass,
+      
+    };
+    gameServer.account.push(ac);
+    
+    player.name = 'Success!, Press w to login'
+    player.astage = 50;
   }
   
   return true;
@@ -90,7 +102,10 @@ player.astage = 6;
 } else if (player.astage == 50) {
   player.cells.forEach((cell)=>this.removeNode(cell));
   player.astage = 0;
-} else {
+} else if (player.astage == 7) {
+  player.cells.forEach((cell)=>this.removeNode(cell));
+  player.astage = 8;
+  } else {
   return true;
 }
 return false;
@@ -105,9 +120,10 @@ if (player.astage == 0 && this.index.config.allowregister == 1) {
 return false;
 };
 this.beforeq = function(player) {
-  if (player.astage == 0) {
-    
-    
+  if (player.astage == 0 && this.index.config.requirelogin != 1) {
+    player.frozen = false;
+    player.name = player.aname;
+    player.astage = 50
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>this.removeNode(cell));
   player.astage = 0;
