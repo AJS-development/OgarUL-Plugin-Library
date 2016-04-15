@@ -7,9 +7,9 @@ this.index = index;
 
 this.beforespawn = function (player) {
 if (!player.auth) {
+  player.frozen = true;
   if (!player.astage) player.astage = 0;
   if (player.astage == 0) {
-    player.frozen = true;
     player.aname = player.name;
   var name = 'w = login';
   if (this.index.config.allowregister == 1) {
@@ -96,6 +96,7 @@ if (player.astage > -1 && player.astage < 3) {
   player.frozen = false;
   player.name = player.aname;
   player.astage = 100;
+  player.auth = true;
   return false
 } else if (player.astage == 5) {
 player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
@@ -124,7 +125,8 @@ this.beforeq = function(player) {
   if (player.astage == 0 && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
-    player.astage = 50
+    player.astage = 100
+    player.auth = true;
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>this.gameServer.removeNode(cell));
   player.astage = 0;
