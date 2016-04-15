@@ -63,7 +63,7 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
     player.olname = player.name;
     player.pas = player.name;
     player.name = 'Press w to confirm';
-  } else if (player.astage == 31) {
+  } else if (player.astage == 32) {
     player.olname = player.name;
     player.pas = player.name;
     player.name = 'Press w to confirm';
