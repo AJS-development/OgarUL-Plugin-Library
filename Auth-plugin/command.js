@@ -11,5 +11,14 @@ if (c == 'power') {
  }
   
 }
+if (gameServer.auon != 1) {
+  console.log("[Console] Turn on the plugin first")
+  return;
+} 
+if (c == 'record') {
+  fs.writeFileSync('accounts.json',JSON.stringify(gameServer.account, null, 2));
+  console.log("[Console] Recorded accounts");
+}
+
 
 }
