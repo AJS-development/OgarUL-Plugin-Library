@@ -66,6 +66,7 @@ if (!player.auth) {
   
   return true;
 }
+return true;
 
 };
 this.beforeeject = function(player) {
