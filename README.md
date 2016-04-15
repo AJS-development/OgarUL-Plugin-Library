@@ -19,3 +19,4 @@ This is the fun part, creating your own plugins. There is an example plugin you 
  2. LBStats - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt`
  3. Example - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt`
  4. Template - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt`
+ 5. Auth - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt`
