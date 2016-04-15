@@ -38,7 +38,7 @@ this.init = function (gameServer, config) {
   auth.init(this, gameServer);
   gameServer.beforespawn = function(player) {
     
-    auth.beforespawn(player);
+   return auth.beforespawn(player);
   };
   gameServer.beforeq = function(player) {
     return auth.beforeq(player);
