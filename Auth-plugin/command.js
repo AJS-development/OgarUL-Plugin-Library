@@ -24,13 +24,13 @@ if (c == 'record') {
     console.log("[Console] Please specify a username")
     return;
   }
-  if (!split[2]) {
+  if (!split[3]) {
      console.log("[Console] Please specify a password")
      return;
   }
   var p = {
-    username: split[1],
-    pass: split[2],
+    username: split[2],
+    pass: split[3],
     
   }
   gameServer.account.push(p);
