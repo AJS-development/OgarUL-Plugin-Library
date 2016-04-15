@@ -17,7 +17,7 @@ this.version = '1.0.0'; // version REQUIRED
 // [Extra Commands]
 this.commandName[0] = "auth"; // plugin add-on command names
 this.addToHelp[0] = "auth     : Auth plugin command"; // help command add-on (adds this string to the help command)
-this.command[0] = require('./auth.js'); // extra command location
+this.command[0] = require('./command.js'); // extra command location
 
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
