@@ -29,3 +29,4 @@ Use gameServer.afterauth(player) that runs after authentication
 player.accountid is the index where a certain players account is
 use gameServer.onregister(player) to do things after registering, return values are added to the account data
 gameServer.account is where all the account data is located
+use gameServer.aeon (1 = on, 0 = off) to see if this plugin is enabled
