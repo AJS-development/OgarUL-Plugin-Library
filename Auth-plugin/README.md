@@ -8,11 +8,11 @@ You can either register on the console or in game, press space when you get in a
 press w, press w again, type username, press w, type pass, press w
 
 ## Configs
-Requirelogin: if 1, it will require login
-Allowregister: if 1, it will allow register
-Plugin: if 0, the plugin is disabled
-Reservenames: if 1, names will be reserved, (like in mcpe servers)
-recordint: number of seconds until the account datas are recorded
+ 1. Requirelogin: if 1, it will require login
+ 2. Allowregister: if 1, it will allow register
+ 3. Plugin: if 0, the plugin is disabled
+ 4. Reservenames: if 1, names will be reserved, (like in mcpe servers)
+ 5. recordint: number of seconds until the account datas are recorded
 
 ## Command
 Auth - Used to do everything. use auth [command] [params]. commands are:
