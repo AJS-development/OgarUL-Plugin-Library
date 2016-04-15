@@ -70,6 +70,9 @@ return true;
 
 };
 this.beforeeject = function(player, gameServer) {
+  if (player.cells && player.cells.length > 0) {
+  
+  
 if (player.astage > -1 && player.astage < 3) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage ++;
@@ -109,18 +112,23 @@ player.astage = 6;
   } else {
   return true;
 }
+}
 return false;
+
 };
 this.beforesplit = function(player,gameServer) {
+   if (player.cells && player.cells.length > 0) {
 if (player.astage == 0 && this.index.config.allowregister == 1) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage = 5;
 } else {
   return true;
 }
+}
 return false;
 };
 this.beforeq = function(player, gameServer) {
+   if (player.cells && player.cells.length > 0) {
   if (player.astage == 0 && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
@@ -131,8 +139,8 @@ this.beforeq = function(player, gameServer) {
     
   }
   
-  
-}
+   }
+};
 module.exports = this;
 
 
