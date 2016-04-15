@@ -1,4 +1,5 @@
 'use strict';   // dont touch
+var auth = require('./auth.js');
 var plugin = []; // dont touch
 plugin.command = []; // dont touch
 plugin.commandName = []; // dont touch
@@ -14,9 +15,9 @@ plugin.compatVersion = ''; // compatable with
 plugin.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
-plugin.commandName[0] = ""; // plugin add-on command names
-plugin.addToHelp[0] = ""; // help command add-on (adds this string to the help command)
-plugin.command[0] = ''; // extra command location
+plugin.commandName[0] = "auth"; // plugin add-on command names
+plugin.addToHelp[0] = "auth     : Auth plugin command"; // help command add-on (adds this string to the help command)
+plugin.command[0] = require('./auth.js'); // extra command location
 
 // [Extra Gamemodes]
 plugin.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
@@ -34,7 +35,13 @@ plugin.configfile = 'config.ini'
 // [Functions]
 plugin.init = function (gameServer, config) {
   this.config = config;
-  
+  auth.init(plugin);
+  gameServer.beforespawn = auth.beforespawn
+  gameServer.beforeeject = auth.beforeeject
+  gameServer.beforesplit = auth.beforesplit
+  gameServer.accountdata = [];
+  gameServer.account = [];
+  console.log("[Auth] Auth loaded")
   // init, Used to do stuff such as overriding things
 
 
