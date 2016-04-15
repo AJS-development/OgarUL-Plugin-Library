@@ -139,7 +139,7 @@ this.beforeeject = function(player, gameServer) {
  } else if (player.astage == 32) {
    var ok = false;
    for (var i in gameServer.account) {
-     if (gameServer.account[i].username == player.un && gameServer.account[i].pass = player.pas) {
+     if (gameServer.account[i].username == player.un && gameServer.account[i].pass == player.pas) {
        ok = true;
        player.accountid = i;
        player.auth = true;
