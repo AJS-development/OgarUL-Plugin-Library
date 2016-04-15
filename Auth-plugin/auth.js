@@ -6,7 +6,7 @@ this.index = index;
 
 
 this.beforespawn = function (player,gameServer) {
-if (!player.auth) {
+if (!player.auth && gameServer.auon == 1) {
   player.frozen = true;
   if (!player.astage) player.astage = 0;
   if (player.astage == 0) {
@@ -70,7 +70,7 @@ return true;
 
 };
 this.beforeeject = function(player, gameServer) {
-  if (player.cells && player.cells.length > 0) {
+  if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
   
   
 if (player.astage > -1 && player.astage < 3) {
@@ -117,7 +117,7 @@ return false;
 
 };
 this.beforesplit = function(player,gameServer) {
-   if (player.cells && player.cells.length > 0) {
+   if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
 if (player.astage == 0 && this.index.config.allowregister == 1) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage = 5;
@@ -128,7 +128,7 @@ if (player.astage == 0 && this.index.config.allowregister == 1) {
 return false;
 };
 this.beforeq = function(player, gameServer) {
-   if (player.cells && player.cells.length > 0) {
+   if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
   if (player.astage == 0 && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
