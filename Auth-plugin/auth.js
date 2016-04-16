@@ -252,7 +252,7 @@ if (player.astage == 0 && this.index.config.allowregister == 1) {
 return false;
 };
 this.beforeq = function(player, gameServer) {
-   if (player.cells && player.cells.length > 0 && gameServer.auon == 1 && !player.auth) {
+   if (player.cells && player.cells.length > 0 && gameServer.auon == 1 && !player.auth && player.astage != 60) {
 if ((player.astage == 0 || player.astage == 99) && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
