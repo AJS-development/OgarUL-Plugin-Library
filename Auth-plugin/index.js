@@ -30,6 +30,7 @@ plugin: 1,
 allowregister: 1,
 recordint: 100,
 reservename: 0,
+hidelogin: 0,
 }
 this.configfile = 'config.ini'
 
