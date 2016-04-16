@@ -20,3 +20,4 @@ This is the fun part, creating your own plugins. There is an example plugin you 
  3. Example - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt`
  4. Template - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt`
  5. Auth - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt`
+ 6. Account Rewards - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt`
