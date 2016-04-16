@@ -131,7 +131,7 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
   return true;
 }
 if (!player.spawna) gameServer.afterauth(player);
-player.spawna = true;
+if (!player.guest) player.spawna = true;
 return true;
 
 };
