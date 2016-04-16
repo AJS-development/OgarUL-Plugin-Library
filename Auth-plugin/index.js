@@ -28,6 +28,7 @@ this.config = {
 requirelogin: 0,
 plugin: 1,
 allowregister: 1,
+kicktime: 20,
 recordint: 100,
 reservename: 0,
 hidelogin: 0,
