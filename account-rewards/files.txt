@@ -1,1 +1,2 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/index.js
