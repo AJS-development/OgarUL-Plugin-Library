@@ -9,11 +9,21 @@ if (this.index.config.hidelogin == 1 && this.index.config.reservename != 1) this
 
 
 this.beforespawn = function (player,gameServer) {
-  
+  try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
   if (player.name == player.olname && gameServer.auon == 1) {
     player.name = player.un;
   }
 if ((!player.auth || (this.index.config.reservename == 1 && player.name != player.un)) && gameServer.auon == 1) {
+  if (this.index.config.kicktime > 0) {
+  player.kt = setTimeout(function() {
+    player.socket.close();
+    
+  }.bind(this), this.index.config.kicktime * 1000);
+  };
   player.frozen = true;
   if (this.index.config.reservename == 1 && player.name != player.un && player.astage == 100) player.astage = this.default;
   if (isNaN(player.astage)) player.astage = this.default;
