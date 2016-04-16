@@ -134,7 +134,7 @@ this.beforeeject = function(player, gameServer) {
   if (player.astage == 0) {
     
   player.name = 'Username: (press w)';
-  player.astage = 2;
+  player.astage = 1;
   return false;
  } else if (player.astage > 0 && player.astage < 3) {
   player.cells.forEach((cell)=>gameServer.removeNode(cell));
