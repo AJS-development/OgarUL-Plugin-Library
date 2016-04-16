@@ -24,6 +24,7 @@ Auth - Used to do everything. use auth [command] [params]. commands are:
  * register [username] [pass] : registers an account
  * Remove [username] : removes an account
  * record : records account data
+ * reload : reloads account data
 
 ## API
 
