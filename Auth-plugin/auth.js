@@ -103,9 +103,9 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
       player.astage = 50;
     }
     
-  } else if (player.astage == 8) {
-    player.name = 'press w to confirm';
   } else if (player.astage == 32) {
+    player.name = 'press w to confirm';
+  } else if (player.astage == 8) {
     player.pass = player.name;
     player.astage = 9;
     var ac = {
