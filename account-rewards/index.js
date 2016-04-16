@@ -24,8 +24,9 @@ this.gamemode[0] = ''; // gamemode location
 
 // [Configs]
 this.config = {
-// config1: 0,
-  
+rewardspawnmass: 30,
+rewardspeed: 0,
+
   
 }
 this.configfile = 'config.ini'
@@ -34,6 +35,23 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
+  if (gameServer.auon != 1) {
+    console.log("[Awards] Auth plugin not detected");
+  }
+  gameServer.extraregpar = [];
+  gameServer.extraregpar["spawnmass"] = this.config.rewardspawnmass;
+  gameServer.extraregpar["speed"] = this.config.rewardspeed;
+  gameServer.afterauth = function(player) {
+    if (!player.guest && player.accountid) {
+     var account = gameServer.account[player.accountid]
+     player.spawnmass = account["spawnmass"];
+     player.customspeed = account["speed"];
+      
+    }
+    
+    
+  }
+  
   
   // init, Used to do stuff such as overriding things
 
