@@ -39,9 +39,10 @@ this.init = function (gameServer, config) {
   this.config = config;
   auth.init(this, gameServer);
   gameServer.onregister = function(player) {
-    return [];
+    return;
     
   };
+  gameServer.extraregpar = [];
   gameServer.afterauth = function(player) {
     
     
