@@ -13,6 +13,7 @@ press w, press w again, type username, press w, type pass, press w
  3. Plugin: if 0, the plugin is disabled
  4. Reservenames: if 1, names will be reserved, (like in mcpe servers)
  5. recordint: number of seconds until the account datas are recorded
+ 6. hidelogin: Hides auth until you press q
 
 ## Command
 Auth - Used to do everything. use auth [command] [params]. commands are:
