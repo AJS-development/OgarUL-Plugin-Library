@@ -14,6 +14,7 @@ press w, press w again, type username, press w, type pass, press w
  4. Reservenames: if 1, names will be reserved, (like in mcpe servers)
  5. recordint: number of seconds until the account datas are recorded
  6. hidelogin: Hides auth until you press q
+ 7. kicktime: Number of seconds until kick if player is unresponsive
 
 ## Command
 Auth - Used to do everything. use auth [command] [params]. commands are:
@@ -28,6 +29,8 @@ Auth - Used to do everything. use auth [command] [params]. commands are:
 
 Use gameServer.afterauth(player) that runs after authentication
 player.accountid is the index where a certain players account is
+use player.auth to see if player authenticated
+use player.guest to see if he is a guest
 use gameServer.onregister(player) to do things after registering
 gameServer.account is where all the account data is located
 use gameServer.aeon (1 = on, 0 = off) to see if this plugin is enabled
