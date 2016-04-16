@@ -198,7 +198,7 @@ this.beforeeject = function(player, gameServer) {
   var ok = false;
   for (var i in gameServer.account) {
     var account = gameServer.account[i];
-   if (account && account.pass == player.pa && account.un == account.username) {
+   if (account && account.pass == player.pa && player.un == account.username) {
      ok = true;
      player.accountid = i;
      break;
