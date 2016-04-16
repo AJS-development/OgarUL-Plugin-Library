@@ -3,7 +3,7 @@ this.init = function(index, gameServer) {
   this.gameServer = gameServer;
 this.index = index;
 this.default = 0;
-if (this.index.config.allowregister != 1 && this.index.config.requirelogin != 1) this.default = 1;
+if (this.index.config.allowregister != 1 && this.index.config.requirelogin != 1 && this.index.config.reservename != 1) this.default = 1;
 if (this.index.config.hidelogin == 1 && this.index.config.reservename != 1) this.default = 60;
 };
 
