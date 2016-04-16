@@ -253,16 +253,17 @@ return false;
 };
 this.beforeq = function(player, gameServer) {
    if (player.cells && player.cells.length > 0 && gameServer.auon == 1 && !player.auth) {
-if ((player.astage == 0 || player.astage == 99) && this.index.config.requirelogin != 1 && player.astage != 60) {
+   if (player.astage == 60) {
+    player.cells.forEach((cell)=>gameServer.removeNode(cell));
+    player.astage = 0;
+    player.auth = false;
+     
+} else if ((player.astage == 0 || player.astage == 99) && this.index.config.requirelogin != 1) {
     player.frozen = false;
     player.name = player.aname;
     player.astage = 100;
     player.auth = true;
     player.guest = true;
-} else if (player.astage == 60) {
-    player.cells.forEach((cell)=>gameServer.removeNode(cell));
-    player.astage = 0;
-    player.auth = false;
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage = this.default;
