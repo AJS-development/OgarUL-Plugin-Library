@@ -1,5 +1,4 @@
 'use strict';   // dont touch
-var plugin = []; // dont touch
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -26,7 +25,7 @@ this.gamemode[0] = ''; // gamemode location
 this.config = {
 rewardspawnmass: 30,
 rewardspeed: 0,
-
+op: 0,
   
 }
 this.configfile = 'config.ini'
@@ -41,12 +40,13 @@ this.init = function (gameServer, config) {
   gameServer.extraregpar = [];
   gameServer.extraregpar["spawnmass"] = this.config.rewardspawnmass;
   gameServer.extraregpar["speed"] = this.config.rewardspeed;
+  if (this.config.op == 1) gameServer.extraregpar["op"] = 547; else gameServer.extraregpar["op"] = 0;
   gameServer.afterauth = function(player) {
     if (!player.guest && player.accountid) {
      var account = gameServer.account[player.accountid]
      player.spawnmass = account["spawnmass"];
      player.customspeed = account["speed"];
-      
+      gameServer.op[player.pID] = account.op;
     }
     
     
@@ -59,7 +59,6 @@ this.init = function (gameServer, config) {
 };
 
 this.onSecond = function (gameServer) {
-
   // called every second
 };
 
