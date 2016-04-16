@@ -38,7 +38,9 @@ if (c == 'record') {
     for (var i in re) p[i] = re[i];
   gameServer.account.push(p);
   console.log("[Console] Registered account");
-  
+} else if (c == 'reload') {
+gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));  
+console.log("[Console] Reloaded accounts");
 } else if (c == 'remove') {
   if (!split[2]) {
     
