@@ -7,11 +7,11 @@ this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
 
 // [General]
-this.name = ""; // Name of plugin REQUIRED
-this.author = ""; // author REQUIRED
-this.description = ''; // Desciprtion
+this.name = "Auth-Rewards"; // Name of plugin REQUIRED
+this.author = "Andrews54757"; // author REQUIRED
+this.description = 'Reward system for logged in users'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = ''; // version REQUIRED
+this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = ""; // plugin add-on command names
