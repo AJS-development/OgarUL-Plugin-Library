@@ -91,7 +91,7 @@ console.log("[Console] Reloaded accounts");
   
 } else {
   
-  console.log("[Console] Please specify a valid command!, register, remove, edit, power");
+  console.log("[Console] Please specify a valid command!, register, remove, edit, power, record, reload");
 }
 
 
