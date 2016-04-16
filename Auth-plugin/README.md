@@ -27,6 +27,7 @@ Auth - Used to do everything. use auth [command] [params]. commands are:
 
 Use gameServer.afterauth(player) that runs after authentication
 player.accountid is the index where a certain players account is
-use gameServer.onregister(player) to do things after registering, return values are added to the account data
+use gameServer.onregister(player) to do things after registering
 gameServer.account is where all the account data is located
 use gameServer.aeon (1 = on, 0 = off) to see if this plugin is enabled
+use gameServer.extraregpar to add  parameters when registrating
