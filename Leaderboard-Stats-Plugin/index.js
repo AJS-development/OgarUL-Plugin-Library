@@ -57,26 +57,27 @@ if (gameServer.LBSP) {
 var lb = [];
 
 if (gameServer.LBSPS) {
-if (plugin.stage == 0) {
-  
-  var humans = 0;
+   var alive = 0;
   var bots = 0;
+  var spectators = 0;
   var minions = 0;
   gameServer.getClients().forEach((client)=> {
     
         if ('_socket' in client) {
-          humans++;
+          if (client.cells > 0) alive++; else spectators++;
         } else if (!client.playerTracker.owner) {
           bots++;
         } else {
           minions ++;
         }
       });
+if (plugin.stage == 0) {
+  
  var time = new Date().toISOString();
  var ttime = time.replace(/T/, ' ');     // replace T with a space
 time = ttime.replace(/\..+/, '');
   lb[0] = "~~~~~Stats~~~~~";
-  lb[1] = "Players: " + humans;
+  lb[1] = "Alive: " + alive;
   lb[2] = "Minions: " + minions;
   lb[3] = "Bots: " + bots + " Time: ";
   lb[4] = time;
@@ -93,10 +94,11 @@ time = ttime.replace(/\..+/, '');
   
 } else if (plugin.stage == 1) {
   lb[0] = "~~~~~Stats~~~~~";
-  lb[1] = "Highscore: " + Math.floor(gameServer.topscore);
-  lb[2] = "By: " + gameServer.topusername;
-  lb[3] = "Prev: " + gameServer.oldtopscores.name;
-  lb[4] = "~~~~~~~~~~~~~~~";
+  lb[1] = "Spectators: " + spectators;
+  lb[2] = "Highscore: " + Math.floor(gameServer.topscore);
+  lb[3] = "By: " + gameServer.topusername;
+  lb[4] = "Prev: " + gameServer.oldtopscores.name;
+  lb[5] = "~~~~~~~~~~~~~~~";
   
   if (plugin.tick > 5) {
     plugin.tick = 0;
