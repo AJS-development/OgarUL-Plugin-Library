@@ -238,7 +238,7 @@ this.beforesplit = function(player,gameServer) {
    if (player.cells && player.cells.length > 0 && gameServer.auon == 1) {
 if (player.astage == 0 && this.index.config.allowregister == 1) {
   player.name = 'Username: (press w)';
-  player.astage = 6;
+  player.astage = 5;
 } else {
   return true;
 }
