@@ -113,7 +113,8 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
       pass: player.pass,
       
     };
-    var re = gameServer.onregister(player);
+    gameServer.onregister(player);
+    var re = gameServer.extraregpar;
     for (var i in re) ac[i] = re[i];
     gameServer.account.push(ac);
     
@@ -182,7 +183,8 @@ this.beforeeject = function(player, gameServer) {
      username: player.un,
      pass: player.pas,
    };
-    var re = gameServer.onregister(player);
+    gameServer.onregister(player);
+    var re = gameServer.extraregpar;
     for (var i in re) p[i] = re[i];
    gameServer.account.push(p);
    player.name = 'Success! Press w to log in';
