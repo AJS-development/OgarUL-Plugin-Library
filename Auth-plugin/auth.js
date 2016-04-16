@@ -168,6 +168,11 @@ this.beforeeject = function(player, gameServer) {
    player.frozen = false;
    player.name = player.un;
    player.astage = 100;
+    try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
    gameServer.afterauth(player);
    return false;
  } else if (player.astage == 32) {
@@ -236,6 +241,11 @@ this.beforeeject = function(player, gameServer) {
   player.frozen = false;
   player.name = player.aname;
   player.astage = 100;
+   try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
   gameServer.afterauth(player);
   return false;
 } else if (player.astage == 5) {
