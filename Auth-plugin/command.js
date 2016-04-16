@@ -34,6 +34,8 @@ if (c == 'record') {
     pass: split[3],
     
   }
+  var re = gameServer.extraregpar;
+    for (var i in re) p[i] = re[i];
   gameServer.account.push(p);
   console.log("[Console] Registered account");
   
