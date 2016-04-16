@@ -140,8 +140,7 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
   
   return true;
 }
-if (!player.spawna) gameServer.afterauth(player);
-if (!player.guest) player.spawna = true;
+
 return true;
 
 };
@@ -169,6 +168,7 @@ this.beforeeject = function(player, gameServer) {
    player.frozen = false;
    player.name = player.un;
    player.astage = 100;
+   gameServer.afterauth(player);
    return false;
  } else if (player.astage == 32) {
    var ok = false;
@@ -236,6 +236,7 @@ this.beforeeject = function(player, gameServer) {
   player.frozen = false;
   player.name = player.aname;
   player.astage = 100;
+  gameServer.afterauth(player);
   return false;
 } else if (player.astage == 5) {
 player.cells.forEach((cell)=>gameServer.removeNode(cell));
