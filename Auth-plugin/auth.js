@@ -252,7 +252,7 @@ if (player.astage == 0 && this.index.config.allowregister == 1) {
 return false;
 };
 this.beforeq = function(player, gameServer) {
-   if (player.cells && player.cells.length > 0 && gameServer.auon == 1 && !player.auth) {
+   if (player.cells && player.cells.length > 0 && gameServer.auon == 1 && !player.auth && player.astage != 60) {
    if (player.astage == 60) {
     player.cells.forEach((cell)=>gameServer.removeNode(cell));
     player.astage = 0;
