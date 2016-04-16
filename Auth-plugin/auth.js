@@ -31,6 +31,11 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
     player.auth = true;
     player.guest = true;
     player.frozen = false;
+    try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
   return true;
   
   } else if (player.astage == 0) {
@@ -56,6 +61,11 @@ if ((!player.auth || (this.index.config.reservename == 1 && player.name != playe
           player.guest = true;
           player.frozen = false;
           player.auth = true;
+          try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
           return true;
         }
       } else {
@@ -183,6 +193,11 @@ this.beforeeject = function(player, gameServer) {
        player.accountid = i;
        player.auth = true;
        player.astage = 33;
+       try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
        player.guest = false;
        player.name = 'success! press w';
      }
@@ -235,6 +250,11 @@ this.beforeeject = function(player, gameServer) {
     player.astage = 4;
     player.guest = false;
     player.auth = true;
+    try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
   }
   return false;
 } else if (player.astage == 4) {
@@ -288,6 +308,11 @@ this.beforeq = function(player, gameServer) {
     player.astage = 100;
     player.auth = true;
     player.guest = true;
+    try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
   } else if (player.astage > 0 && player.astage < 100) {
     player.cells.forEach((cell)=>gameServer.removeNode(cell));
   player.astage = this.default;
