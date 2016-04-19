@@ -9,6 +9,20 @@ if (this.index.config.hidelogin == 1 && this.index.config.reservename != 1) this
 
 
 this.beforespawn = function (player,gameServer) {
+  if (!player.socket.remoteAddress) {
+     player.astage = 100;
+          player.guest = true;
+          player.frozen = false;
+          player.auth = true;
+          try {
+    clearTimeout(player.kt);
+  } catch (e) {
+    
+  }
+          return true;
+  }
+  
+  
   try {
     clearTimeout(player.kt);
   } catch (e) {
