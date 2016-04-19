@@ -5,6 +5,7 @@ this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
 this.gamemode = []; // dont touch
+this.gameServer;
 this.addToHelp = []; // dont touch
 
 // [General]
@@ -39,6 +40,7 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
+  this.gameServer = gameServer;
   auth.init(this, gameServer);
   gameServer.onregister = function(player) {
     return;
@@ -64,14 +66,14 @@ this.init = function (gameServer, config) {
 
  this.beforespawn = function(player) {
     
-   return auth.beforespawn(player,gameServer);
+   return auth.beforespawn(player,this.gameServer);
   };
   this.beforeq = function(player) {
-    return auth.beforeq(player, gameServer);
+    return auth.beforeq(player, this.gameServer);
     
   };
-  this.beforeeject = function(player) {return auth.beforeeject(player,gameServer);};
-  this.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
+  this.beforeeject = function(player) {return auth.beforeeject(player,this.gameServer);};
+  this.beforesplit = function(player) {return auth.beforesplit(player,this.gameServer);};
 
 this.onSecond = function (gameServer) {
   if (gameServer.auon == 1 && this.config.recordint > 0) {
