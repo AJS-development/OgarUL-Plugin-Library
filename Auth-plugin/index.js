@@ -49,16 +49,16 @@ this.init = function (gameServer, config) {
     
     
   };
-  gameServer.beforespawn = function(player) {
+  gameServer.beforespawn[0] = function(player) {
     
    return auth.beforespawn(player,gameServer);
   };
-  gameServer.beforeq = function(player) {
-    return auth.beforeq(player, gameServer);
+  gameServer.beforeq[0] = function(player) {
+    return auth.beforeq(plaer, gameServer);
     
   };
-  gameServer.beforeeject = function(player) {return auth.beforeeject(player,gameServer);};
-  gameServer.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
+  gameServer.beforeeject[0] = function(player) {return auth.beforeeject(player,gameServer);};
+  gameServer.beforesplit[0] = function(player) {return auth.beforesplit(player,gameServer);};
   try {
   gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   } catch (e) {
