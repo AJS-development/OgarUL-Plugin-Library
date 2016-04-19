@@ -49,16 +49,6 @@ this.init = function (gameServer, config) {
     
     
   };
-  gameServer.beforespawn = function(player) {
-    
-   return auth.beforespawn(player,gameServer);
-  };
-  gameServer.beforeq = function(player) {
-    return auth.beforeq(player, gameServer);
-    
-  };
-  gameServer.beforeeject = function(player) {return auth.beforeeject(player,gameServer);};
-  gameServer.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
   try {
   gameServer.account = JSON.parse(fs.readFileSync('accounts.json'));
   } catch (e) {
@@ -71,6 +61,17 @@ this.init = function (gameServer, config) {
 
 
 };
+
+ this.beforespawn = function(player) {
+    
+   return auth.beforespawn(player,gameServer);
+  };
+  this.beforeq = function(player) {
+    return auth.beforeq(player, gameServer);
+    
+  };
+  this.beforeeject = function(player) {return auth.beforeeject(player,gameServer);};
+  this.beforesplit = function(player) {return auth.beforesplit(player,gameServer);};
 
 this.onSecond = function (gameServer) {
   if (gameServer.auon == 1 && this.config.recordint > 0) {
