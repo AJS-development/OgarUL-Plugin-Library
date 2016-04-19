@@ -102,18 +102,19 @@ this.init = function (gameServer, config) {
 };
 this.beforespawn = function (player) {
   if (!gameServer.nameblock) return true;
+  if (!player.name) return true;
   if (this.gameServer.preservec == 1) {
     for (var i in this.gameServer.blockednames) {
-    if (this.gameServer.blockednames[i] == player.name) return false;
+    if (-1 != player.name.indexOf(this.gameServer.blockednames[i])) return false;
     
     }
   } else {
-    if (player.name) {
+    
     var n = player.name.toLowerCase();
     for (var i in this.gameServer.blockednames) {
-      if (n == this.gameServer.blockednames[i]) return false;
+      if (n.indexOf(this.gameServer.blockednames[i]) != -1) return false;
     }
-    }
+    
   }
   return true;
 };
