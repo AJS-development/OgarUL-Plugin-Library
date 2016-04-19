@@ -12,11 +12,56 @@ this.author = "Andrews54757"; // author REQUIRED
 this.description = 'blocks certian nicknames'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
+this.gameServer;
 
 // [Extra Commands]
-this.commandName[0] = ""; // plugin add-on command names
-this.addToHelp[0] = ""; // help command add-on (adds this string to the help command)
-this.command[0] = ''; // extra command location
+this.commandName[0] = "nameblock"; // plugin add-on command names
+this.addToHelp[0] = "nameblock    : Nameblock plugin command"; // help command add-on (adds this string to the help command)
+this.command[0] = function (gameServer, split) {
+  var c = split[1];
+  if (c == power) {
+  if (gameServer.nameblock) {
+  gameServer.nameblock = false;
+  console.log("[Console] Turned off plugin");
+  return;
+  } else {
+    gameServer.nameblock = true;
+  console.log("[Console] Turned on plugin");
+  return;
+  }
+  }
+  if (!gameServer.nameblock) {
+    console.log("[Console] Turn on plugin first");
+    return;
+  }
+  if (c == 'reload') {
+    var load = '';
+  try {
+    load = fs.readFileSync('blockednames.txt')
+    
+  } catch () {
+    fs.writeFileSync('blockednames.txt', '');
+  }
+  var l = load.split(/[\r\n]+/).filter(function (x) {
+      return x != ''; // filter empty names
+    });
+    
+    gameServer.blockednames = l;
+    console.log("[Console] Reloaded blocked names");
+  } else if (c == 'add') {
+    if (!split[2]) {
+      console.log("[Console] Please specify a name");
+      return;
+    }
+    gameServer.blockednames.push(split[2]);
+    console.log("[Console] Added " + split[2] + " to the blocked name list");
+  } else {
+  gameServer.blockednames = l;
+    console.log("[Console] Please specify a command, reload, power, add");
+  
+  
+  }
+}; // extra command location
 
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
@@ -25,7 +70,7 @@ this.blockednames;
 
 // [Configs]
 this.config = {
-// config1: 0,
+preservecase: 0,
   
   
 }
@@ -35,15 +80,42 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
+  gameServer.preservec = this.config.preservecase;
+  this.gameServer = gameServer;
+  
+  var load = '';
   try {
-    var load = fs.readFileSync('blockednames.txt')
+    load = fs.readFileSync('blockednames.txt')
     
-  } catch {
+  } catch () {
     fs.writeFileSync('blockednames.txt', '');
   }
+  var l = load.split(/[\r\n]+/).filter(function (x) {
+      return x != ''; // filter empty names
+    });
+    
+    gameServer.blockednames = l;
+  
   // init, Used to do stuff such as overriding things
 
 
+};
+this.beforespawn = function (player) {
+  if (!gameServer.nameblock) return true;
+  if (this.gameServer.preservec == 1) {
+    for (var i in this.gameServer.blockednames) {
+    if (this.gameServer.blockednames[i] == player.name) return false;
+    
+    }
+  } else {
+    if (player.name) {
+    var n = player.name.toLowerCase();
+    for (var i in this.gameServer.blockednames) {
+      if (n == this.gameServer.blockednames[i]) return false;
+    }
+    }
+  }
+  return true;
 };
 
 this.onSecond = function (gameServer) {
