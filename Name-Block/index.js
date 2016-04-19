@@ -1,4 +1,5 @@
 'use strict';   // dont touch
+const fs = require('fs');
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -20,6 +21,7 @@ this.command[0] = ''; // extra command location
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 this.gamemode[0] = ''; // gamemode location
+this.blockednames;
 
 // [Configs]
 this.config = {
@@ -33,7 +35,12 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
-  
+  try {
+    var load = fs.readFileSync('blockednames.txt')
+    
+  } catch {
+    fs.writeFileSync('blockednames.txt', '');
+  }
   // init, Used to do stuff such as overriding things
 
 
