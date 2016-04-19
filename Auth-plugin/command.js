@@ -5,10 +5,11 @@ if (c == 'power') {
  if (gameServer.auon == 1) {
    gameServer.auon = 0;
    console.log("[Console] Turned off plugin");
-   
+   return;
  } else {
    gameServer.auon = 1;
    console.log("[Console] Turned on plugin");
+   return;
  }
   
 }
