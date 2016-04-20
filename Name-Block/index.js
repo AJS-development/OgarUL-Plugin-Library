@@ -39,7 +39,7 @@ this.command[0] = function (gameServer, split) {
   try {
     load = fs.readFileSync('blockednames.txt')
     
-  } catch () {
+  } catch (e) {
     fs.writeFileSync('blockednames.txt', '');
   }
   var l = load.split(/[\r\n]+/).filter(function (x) {
@@ -87,7 +87,7 @@ this.init = function (gameServer, config) {
   try {
     load = fs.readFileSync('blockednames.txt')
     
-  } catch () {
+  } catch (e) {
     fs.writeFileSync('blockednames.txt', '');
   }
   var l = load.split(/[\r\n]+/).filter(function (x) {
@@ -97,11 +97,11 @@ this.init = function (gameServer, config) {
     gameServer.blockednames = l;
   
   // init, Used to do stuff such as overriding things
-
+console.log("[NameBlock] Loaded and file is in src/blockednames.txt");
 
 };
 this.beforespawn = function (player) {
-  if (!gameServer.nameblock) return true;
+  if (!this.gameServer.nameblock) return true;
   if (!player.name) return true;
   if (this.gameServer.preservec == 1) {
     for (var i in this.gameServer.blockednames) {
