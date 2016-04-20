@@ -76,6 +76,7 @@ this.configfile = 'config.ini'
 
 // [Functions]
 this.init = function (gameServer, config) {
+  gameServer.nameblock = true;
   this.config = config;
   gameServer.preservec = this.config.preservecase;
   this.gameServer = gameServer;
@@ -99,7 +100,7 @@ this.beforespawn = function (player) {
   if (!player.name) return true;
   if (this.gameServer.preservec == 1) {
     for (var i in this.gameServer.blockednames) {
-    if (-1 != player.name.indexOf(this.gameServer.blockednames[i])) return false;
+    if (player.name.indexOf(this.gameServer.blockednames[i]) != -1) return false;
     
     }
   } else {
