@@ -1,3 +1,4 @@
 files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt
 index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/index.js
 README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/README.md
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/config.ini
