@@ -37,16 +37,14 @@ this.command[0] = function (gameServer, split) {
   if (c == 'reload') {
     var load = '';
   try {
-    load = fs.readFileSync('blockednames.txt')
-    
+   load = fs.readFileSync('./blockednames.txt', 'utf8').split(/[\r\n]+/).filter(function (x) {
+      return x != ''; // filter empty names
+    }); 
   } catch (e) {
     fs.writeFileSync('blockednames.txt', '');
   }
-  var l = load.split(/[\r\n]+/).filter(function (x) {
-      return x != ''; // filter empty names
-    });
     
-    gameServer.blockednames = l;
+    gameServer.blockednames = load;
     console.log("[Console] Reloaded blocked names");
   } else if (c == 'add') {
     if (!split[2]) {
@@ -56,7 +54,6 @@ this.command[0] = function (gameServer, split) {
     gameServer.blockednames.push(split[2]);
     console.log("[Console] Added " + split[2] + " to the blocked name list");
   } else {
-  gameServer.blockednames = l;
     console.log("[Console] Please specify a command, reload, power, add");
   
   
@@ -85,16 +82,13 @@ this.init = function (gameServer, config) {
   
   var load = '';
   try {
-    load = fs.readFileSync('blockednames.txt')
-    
+   load = fs.readFileSync('./blockednames.txt', 'utf8').split(/[\r\n]+/).filter(function (x) {
+      return x != ''; // filter empty names
+    }); 
   } catch (e) {
     fs.writeFileSync('blockednames.txt', '');
   }
-  var l = load.split(/[\r\n]+/).filter(function (x) {
-      return x != ''; // filter empty names
-    });
-    
-    gameServer.blockednames = l;
+    gameServer.blockednames = load;
   
   // init, Used to do stuff such as overriding things
 console.log("[NameBlock] Loaded and file is in src/blockednames.txt");
@@ -120,7 +114,7 @@ this.beforespawn = function (player) {
 };
 
 this.onSecond = function (gameServer) {
-
+  
   // called every second
 };
 
