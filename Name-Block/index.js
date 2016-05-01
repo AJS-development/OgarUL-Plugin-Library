@@ -17,9 +17,9 @@ this.gameServer;
 // [Extra Commands]
 this.commandName[0] = "nameblock"; // plugin add-on command names
 this.addToHelp[0] = "nameblock    : Nameblock plugin command"; // help command add-on (adds this string to the help command)
-this.command[0] = function (gameServer, split, power) {
+this.command[0] = function (gameServer, split) {
   var c = split[1];
-  if (c == power) {
+  if (c == 'power') {
   if (gameServer.nameblock) {
   gameServer.nameblock = false;
   console.log("[Console] Turned off plugin");
