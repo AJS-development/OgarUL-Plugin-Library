@@ -1,3 +1,3 @@
-files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt
-README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/README.md
-index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/index.js
+files.txt|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt
+README.md|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/README.md
+index.js|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/index.js
