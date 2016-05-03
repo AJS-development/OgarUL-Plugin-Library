@@ -22,3 +22,4 @@ This is the fun part, creating your own plugins. There is an example plugin you 
  5. Auth - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt`
  6. Account Rewards - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt`
  7. Name Block - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt`
+ 8. OgarConsoleInstaller - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt`
