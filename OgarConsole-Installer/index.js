@@ -50,6 +50,7 @@ this.init = function (gameServer, config) {
     this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/cmd.php','./cmd.php');
     this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/index.js','./index.js');
     this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/package.json','./package.json');
+    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/README.md','./OgarConsoleReadme.md');
     setTimeout(function() {
      
       console.log('[Update] Running npm install to install new node modules!');
