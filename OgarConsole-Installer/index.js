@@ -18,7 +18,7 @@ this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = ""; // plugin add-on command names
-this.addToHelp[0] = ""; // help command add-on (adds this string to the help command)
+this.addToHelp[0] = "-logout"; // help command add-on (adds this string to the help command)
 this.command[0] = ''; // extra command location
 
 // [Extra Gamemodes]
