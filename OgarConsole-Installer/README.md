@@ -17,11 +17,6 @@ https://github.com/LegitSoulja/OgarConsole
 - [x] Ogar Unlimited latest
 - [x] Ogar Plus
 
-## Installation
-1. Install Ogar and run Ogar and make sure the server starts without OgarConsole support
-2. Upload OgarConsole files to Ogar **./src** game directory.
-3. Run command 'npm install' in your Ogar file directory where OgarConsole was placed.
-4. Start **OgarConsole** by running the **startconsole.bat** file
 
 ## You now have Ogar Console Running. How to use?
 > Open your browser to the location **http://localhost:1000**
