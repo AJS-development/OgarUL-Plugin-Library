@@ -46,11 +46,11 @@ this.init = function (gameServer, config) {
   this.config = config;
   if (!fs.existsSync('./cmd.php')) {
     console.log("[Console] Downloading ogarConsole");
-    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarUL-OgarConsole-Installer/master/src/oldindex.js','./oldindex.js');
-    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarUL-OgarConsole-Installer/master/src/cmd.php','./cmd.php');
-    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarUL-OgarConsole-Installer/master/src/index.js','./index.js');
-    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarUL-OgarConsole-Installer/master/src/package.json','./package.json');
-    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarUL-OgarConsole-Installer/master/src/README.md','./OgarConsoleReadme.md');
+    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/oldindex.js','./oldindex.js');
+    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/cmd.php','./cmd.php');
+    this.download('hhttps://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/index.js','./index.js');
+    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/package.json','./package.json');
+    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/README.md','./OgarConsoleReadme.md');
     setTimeout(function() {
      
       console.log('[Update] Running npm install to install new node modules!');
