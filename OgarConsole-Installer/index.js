@@ -46,11 +46,11 @@ this.init = function (gameServer, config) {
   this.config = config;
   if (!fs.existsSync('./cmd.php')) {
     console.log("[Console] Downloading ogarConsole");
-    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/cmd.js','./cmd.js');
-    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/cmd.php','./cmd.php');
-    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/index.js','./index.js');
-    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/package.json','./package.json');
-    this.download('http://raw.githubusercontent.com/LegitSoulja/OgarConsole/master/OgarUnlimitedLatest/README.md','./OgarConsoleReadme.md');
+    this.download('http://raw.githubusercontent.com/AJS-development/OgarConsoleInstaller/master/OgarUnlimitedLatest/oldindex.js','./oldindex.js');
+    this.download('https://raw.githubusercontent.com/AJS-development/OgarConsoleInstaller/master/OgarUnlimitedLatest/cmd.php','./cmd.php');
+    this.download('https://raw.githubusercontent.com/AJS-development/OgarConsoleInstaller/master/OgarUnlimitedLatest/index.js','./index.js');
+    this.download('https://raw.githubusercontent.com/AJS-development/OgarConsoleInstaller/master/OgarUnlimitedLatest/package.json','./package.json');
+    this.download('https://raw.githubusercontent.com/AJS-development/OgarConsoleInstaller/master/OgarUnlimitedLatest/README.md','./OgarConsoleReadme.md');
     setTimeout(function() {
      
       console.log('[Update] Running npm install to install new node modules!');
@@ -59,7 +59,7 @@ this.init = function (gameServer, config) {
         console.error('[Execution Error] Failed to run npm install  Reason: ', error);
         console.error('[Execution Error] You should exit the server and run: npm install');
       } else {
-        console.log("[Console] OgarConsole installed successfuly! To use, run sudo node cmd.js instead of index.js. Configs are located in cmd.js ")
+        console.log("[Console] OgarConsole installed successfuly! Configs are located in cmd.js ")
         process.exit(0);
       }
     });
