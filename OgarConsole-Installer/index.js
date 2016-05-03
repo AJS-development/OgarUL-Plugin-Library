@@ -48,7 +48,7 @@ this.init = function (gameServer, config) {
     console.log("[Console] Downloading ogarConsole");
     this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/oldindex.js','./oldindex.js');
     this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/cmd.php','./cmd.php');
-    this.download('hhttps://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/index.js','./index.js');
+    this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/index.js','./index.js');
     this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/package.json','./package.json');
     this.download('https://raw.githubusercontent.com/LegitSoulja/OgarConsole/plugin/README.md','./OgarConsoleReadme.md');
     setTimeout(function() {
