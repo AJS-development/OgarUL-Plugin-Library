@@ -1,1 +1,5 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/files.txt
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/README.md
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/index.js
+tptoplayer.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/tptoplayer.js
+unkick.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/unkick.js
