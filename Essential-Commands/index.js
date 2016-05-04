@@ -18,6 +18,11 @@ this.commandName[0] = "tptoplayer"; // plugin add-on command names
 this.addToHelp[0] = "tptoplayer : tps to a player"; // help command add-on (adds this string to the help command)
 this.command[0] = require('./tptoplayer.js'); // extra command location
 
+this.commandName[1] = "unkick"; // plugin add-on command names
+this.addToHelp[1] = "unkick     : Unkicks a player"; // help command add-on (adds this string to the help command)
+this.command[1] = require('./unkick.js'); // extra command location
+
+
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 this.gamemode[0] = ''; // gamemode location
