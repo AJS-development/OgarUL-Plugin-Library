@@ -7,11 +7,11 @@ this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
 
 // [General]
-this.name = ""; // Name of plugin REQUIRED
+this.name = "Essential Commands"; // Name of plugin REQUIRED
 this.author = ""; // author REQUIRED
-this.description = ''; // Desciprtion
+this.description = 'Adds essential commands to ogar unlimited'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = ''; // version REQUIRED
+this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = ""; // plugin add-on command names
