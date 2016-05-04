@@ -60,7 +60,7 @@ this.init = function (gameServer, config) {
         console.error('[Execution Error] Failed to run npm install  Reason: ', error);
         console.error('[Execution Error] You should exit the server and run: npm install');
       } else {
-        console.log("[Console] OgarConsole installed successfuly! Configs are located in cmd.js ")
+        console.log("[Console] OgarConsole installed successfuly! Configs are located in index.js ")
         process.exit(0);
       }
     });
