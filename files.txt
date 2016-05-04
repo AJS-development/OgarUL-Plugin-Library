@@ -4,3 +4,4 @@ Devtools|Tools for developers|http://raw.githubusercontent.com/AJS-development/O
 LBstats|Adds stats to the end of the Leaderboard|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt
 NameBlock|Blocks certain usernames|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt
 OgarConsole|Allows you to control server like pocketdockconsole for Pocketmine|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt
+Template|A plugin template for devs|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt
