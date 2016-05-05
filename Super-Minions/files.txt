@@ -1,1 +1,4 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/README.md
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/index.js
+super.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/super.js
