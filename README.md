@@ -30,3 +30,4 @@ This is the fun part, creating your own plugins. There is an example plugin you 
  7. Name Block - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt`
  8. OgarConsoleInstaller - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt`
  9. Essential Commands - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/files.txt`
+ 10. Super Minions - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt`
