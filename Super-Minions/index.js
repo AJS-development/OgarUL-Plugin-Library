@@ -42,10 +42,14 @@ this.init = function (gameServer, config) {
 };
 
 this.onaddminion = function(gameServer, fakeSocket, arg, th) {
+  try{
   if (arg) {
   fakeSocket.playerTracker.spawnmass = arg[34];
   
   fakeSocket.playerTracker.customspeed = arg[43];
+  }
+  } catch (e) {
+    
   }
   
 };
