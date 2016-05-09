@@ -44,7 +44,8 @@ request(url, function (error, response, body) {
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
-  if (!fs.existsSync('./cmd.php')) {
+  if (!fs.existsSync('./Howtouseclient.md')) {
+    fs.mkdir('./client')
     console.log("[Console] Downloading Files");
     this.download('https://raw.githubusercontent.com/AJS-development/clientimp/master/index.js','./index.js');
     this.download('https://raw.githubusercontent.com/AJS-development/clientimp/master/package.json','../package.json');
