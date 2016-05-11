@@ -22,6 +22,43 @@ this.commandName[1] = "unkick"; // plugin add-on command names
 this.addToHelp[1] = "unkick     : Unkicks a player"; // help command add-on (adds this string to the help command)
 this.command[1] = require('./unkick.js'); // extra command location
 
+this.commandName[2] = "m"
+this.command[2] =  function(gameServer, split) {
+  gameServer.consoleService.execCommand("mass",split)
+  
+};// extra command location
+
+this.commandName[3] = "pl"
+this.command[3] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("playerlist",split)
+  
+};
+this.commandName[4] = "s"
+this.command[4] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("speed",split)
+  
+};
+this.commandName[5] = "e"
+this.command[5] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("explode",split)
+  
+};
+this.commandName[6] = "sm"
+this.command[6] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("spawnmass",split)
+  
+};
+this.commandName[7] = "r"
+this.command[7] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("merge",split)
+  
+};
+this.commandName[8] = "t"
+this.command[8] = function(gameServer, split) {
+  gameServer.consoleService.execCommand("troll",split)
+  
+};
+
 
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
