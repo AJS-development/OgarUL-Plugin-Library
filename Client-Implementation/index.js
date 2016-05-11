@@ -14,7 +14,7 @@ this.name = "Client Implementation"; // Name of plugin REQUIRED
 this.author = "Andrews54757"; // author REQUIRED
 this.description = 'Adds the client into ogar ul'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
+this.version = '1.1.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = ""; // plugin add-on command names
@@ -58,7 +58,7 @@ this.init = function (gameServer, config) {
         console.error('[Execution Error] Failed to run npm install  Reason: ', error);
         console.error('[Execution Error] You should exit the server and run: npm install');
       } else {
-        console.log("[Console] Client installed successfuly! See howtouseclient.md for instructions")
+        console.log("[Console] Client installed successfuly! See howtouseclient.md for instructions. Configs are in config.ini")
         process.exit(0);
       }
     });
