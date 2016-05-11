@@ -1,3 +1,4 @@
 files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/files.txt
 index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/index.js
 README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/README.md
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/config.ini
