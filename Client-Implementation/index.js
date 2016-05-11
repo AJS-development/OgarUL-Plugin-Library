@@ -28,7 +28,7 @@ this.gamemode[0] = ''; // gamemode location
 // [Configs]
 this.config = {
 // config1: 0,
-  
+  port: process.env.PORT,
   
 }
 this.configfile = 'config.ini'
@@ -47,7 +47,6 @@ this.init = function (gameServer, config) {
   if (!fs.existsSync('./Howtouseclient.md')) {
     fs.mkdir('./client')
     console.log("[Console] Downloading Files");
-    this.download('https://raw.githubusercontent.com/AJS-development/clientimp/master/index.js','./index.js');
     this.download('https://raw.githubusercontent.com/AJS-development/clientimp/master/package.json','../package.json');
     this.download('https://raw.githubusercontent.com/AJS-development/clientimp/master/README.md','./Howtouseclient.md');
 
@@ -65,6 +64,31 @@ this.init = function (gameServer, config) {
     });
     }, 3000);
     
+  } else {
+    // CLIENT CONFIGS
+// port
+var port = config.port
+
+
+
+
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+app.use(express.static('./client'));
+
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || process.env.IP || '127.0.0.1';
+var serverport = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || port;
+if (process.env.OPENSHIFT_NODEJS_IP !== undefined) {
+    http.listen( serverport, ipaddress, function() {
+        console.log('[CLient] Listening on *:' + serverport);
+    });
+} else {
+    http.listen( serverport, function() {
+        console.log('[Client] Listening on *:' + port);
+    });
+}
   }
   
   
