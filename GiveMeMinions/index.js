@@ -16,7 +16,10 @@ this.version = '1.0.0'; // version REQUIRED
 this.config = {
     
     switchIntervalTime: 60000, // Every Minute
-    minionGiveAmount: 10
+    minionGiveAmount: 10,
+    botGetMinions: 0, // 0 = false, 1 = true
+    setPerInterval: 1
+
     
 };
 
@@ -24,75 +27,125 @@ this.configfile = 'config.ini';
 
 this.init = function(gameServer, config){
     
-  this.gameServer = gameServer;
-  this.config = config;
-  this.stop = true;
+this.gameServer = gameServer;'use strict';   // dont touch
+var plugin = []; // dont touch
+this.command = []; // dont touch
+this.commandName = []; // dont touch
+this.gamemodeId = []; // dont touch
+this.gamemode = []; // dont touch
+this.addToHelp = []; // dont touch
+
+// [General]
+this.name = "GiveMeMinions"; // Name of plugin REQUIRED
+this.author = "LegitSoulja"; // author REQUIRED
+this.description = 'Give random players minions'; // Desciprtion
+this.compatVersion = ''; // compatable with (optional)
+this.version = '1.0.0'; // version REQUIRED
+this.config = config;
+this.stop = "";
+var ids = [];
+var last = [];
+var players = 0;
   
   function goooo(){
       
-      var last = 0;
-      var ids = [];
-
-      
       setInterval(function(){
          
-         console.log(last);
-          
           if(gameServer.running){
               
-            if(last => 0){
+              
+            if( last.length > 0){
 
-              var remCommand = [];
-              remCommand[1] = last;
+                for(var perL = 0; perL <  last.length; perL++ ){
+                    
+                    var remCommand = [];
+                    remCommand.length = 0;
+                    remCommand[1] =  last[perL];
 
-              var remAll = [];
-              remAll[1] = "destroy";
-              gameServer.consoleService.execCommand("minion", remCommand);
-              gameServer.consoleService.execCommand("minion", remAll);
+                    var remAll = [];
+                    remAll.length = 0;
+                    remAll[1] = "destroy";
+                    
+                    gameServer.consoleService.execCommand("minion", remCommand);
+                    gameServer.consoleService.execCommand("minion", remAll);
+                    
+                }
 
+            }else{
+                
+                console.log("There are no last players");
+                
             }
 
             setTimeout(function(){
-                
+ 
+                console.log("generating..");
+                // reset arrays
                 ids.length = 0;
+                last.length = 0;
                 
                 // Wait a few seconds so leaderboard can clear...
+                
+                
+                // Retrieve full list of clients
                 for(var a = 0; a < gameServer.clients.length; a++){
-
-                    var client = gameServer.clients[a].playerTracker;
-                    
-                    if(typeof gameServer.clients[a].remoteAddress != 'undefined'){
+                 
+                    if(config.botGetMinions === 0){
                         
-                        ids.push(client.pID);
+                        // Bots don't get minions.
+                        
+                        if(typeof gameServer.clients[a].remoteAddress != 'undefined'){
+
+                            ids.push(gameServer.clients[a].playerTracker.pID);
+                            console.log(gameServer.clients[a].playerTracker.pID);
+
+                        }
+                        
+                    }else{
+                        
+                        // Bots do get minions
+                        
+                        ids.push(gameServer.clients[a].playerTracker.pID);
                         
                     }
 
                 }
                 
-                var players = ids.length;
+                players = ids.length;
 
                 if(players > 0){
-
-
-                  //console.log("Found " + players + "clients");
-
-                  var r = Math.floor((Math.random() * players) + 0);
-
-                  console.log("Selecting " + r + "::" + ids[r]);
-
-                  var givCommand = [];
-                  givCommand[1] = ids[r];
-                  givCommand[2] = config.minionGiveAmount;
-                  gameServer.consoleService.execCommand("minion", givCommand);
+                    
+                  var tlast = [];
+                  var r = 0;
                   
-                  last = ids[r];
-                  
-                  ids.length = 0;
+                  for(var perC = 0; perC < config.setPerInterval; perC++){
+                      
+                    r = Math.floor((Math.random() * players) + 0);
+                    
+                    if(typeof ids[r] != 'undefined'){
+                        
+                        var givCommand = [];
+                        givCommand.length = 0;
+                        givCommand[1] = ids[r];
+                        givCommand[2] = config.minionGiveAmount;
+                        givCommand[3] = "GiveMeMinions";
+                        console.log("Giving " + ids[r] + " Minions :: " + "Players :: " + players);
+                        
+                        setTimeout(function(){
+                            
+                            gameServer.consoleService.execCommand("minion", givCommand);
+                            
+                        }, 1000);
 
+                        last.push(ids[r]);
 
-                  
-
-
+                        ids.length = 0;
+                        tlast.push(ids[r]);
+                        
+                    }
+                      
+                  }
+                      
               }else{
 
                   // IDLE, Runs when there's no active players.
@@ -111,18 +164,18 @@ this.init = function(gameServer, config){
       
       if(gameServer.running === true){
           
-          if(this.stop){
+          if(typeof this.start == 'undefined'){
               
               goooo();
-              this.stop = false;
-              return;
+              console.log("Started Minions");
+              this.start = false;
+              
               
           }
           
       }else{
           
-          this.stop = true;
-          return;
+          console.log("GameServer is not working..");
           
       }
       
