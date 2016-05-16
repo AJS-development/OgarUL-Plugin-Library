@@ -71,15 +71,10 @@ var players = 0;
                     
                 }
 
-            }else{
-                
-                console.log("There are no last players");
-                
             }
 
             setTimeout(function(){
  
-                console.log("generating..");
                 // reset arrays
                 ids.length = 0;
                 last.length = 0;
@@ -97,7 +92,6 @@ var players = 0;
                         if(typeof gameServer.clients[a].remoteAddress != 'undefined'){
 
                             ids.push(gameServer.clients[a].playerTracker.pID);
-                            console.log(gameServer.clients[a].playerTracker.pID);
 
                         }
                         
@@ -129,7 +123,6 @@ var players = 0;
                         givCommand[1] = ids[r];
                         givCommand[2] = config.minionGiveAmount;
                         givCommand[3] = "GiveMeMinions";
-                        console.log("Giving " + ids[r] + " Minions :: " + "Players :: " + players);
                         
                         setTimeout(function(){
                             
@@ -167,15 +160,11 @@ var players = 0;
           if(typeof this.start == 'undefined'){
               
               goooo();
-              console.log("Started Minions");
+              console.log("[GiveMeMinions] Started!!");
               this.start = false;
               
               
           }
-          
-      }else{
-          
-          console.log("GameServer is not working..");
           
       }
       
