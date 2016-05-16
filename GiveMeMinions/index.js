@@ -1,5 +1,4 @@
-'use strict';   // dont touch
-this.gameServer = gameServer;'use strict';   // dont touch
+'use strict';   // dont touch   // dont touch
 var plugin = []; // dont touch
 this.command = []; // dont touch
 this.commandName = []; // dont touch
@@ -27,7 +26,7 @@ this.config = {
 this.configfile = 'config.ini';
 
 this.init = function(gameServer, config){
-    
+this.gameServer = gameServer;'use strict';
 this.config = config;
 this.stop = "";
 var ids = [];
