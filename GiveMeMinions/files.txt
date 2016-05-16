@@ -1,1 +1,4 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/files.txt
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/index.js
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/README.md
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/config.ini
