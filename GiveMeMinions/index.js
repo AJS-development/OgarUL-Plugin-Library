@@ -12,7 +12,7 @@ this.name = "GiveMeMinions"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Give random players minions'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
+this.version = '1.0.1'; // version REQUIRED
 
 this.config = {
     
@@ -58,10 +58,6 @@ var players = 0;
                     
                 }
 
-            }else{
-                
-                console.log("There are no last players");
-                
             }
 
             setTimeout(function(){
@@ -116,7 +112,6 @@ var players = 0;
                         givCommand[1] = ids[r];
                         givCommand[2] = config.minionGiveAmount;
                         givCommand[3] = "GiveMeMinions";
-                        console.log("Giving " + ids[r] + " Minions :: " + "Players :: " + players);
                         
                         setTimeout(function(){
                             
@@ -159,10 +154,6 @@ var players = 0;
               
               
           }
-          
-      }else{
-          
-          console.log("GameServer is not working..");
           
       }
       
