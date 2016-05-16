@@ -62,7 +62,6 @@ var players = 0;
 
             setTimeout(function(){
  
-                console.log("generating..");
                 // reset arrays
                 ids.length = 0;
                 last.length = 0;
