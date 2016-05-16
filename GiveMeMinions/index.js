@@ -79,7 +79,6 @@ var players = 0;
                         if(typeof gameServer.clients[a].remoteAddress != 'undefined'){
 
                             ids.push(gameServer.clients[a].playerTracker.pID);
-                            console.log(gameServer.clients[a].playerTracker.pID);
 
                         }
                         
