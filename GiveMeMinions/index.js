@@ -1,4 +1,5 @@
 'use strict';   // dont touch
+this.gameServer = gameServer;'use strict';   // dont touch
 var plugin = []; // dont touch
 this.command = []; // dont touch
 this.commandName = []; // dont touch
@@ -15,10 +16,10 @@ this.version = '1.0.0'; // version REQUIRED
 
 this.config = {
     
-    switchIntervalTime: 60000, // Every Minute
+    switchIntervalTime: 10000, // Every Minute
     minionGiveAmount: 10,
-    botGetMinions: 0, // 0 = false, 1 = true
-    setPerInterval: 1
+    botGetMinions: 1, // 0 = false, 1 = true
+    setPerInterval: 5
 
     
 };
@@ -27,20 +28,6 @@ this.configfile = 'config.ini';
 
 this.init = function(gameServer, config){
     
-this.gameServer = gameServer;'use strict';   // dont touch
-var plugin = []; // dont touch
-this.command = []; // dont touch
-this.commandName = []; // dont touch
-this.gamemodeId = []; // dont touch
-this.gamemode = []; // dont touch
-this.addToHelp = []; // dont touch
-
-// [General]
-this.name = "GiveMeMinions"; // Name of plugin REQUIRED
-this.author = "LegitSoulja"; // author REQUIRED
-this.description = 'Give random players minions'; // Desciprtion
-this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
 this.config = config;
 this.stop = "";
 var ids = [];
@@ -71,10 +58,15 @@ var players = 0;
                     
                 }
 
+            }else{
+                
+                console.log("There are no last players");
+                
             }
 
             setTimeout(function(){
  
+                console.log("generating..");
                 // reset arrays
                 ids.length = 0;
                 last.length = 0;
@@ -92,6 +84,7 @@ var players = 0;
                         if(typeof gameServer.clients[a].remoteAddress != 'undefined'){
 
                             ids.push(gameServer.clients[a].playerTracker.pID);
+                            console.log(gameServer.clients[a].playerTracker.pID);
 
                         }
                         
@@ -123,6 +116,7 @@ var players = 0;
                         givCommand[1] = ids[r];
                         givCommand[2] = config.minionGiveAmount;
                         givCommand[3] = "GiveMeMinions";
+                        console.log("Giving " + ids[r] + " Minions :: " + "Players :: " + players);
                         
                         setTimeout(function(){
                             
@@ -160,11 +154,15 @@ var players = 0;
           if(typeof this.start == 'undefined'){
               
               goooo();
-              console.log("[GiveMeMinions] Started!!");
+              console.log("Started Minions");
               this.start = false;
               
               
           }
+          
+      }else{
+          
+          console.log("GameServer is not working..");
           
       }
       
