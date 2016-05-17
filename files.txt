@@ -1,5 +1,5 @@
 Auth|Adds auth to Ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt
-AccountRewards|Gives rewards to those who logged in using Auth|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt
+AccountRewards|Gives rewards to those who logged in using Auth|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt
 Devtools|Tools for developers|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt
 LBstats|Adds stats to the end of the Leaderboard|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt
 NameBlock|Blocks certain usernames|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt
