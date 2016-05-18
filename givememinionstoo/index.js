@@ -67,7 +67,7 @@ this.init = function (gameServer, config) {
   } catch (e) {
     // nothing
   }
-  this.start(gameServer)
+  this.start(gameServer);
   console.log("[Console] Give me minions running!")
   // init, Used to do stuff such as overriding things
 
@@ -77,10 +77,10 @@ this.getrandom = function(gameServer) {
   var newrandom = [];
   var a = 0;
   for (var i in gameServer.clients) { // protection, just in case
-    if (this.config.botGetMinions == 1 && gameServer.clients[i] && gameServer.gmpid.indexOf(gameServer.clients[i].playerTracker.pID) == -1) {
+    if (this.config.botGetMinions == 1 && gameServer.clients[i] && gameServer.gmpid.indexOf(gameServer.clients[i].playerTracker.pID) == -1 && !gameServer.clients[i].playerTracker.owner) {
     newrandom[a] = gameServer.clients[i].playerTracker;
     a ++;
-    } else if (gameServer.clients[i].playerTracker.socket.remoteAddress && gameServer.clients[i] && gameServer.gmpid.indexOf(gameServer.clients[i].playerTracker.pID) == -1) {
+    } else if (gameServer.clients[i].playerTracker.socket.remoteAddress && gameServer.clients[i] && gameServer.gmpid.indexOf(gameServer.clients[i].playerTracker.pID) == -1 && !gameServer.clients[i].playerTracker.owner) {
       newrandom[a] = gameServer.clients[i].playerTracker;
     a ++;
     }
@@ -96,8 +96,8 @@ this.start = function(gameServer) {
     var nsplit = [];
     nsplit[1] = "destroy";
     gameServer.consoleService.execCommand("minion", nsplit)
-    for (var i in this.config.setPerInterval) {
-      var random = this.getrandom()
+    for (var i = 0; i<this.config.setPerInterval; i++) {
+      var random = this.getrandom(gameServer)
       gameServer.gmpid.push(random.pID)
       var nsplit = [];
       nsplit[1] = random.pID;
