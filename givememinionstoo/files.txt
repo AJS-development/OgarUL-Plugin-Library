@@ -1,4 +1,4 @@
 files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
 index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/index.js
-README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/README.md
 config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/config.ini
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/README.md
