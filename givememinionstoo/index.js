@@ -67,7 +67,7 @@ this.init = function (gameServer, config) {
   } catch (e) {
     // nothing
   }
-  this.start
+  this.start()
   console.log("[Console] Give me minions running!")
   // init, Used to do stuff such as overriding things
 
