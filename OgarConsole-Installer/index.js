@@ -1,5 +1,3 @@
-'use scrict';
-
 'use strict';   // dont touch
 var plugin = []; // dont touch
 this.command = []; // dont touch
@@ -15,6 +13,13 @@ this.description = 'OgarConsole >> Control your Ogar Server'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.4'; // version REQUIRED
 
+// [Extra Commands]
+this.commandName[0] = ""; // plugin add-on command names
+this.addToHelp[0] = "-password [password] : Log into OgarConsole"; // help command add-on (adds this string to the help command)
+this.addToHelp[1] = "-logout : Log out of OgarConsole";
+this.addToHelp[2] = "-update : Update OgarConsole";
+this.command[0] = ''; // extra command location
+
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 this.gamemode[0] = ''; // gamemode location
@@ -29,6 +34,37 @@ this.config = {
 this.configfile = 'config.ini';
 
 this.init = function(gameServer, config){
+    
+    var fs = require('fs');
+    var exec = require('child_process').exec;
+    
+    try{
+        
+        fs.lstatSync(__dirname + "/node_modules"); // return false if modules not install..
+        
+
+    }catch(e){
+        
+        setTimeout(function(){
+            
+            console.log("[OgarConsole] First use? Installing modules..");
+            console.log("[OgarConsole] OgarUnlimited will restart afterwards. Please wait..");
+            exec("npm install", {cwd: __dirname}, function(e,s,t){
+
+                console.log("[OgarConsole] Modules Installed.. Restarting OgarUnlimited!..");
+
+                setTimeout(function(){
+
+                    process.exit(3);
+
+                }, 2000);
+
+            });
+            
+        }, 2000);
+        return;
+        
+    }
     
     this.gameServer = gameServer;
     
@@ -269,7 +305,11 @@ this.init = function(gameServer, config){
                 if(!this.settings().allowExit)
                     socket.emit("input", "You are not allowed to terminate this console");
                 return;
-
+            case "-update":
+                array = [];
+                array = ["plugin", "update", "OgarConsole"];
+                first = "plugin";
+                break;
             case "restart":
                 if(!this.settings().allowRestart)
                     socket.emit("input", "You are not allowed to terminate this console");
@@ -323,7 +363,11 @@ this.init = function(gameServer, config){
 
     };
     
-    var thisOgarConsole = new OgarConsole(gameServer);
+    setTimeout(function(){
+        
+        var thisOgarConsole = new OgarConsole(gameServer);
+        
+    }, 1000);
     
 };
 
