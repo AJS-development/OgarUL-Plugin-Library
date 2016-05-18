@@ -83,7 +83,6 @@ this.init = function(gameServer, config){
             this.allowExit = false;
             this.allowRestart = false;
             this.logFile = "./logs/console.log";
-            this.consoleFile = "/cmd.ejs";
             this.json = require("./package.json");
             this.version = this.json.version;
             return this;
@@ -94,10 +93,8 @@ this.init = function(gameServer, config){
             gameServer = gameServer,
             express = require("express"),
             app = express(),
-            fs = require("fs"),
             server = require("http").createServer(app),
-            io = require("socket.io").listen(server),
-            exec = require("child_process").exec;
+            io = require("socket.io").listen(server);
 
     OgarConsole.prototype.start = function(){
 
@@ -138,7 +135,7 @@ this.init = function(gameServer, config){
         // OgarConsole >> Listen for connections
         app.get("/", function(req, res){
 
-            fs.readFile(__dirname + thisOgarConsole.settings().consoleFile, function(err, data){
+            fs.readFile(__dirname + "/cmd.ejs", function(err, data){
 
                 if(!err){
 
@@ -363,9 +360,10 @@ this.init = function(gameServer, config){
 
     };
     
+    var thisOgarConsole;
     setTimeout(function(){
         
-        var thisOgarConsole = new OgarConsole(gameServer);
+        thisOgarConsole = new OgarConsole(gameServer);
         
     }, 1000);
     
