@@ -91,7 +91,9 @@ this.getrandom = function(gameServer) {
 
 this.start = function(gameServer) {
   var inttim = function() {
+    
   gameServer.intervalTM = setTimeout(function() {
+    gameServer.gmpid = [];
     if (gameServer.running && gameServer.GMMpower) {
     var nsplit = [];
     nsplit[1] = "destroy";
