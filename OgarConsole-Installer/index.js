@@ -35,8 +35,12 @@ this.configfile = 'config.ini';
 
 this.init = function(gameServer, config){
     
+    //
     var fs = require('fs');
     var exec = require('child_process').exec;
+    //
+    
+    var thisOgarConsole;
     
     try{
         
@@ -69,8 +73,9 @@ this.init = function(gameServer, config){
     this.gameServer = gameServer;
     
     var OgarConsole = function(gameServer) { 
+        
         this.gameServer = gameServer;
-            this.start();
+        this.start();
 
     };
 
@@ -88,10 +93,9 @@ this.init = function(gameServer, config){
             return this;
 
     };
-            
-            var request = require("request"),
-            gameServer = gameServer,
-            express = require("express"),
+    
+    var request = require('request'),
+            express = require('express'),
             app = express(),
             server = require("http").createServer(app),
             io = require("socket.io").listen(server);
@@ -124,10 +128,10 @@ this.init = function(gameServer, config){
         }
 
         server.on('error', function(err){
-            OgarConsole.prototype.log("Could not listen on port " + this.settings().serverPort);
-            OgarConsole.prototype.log("Ogar and OgarConsole stopped..");
-
-            OgarConsole.prototype.terminate();
+            
+            thisOgarConsole.log("Could not listen on port " + thisOgarConsole.serverPort);
+            thisOgarConsole.log("Ogar and OgarConsole stopped..");
+            thisOgarConsole.terminate();
             return;
 
         });
@@ -326,7 +330,7 @@ this.init = function(gameServer, config){
                        if(!err){
 
 
-                            socket.emit("input", "[LOG" + data.toString());
+                            socket.emit("input", "[LOG]" + data.toString());
                             return;
 
                        }
@@ -360,7 +364,6 @@ this.init = function(gameServer, config){
 
     };
     
-    var thisOgarConsole;
     setTimeout(function(){
         
         thisOgarConsole = new OgarConsole(gameServer);
