@@ -24,7 +24,10 @@ this.gamemode[0] = ''; // gamemode location
 
 // [Configs]
 this.config = {
-// config1: 0,
+switchIntervalTime: 10000,
+minionGiveAmount: 30,
+botGetMinions: 1,
+setPerInterval:  2
   
   
 }
@@ -34,7 +37,9 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
-  
+  gameServer.intervalTM;
+  gameServer.gmpid = [];
+  console.log("[Console] Give me minions running!")
   // init, Used to do stuff such as overriding things
 
 
