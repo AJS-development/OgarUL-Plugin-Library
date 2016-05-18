@@ -38,10 +38,6 @@ this.init = function(gameServer, config){
         
         setTimeout(function(){
             
-            console.log("\x1b[36m" + "[Statistics] Hey, Your server name is " + serverName + ". Please change your server name in ./plugins/Statistics/index.js");
-            console.log("\x1b[31m" + "[Statistics] Hey, Your server name is " + serverName + ". Please change your server name in ./plugins/Statistics/index.js");
-            console.log("\x1b[32m" + "[Statistics] Hey, Your server name is " + serverName + ". Please change your server name in ./plugins/Statistics/index.js");
-            console.log("\x1b[2m" + "[Statistics] Hey, Your server name is " + serverName + ". Please change your server name in ./plugins/Statistics/index.js");
             console.log("\x1b[35m" + "[Statistics] Hey, Your server name is " + serverName + ". Please change your server name in ./plugins/Statistics/index.js");
        
         });
