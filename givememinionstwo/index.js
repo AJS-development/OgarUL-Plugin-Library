@@ -7,11 +7,11 @@ this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
 
 // [General]
-this.name = ""; // Name of plugin REQUIRED
-this.author = ""; // author REQUIRED
-this.description = ''; // Desciprtion
+this.name = "GiveMeMinionsToo"; // Name of plugin REQUIRED
+this.author = "AJS - Dev"; // author REQUIRED
+this.description = 'Gives minions to people randomly'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = ''; // version REQUIRED
+this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
 this.commandName[0] = "gmm"; // plugin add-on command names
