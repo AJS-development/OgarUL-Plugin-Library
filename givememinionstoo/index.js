@@ -98,6 +98,7 @@ this.start = function(gameServer) {
     gameServer.consoleService.execCommand("minion", nsplit)
     for (var i = 0; i<this.config.setPerInterval; i++) {
       var random = this.getrandom(gameServer)
+      if (!random) break;
       gameServer.gmpid.push(random.pID)
       var nsplit = [];
       nsplit[1] = random.pID;
