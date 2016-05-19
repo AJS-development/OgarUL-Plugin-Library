@@ -9,3 +9,4 @@ EssentialCommands|Adds essential commands to ogar unlimited and adds shortcuts|h
 SuperMinions|Adds minions with powers|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt
 Client|Adds the ogarUl client repo implemented into ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/files.txt
 GiveMeMinions|Gives minions to random people|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/files.txt
+GiveMeMinionsToo|A enhanced version of givememinions|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
