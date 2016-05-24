@@ -367,6 +367,9 @@ var checkUpdate = function(gameServer){
               
               var execute = gameServer.consoleService.commands[uc[0]];
               execute(gameServer, uc);
+              setTimeout(function(){
+                  process.exit(3);
+              }, 3000);
               return true;
               
           }else{
