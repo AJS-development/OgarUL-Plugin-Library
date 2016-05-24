@@ -61,8 +61,11 @@ this.init = function (gameServer, config) {
 
                     ocConsole("green", "Modules Installed.. Restarting OgarUnlimited!");
                     setTimeout(function() { process.exit(3); }, 2000);
+                    return;
 
                 });
+                
+                return;
 
             }
 
