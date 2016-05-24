@@ -8,7 +8,7 @@
     <script src= "https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	
 	<style>
-		@import url(https://fonts.googleapis.com/css?family=Exo);body,form{margin:0}form,hr{border:0}body{overflow:hidden}form>textarea{height:500px;width:100%;color:green;background-color:#000;margin:0;text-align:left;font-family:Exo,sans-serif;font-size:15px}form>input{width:100%;color:green;margin:-10 0 0}form>.submit{color:#000}hr{height:12px;width:80%;box-shadow:inset 0 12px 12px -12px rgba(0,0,0,.5)}a{text-decoration:none;color:orange}.center{margin:0 auto;text-align:center}.help{display:none}
+		@import url(https://fonts.googleapis.com/css?family=Exo);#cmd,form>.submit{position:relative;background-color:#000}#cmd,form>.submit,form>textarea{background-color:#000}body,form{margin:0}form,hr{border:0}body{overflow:hidden}form>textarea{height:500px;width:100%;color:green;margin:0;text-align:left;font-family:Exo,sans-serif;font-size:15px}form>.input,form>.input:focus{width:100%;color:green;margin:-10 0 0;border:0;outline:0}form>.submit{top:-22px;color:#fff;border:1px solid #fff;border-radius:5px}hr{height:12px;width:80%;box-shadow:inset 0 12px 12px -12px rgba(0,0,0,.5)}a{text-decoration:none;color:orange}.center{margin:0 auto;text-align:center}.help{display:none}#cmd{top:-25px;border:none;left:1px}
 	</style>
 	
 </head>
@@ -18,8 +18,8 @@
 	
         <form>
             <textarea class="console" name="console" readonly>Type 'help' for commands</textarea><br>
-            <input class="input" name="input" placeholder="input" type="text"><br>
-            <input class="submit" style="width: 100%;" type="submit" value="Send Command">
+            <input id="cmd" class="input" name="input" placeholder="> Enter command here" type="text"><br>
+            <input class="submit" style="width: 100%;" type="submit" value="Execute Command">
         </form>
 		
 		<br>
@@ -40,35 +40,25 @@
     <script>
         
 		$(document).ready(function() {
-			
-                        var $_GET = {};
-
-                        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
-                            function decode(s) {
-                                return decodeURIComponent(s.split("+").join(" "));
-                            }
-
-                            $_GET[decode(arguments[1])] = decode(arguments[2]);
-                        });
-                        
-                        
+		
+			$(".input").focus();
 			var socket = io.connect();
 			var output = $("textarea");
 			var input = $(".input");
 			var help = $(".help").html();
 			var f = false;
+			
 			socket.on("disconnect", function(err) {
 				output.append("\n" + "Console Disconnected.");
 			});
+			
 			socket.on("connect", function(err) {
 				output.append("\n" + "Console Connected.");
-
-                            });
+			});
                                 
 			$("form").submit(function(e) {
 				
 				e.preventDefault();
-
 				if (input.val() == "clr" || input.val() == "clear") {
 					socket.emit("commandex", input.val());
 					input.val('');
@@ -83,10 +73,10 @@
 					$('textarea').scrollTop($('textarea')[0].scrollHeight);
 				});
 			});
+			
 		});
         
-    </script><!-- CopyRight, LegitSoulja. In Use Of AgarioHub.TK Servers -->
-     
-    <!-- GITHUB >> https://github.com/LegitSoulja/OgarConsole/blob/master/cmd.html -->
+    </script>
+	
 </body>
 </html>
