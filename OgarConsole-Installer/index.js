@@ -1,4 +1,11 @@
 'use strict';   // dont touch
+
+/*
+ * 
+ * OgarConsole Plugin For OgarUnlimited, Created by LegitSoulja. Recoded for OgarUnlimited
+ * 
+ */
+
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -22,12 +29,10 @@ this.config = {
     consolePort: 1000,
     password: "OgarConsole123", //default. Change password in ./config.ini
     requirePassword: 1
-    
-    
+
 };
 
 this.configfile = "config.ini";
-
 
 // dependencies
 
