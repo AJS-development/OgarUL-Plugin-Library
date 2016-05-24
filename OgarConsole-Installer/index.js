@@ -16,6 +16,7 @@ this.version = '1.0.0'; // version REQUIRED
 
 this.config = {
     
+    advanced: 0,
     allowExit: 0,
     allowRestart: 0,
     consolePort: 1000,
@@ -75,14 +76,15 @@ this.init = function (gameServer, config) {
             var io = require("socket.io").listen(server);
 
             var settings = {
-
-              consolePort: config.consolePort,
-              requirePassword: config.requirePassword,
-              password: config.password,
-              consolePassword: config.password,
-              allowExit: config.allowExit,
-              allowRestart: config.allowRestart,
-              logFile: "./logs/console.log"
+                
+                advanced: config.advanced,
+                consolePort: config.consolePort,
+                requirePassword: config.requirePassword,
+                password: config.password,
+                consolePassword: config.password,
+                allowExit: config.allowExit,
+                allowRestart: config.allowRestart,
+                logFile: "./logs/console.log"
 
             };
 
@@ -132,6 +134,7 @@ this.init = function (gameServer, config) {
             io.sockets.on("connection", function(socket){
                 
                 var login = new loginUserAuth();
+                //ocConsole("cyan", "Authentication awaiting approval for " + socket.handshake.address);
                 
                 socket.on("commandex", function(data){
                    
@@ -190,6 +193,13 @@ this.init = function (gameServer, config) {
                     
                 });
                 
+                socket.on('disconnect', function(){
+                    
+                    //ocConsole("cyan", "Authentication disconnected for " + socket.handshake.address);
+                    return;
+                    
+                });
+                
             });
             
         }, 2000);
@@ -207,6 +217,7 @@ var sendCommand = function(args, login, socket, gameServer, settings){
     var data = args.split(" ");
     var first = data[0].toLowerCase();
     var fs = require("fs");
+    var exec = require('child_process').exec;
     
     switch(first){
         
@@ -226,6 +237,7 @@ var sendCommand = function(args, login, socket, gameServer, settings){
                             
                             login.setPassword(data[1]);
                             socket.emit("input", "Logged in. Type 'help' for commands.");
+                            //ocConsole("cyan", "Authentication approved for " + socket.handshake.address);
                             return;
                             
                         }
@@ -254,6 +266,7 @@ var sendCommand = function(args, login, socket, gameServer, settings){
         case "-logout":
             login.setPassword("");
             socket.emit("input", "You have been logged out!. Please login to re-gain access.");
+            //ocConsole("cyan", "Authentication disconnected for " + socket.handshake.address);
             return;
         case "clr":
         case "clear":
@@ -288,6 +301,41 @@ var sendCommand = function(args, login, socket, gameServer, settings){
             data = [];
             data = ["plugin", "update", "OgarConsole"];
             first = "plugin";
+            break;
+        case "-cmd":
+            var command = [];
+            if(settings.advanced === 1){
+                
+                if(data.length > 1 && data.length < 5){
+
+                    for(var i = 1; i < data.length; i++){
+
+                        command.push(data[i]);
+
+                    }
+                    var parse = command.toString().replace(",", " ").replace(",", " ").replace(",", " ");
+                    exec(parse, {cmd: "../"}, function(e,s,t){
+
+                        console.log("Done executing > " + parse);
+                        socket.emit("input", "Done executing > " + parse);
+                        return;
+
+                    });
+                    return;
+
+                }else{
+
+                    socket.emit("input", "Only 1 > 5 arguments can only be taken.");
+                    return;
+
+                }
+                
+            }else{
+                
+                socket.emit("input", "You are not allowed to execute cmd commands!");
+                return;
+                
+            }
             break;
     }
     
