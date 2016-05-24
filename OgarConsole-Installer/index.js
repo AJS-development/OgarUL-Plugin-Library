@@ -361,8 +361,9 @@ var checkUpdate = function(gameServer){
               
               ocConsole("green", "Preparing OgarConsole update!." + version + " > " + liveVersion.version);
               var uc = [];
-              uc[0] = "update";
-              uc[1] = "OgarConsole";
+              uc[0] = "plugin";
+              uc[1] = "update";
+              uc[2] = "OgarConsole";
               
               var execute = gameServer.consoleService.commands[uc[0]];
               execute(gameServer, uc);
