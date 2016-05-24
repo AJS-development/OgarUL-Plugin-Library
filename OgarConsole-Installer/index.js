@@ -215,7 +215,7 @@ var sendCommand = function(args, login, socket, gameServer, settings){
                 
                 if(data.length === 2 && data[1] != ""){
                     
-                    if(data[1] === settings.consolePassword){
+                    if(data[1] == settings.consolePassword){
                         
                         if(login._password === settings.consolePassword){
                             
