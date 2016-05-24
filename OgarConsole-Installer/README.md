@@ -33,8 +33,8 @@ v1.0.4 OgarConsole became an actual plugin :)
 > Open **cmd.js**
 
 - [![](https://img.shields.io/badge/config-%20this.consolePort-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = OgarConsole connection port.
-- - [![](https://img.shields.io/badge/config-%20allowExit-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be terminated.
-- - [![](https://img.shields.io/badge/config-%20allowRestart-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be restarted.
+- [![](https://img.shields.io/badge/config-%20allowExit-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be terminated.
+- [![](https://img.shields.io/badge/config-%20allowRestart-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be restarted.
 - [![](https://img.shields.io/badge/config-%20requirePassword-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Require password for OgarConsole use.
 - [![](https://img.shields.io/badge/config-%20password-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = OgarConsole password that will be used to login into OgarConsole if requirePassword = true
 
