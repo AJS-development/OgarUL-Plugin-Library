@@ -1,5 +1,4 @@
 'use strict';   // dont touch
-var plugin = []; // dont touch
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -9,368 +8,378 @@ this.addToHelp = []; // dont touch
 // [General]
 this.name = "OgarConsole"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
-this.description = 'OgarConsole >> Control your Ogar Server'; // Desciprtion
+this.description = 'Control Your OgarUL Servers'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.4'; // version REQUIRED
+this.version = '1.0.0'; // version REQUIRED
 
-// [Extra Commands]
-this.commandName[0] = ""; // plugin add-on command names
-this.addToHelp[0] = "-password [password] : Log into OgarConsole"; // help command add-on (adds this string to the help command)
-this.addToHelp[1] = "-logout : Log out of OgarConsole";
-this.addToHelp[2] = "-update : Update OgarConsole";
-this.command[0] = ''; // extra command location
+// INSERT PLUGIN BELOW
 
-// [Extra Gamemodes]
-this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
-this.gamemode[0] = ''; // gamemode location
-
-// [Configs]
 this.config = {
-// config1: 0,
-  
+    
+    advanced: 0,
+    allowExit: 0,
+    allowRestart: 0,
+    consolePort: 1000,
+    password: "OgarConsole123", //default. Change password in ./config.ini
+    requirePassword: 1
+    
+    
 };
 
-// Configuration file
-this.configfile = 'config.ini';
+this.configfile = "config.ini";
 
-this.init = function(gameServer, config){
+
+// dependencies
+
+// [Functions]
+this.init = function (gameServer, config) {
     
-    //
+    this.gameServer = gameServer;
+    this.config = config;
+    
     var fs = require('fs');
     var exec = require('child_process').exec;
-    //
     
-    var thisOgarConsole;
-    
-    try{
-        
-        fs.lstatSync(__dirname + "/node_modules"); // return false if modules not install..
-        
-
-    }catch(e){
-        
+    if(typeof running == 'undefined')
+    {
+        var running = true;
         setTimeout(function(){
             
-            console.log("[OgarConsole] First use? Installing modules..");
-            console.log("[OgarConsole] OgarUnlimited will restart afterwards. Please wait..");
-            exec("npm install", {cwd: __dirname}, function(e,s,t){
+            checkUpdate(gameServer);
+            
+            try{
 
-                console.log("[OgarConsole] Modules Installed.. Restarting OgarUnlimited!..");
+                fs.lstatSync(__dirname + '/node_modules');
 
-                setTimeout(function(){
+            }catch(e){
 
-                    process.exit(3);
+                ocConsole("cyan", "First use? Installing OgarConsole Dependencies");
+                ocConsole("", "OgarUnlimited will restart afterwards. Please wait..");
 
-                }, 2000);
+                exec("npm install", {cwd: __dirname}, function(e,s,t)
+                {
 
+                    ocConsole("green", "Modules Installed.. Restarting OgarUnlimited!");
+                    setTimeout(function() { process.exit(3); }, 2000);
+
+                });
+
+            }
+
+            var request = require('request');
+            var express = require('express');
+            var app = express();
+            var server = require('http').createServer(app);
+            var io = require("socket.io").listen(server);
+
+            var settings = {
+
+              consolePort: config.consolePort,
+              requirePassword: config.requirePassword,
+              password: config.password,
+              consolePassword: config.password,
+              advanced: config.advanced,
+              allowExit: config.allowExit,
+              allowRestart: config.allowRestart,
+              logFile: "./logs/console.log"
+
+            };
+
+            var loginUserAuth = function() { this._password = "" };
+            loginUserAuth.prototype.setPassword = function(password){ this._password = password; };
+
+            if(settings.password.length < 3){
+
+                ocConsole("red", "Password must be more than 3 char in length in ./config.ini");
+                ocConsole("red", "OgarConsole was not loaded!");
+                return;
+
+            }
+
+            try
+            {
+
+                server.listen(settings.consolePort);
+                ocConsole("green", "Running on port >> " + settings.consolePort);
+
+            }catch(e){
+
+                ocConsole("red", "Could not start OgarConsole server. " + e);
+                return;
+
+            }
+            
+            app.get('/', function(req, res){
+               
+                fs.readFile(__dirname + '/cmd.ejs', function(err, data){
+                    
+                    if(!err)
+                    {
+                        
+                        res.send("" + data);
+                        
+                    }else{
+                        
+                        res.send("" + err.toString());
+                        
+                    }
+                    
+                });
+                
+            });
+            
+            io.sockets.on("connection", function(socket){
+                
+                var login = new loginUserAuth();
+                
+                socket.on("commandex", function(data){
+                   
+                   var data = data;
+                   var first = "";
+                   var split = [];
+                   
+                   if(data && data != ""){ 
+                       
+                       split = data.split(" ");
+                       first = split[0].toLowerCase();
+                       
+                       if(settings.requirePassword === 1){
+                           if(login._password === settings.consolePassword){
+                               
+                               if(first !== "-password"){
+                                   
+                                   sendCommand(data, login, socket, gameServer, settings);
+                                   return;
+                                   
+                               }else{
+                                   
+                                   socket.emit("input", "You are already logged into the console!.");
+                                   return;
+                                   
+                               }
+                               return;
+                               
+                           }else{
+                               
+                               if(first === "-password" && split.length === 2){
+                                   
+                                   sendCommand("-password " + split[1], login, socket, gameServer, settings);
+                                   return;
+                                   
+                               }else{
+                                   socket.emit("input", "Usage: -password [password]");
+                                   return;
+                                   
+                               }
+                               
+                           }
+                           
+                       }else{
+                           
+                           sendCommand(data, login, socket, gameServer, settings);
+                           return;
+                           
+                       }
+                       
+                   }else{
+                       
+                       return;
+                       
+                   }
+                    
+                });
+                
             });
             
         }, 2000);
+        
+    }else{
+        
         return;
         
     }
     
-    this.gameServer = gameServer;
+
+};
+var sendCommand = function(args, login, socket, gameServer, settings){
     
-    var OgarConsole = function(gameServer) { 
+    var data = args.split(" ");
+    var first = data[0].toLowerCase();
+    var fs = require("fs");
+    
+    switch(first){
         
-        this.gameServer = gameServer;
-        this.start();
-
-    };
-
-    OgarConsole.prototype.settings = function(){
-
-            this.serverPort = 1000;
-            this.requirePassword = true;
-            this.consolePassword = "OgarConsole123";
-            this.advanced = false;
-            this.allowExit = false;
-            this.allowRestart = false;
-            this.logFile = "./logs/console.log";
-            this.json = require("./package.json");
-            this.version = this.json.version;
-            return this;
-
-    };
-    
-    var request = require('request'),
-            express = require('express'),
-            app = express(),
-            server = require("http").createServer(app),
-            io = require("socket.io").listen(server);
-
-    OgarConsole.prototype.start = function(){
-
-        var newUserPassword = function(){ this._password = ""; };
-        newUserPassword.prototype.setPassword = function(a){ this._password = a; };
-
-        if(this.settings().consolePassword.length < 3){
-
-            OgarConsole.prototype.log("Password must be more than 3 chars in length.");
-            OgarConsole.prototype.terminate();
-            return;
-
-        };
-
-        // Create new connection
-        try{
-
-            server.listen(this.settings().serverPort);
-            OgarConsole.prototype.log("Runnin on port >> " + this.settings().serverPort);
-
-        }catch(e){
-
-            OgarConsole.prototype.log("Could not start OgarConsole server. >> " + e);
-            OgarConsole.prototype.terminate();
-            return;
-
-        }
-
-        server.on('error', function(err){
-            
-            thisOgarConsole.log("Could not listen on port " + thisOgarConsole.serverPort);
-            thisOgarConsole.log("Ogar and OgarConsole stopped..");
-            thisOgarConsole.terminate();
-            return;
-
-        });
-
-        // OgarConsole >> Listen for connections
-        app.get("/", function(req, res){
-
-            fs.readFile(__dirname + "/cmd.ejs", function(err, data){
-
-                if(!err){
-
-                    res.send("" + data);
-
-                }else{
-
-                    res.send("" + err.toString());
-                    return;
-
-                }
-
-            });
-
-        });
-
-        io.sockets.on("connection", function(socket){
-
-            var login = new newUserPassword();
-
-            socket.on("commandex", function(data){
-
-                var first = "";
-                var data = data;
-                var split = [];
-
-                if(!thisOgarConsole.advanced){
-
-                    try{
-
-                        if(data === ""){
+        case "-password":
+            if(settings.requirePassword === 1){
+                
+                if(data.length === 2 && data[1] != ""){
+                    
+                    if(data[1] === settings.consolePassword){
+                        
+                        if(login._password === settings.consolePassword){
+                            
+                            socket.emit("input", "You are already logged into the console!.");
                             return;
-                        }
-
-                        split = data.split(" ");
-                        first = split[0].toLowerCase();
-
-                        if(first !== "-password" && thisOgarConsole.requirePassword){
-
-                            if(login._password.length > 4){
-
-                                if(login._password === thisOgarConsole.consolePassword){
-                                    gameServer.log.onCommand(data);
-                                    OgarConsole.prototype.sendCommand(data, login, socket);
-                                    return;
-
-                                }else{
-                                    socket.emit("input", "Invalid password. Please enter correct password!.");
-                                    return;
-
-                                }
-
-                            }else{
-                                socket.emit("input", "Please enter password. Usage: '-password password'.");
-                                return;
-
-
-                            }
-
+                            
                         }else{
-                            OgarConsole.prototype.sendCommand("-password " + split[1], login, socket);
+                            
+                            login.setPassword(data[1]);
+                            socket.emit("input", "Logged in. Type 'help' for commands.");
                             return;
-
+                            
                         }
-
-                    }catch(e){
-
-                        // Ogar callback if error..
-                        socket.emit("input", "[Ogar] " + e.toString());
-                        return;
-
-                    }
-
-                }else{
-
-                    /*
-                     * 
-                     * ADVANCED MODE ONLY!. ONLY ACTIVATE IF YOU WANT TO SEND PURE CMD COMMANDS.
-                     * 
-                     * ( *THIS DISABLES OGAR COMMANDS USE* )
-                     * 
-                     * 
-                     * * BEWARE THE DAMAGES THIS MAY CAUSE. 
-                     * 
-                     * * ALSO THERES NO PASSWORDS WHEN ACTIVATING THIS!!
-                     * 
-                     */
-
-                    exec(data, function(e,s,t){
-                        socket.emit('input', s);
-                        return;
-                    });
-
-                }
-
-            });
-
-        });
-
-    };
-
-    OgarConsole.prototype.sendCommand = function(array, login, socket){
-
-        var d = array;
-        var array = d.split(" ");
-        var first = array[0].toLowerCase();
-
-        switch(first){
-
-            case "-password":
-                if(this.settings().requirePassword){
-
-                    if(array.length === 2){
-
-                        if(array[1] === this.settings().consolePassword){
-
-                            if(login._password.length < 3){
-                                login.setPassword(array[1]);
-                                socket.emit("input", "Logged In.&#10;" + "Type 'help' for commands.");
-                                thisOgarConsole.log("User Logged In :: " + socket.handshake.address);
-                                return;
-
-                            }else{
-                                socket.emit("input", "You are already logged into the console!.");
-                                return;
-                            }
-
-                        }else{
-                            socket.emit("input", "Invalid password.");
-                            return;
-                        }
-
+                        
                     }else{
-                        socket.emit("input", "Usage: '-password password'");
-                        return;  
-                    } 
-
+                        
+                        socket.emit("input", "Invalid password. Please try again!.");
+                        return;
+                        
+                    }
+                    
                 }else{
-                    socket.emit("input", "This console doesn't require a password.");
+                    
+                    socket.emit("input", "Usage: -password [password]");
                     return;
+                    
                 }
-                break;
-
-            case "-logout":
-                login._password = "";
-                socket.emit("input", "You have been logged out. Please login to re'gain access.");
-                OgarConsole.prototype.log("User Logged Out :: " + socket.handshake.address);
+                
+            }else{
+                
+                socket.emit("input", "This console doesn't require a password!.");
                 return;
-
-            case "clr":
-                fs.truncate(this.settings().logFile, "", function(){});
-                return;
-
-            case "clear":
-                fs.truncate(this.settings().logFile, "", function(){});
-                return;
-
-            case "exit":
-                if(!this.settings().allowExit)
-                    socket.emit("input", "You are not allowed to terminate this console");
-                return;
-
-            case "stop":
-                if(!this.settings().allowExit)
-                    socket.emit("input", "You are not allowed to terminate this console");
-                return;
-            case "-update":
-                array = [];
-                array = ["plugin", "update", "OgarConsole"];
-                first = "plugin";
-                break;
-            case "restart":
-                if(!this.settings().allowRestart)
-                    socket.emit("input", "You are not allowed to terminate this console");
-                return;
-
-        }
-
-        var execute = gameServer.consoleService.commands[first];
-
-        if(typeof execute !== 'undefined'){
-
-                execute(gameServer, array);
-                setTimeout(function(){
-
-                    fs.readFile(thisOgarConsole.logFile, function(err, data){
-
-                       if(!err){
-
-
-                            socket.emit("input", "[LOG]" + data.toString());
-                            return;
-
-                       }
-
-                    });
-
-                }, 20);
-
-        }else{
-
-            socket.emit("input", "Invalid Command!. Try 'help' for a list of commands.");
+                
+            }
+            break;
+        case "-logout":
+            login.setPassword("");
+            socket.emit("input", "You have been logged out!. Please login to re-gain access.");
             return;
-
-        }
-
-
-    };
-
-    OgarConsole.prototype.terminate = function(){
-
-        gameServer.socketServer.close();
-        process.exit(1);
-        return;
-
-    };
-
-    OgarConsole.prototype.log = function(log){
-
-        console.log("[OgarConsole] >> " + log);
-        return;
-
-    };
+        case "clr":
+            fs.truncate(settings.logFile, "", function(){});
+            return;
+        case "clear":
+            fs.truncate(settings.logFile, "", function(){});
+            return;
+        case "exit":
+            if(settings.allowExit === 0)
+            {
+                socket.emit("input", "You are not allowed to terminate this console!.");
+                return;
+            }
+            break;
+        case "stop":
+            if(settings.allowExit === 0)
+            {
+                socket.emit("input", "You are not allowed to terminate this console!.");
+                return;
+            }
+            break;
+        case "restart":
+            if(settings.allowRestart === 0)
+            {
+                socket.emit("input", "You are not allowed to restart this console!.");
+                return;
+            }
+            break;
+        case "-update":
+            data = [];
+            data = ["plugin", "update", "OgarConsole"];
+            first = "plugin";
+            break;
+    }
     
-    setTimeout(function(){
+    var execute = gameServer.consoleService.commands[first];
+    if(typeof execute !== 'undefined'){
         
-        thisOgarConsole = new OgarConsole(gameServer);
+        execute(gameServer, data);
+        setTimeout(function(){
+            
+            fs.readFile(settings.logFile, function(err, d){
+                
+                if(!err){
+                    socket.emit("input", d.toString());
+                    return;
+                    
+                }else{
+                    socket.emit(err.toString());
+                    return;
+                    
+                }
+                
+            });
+            
+        }, 10);
         
-    }, 1000);
+    }else{
+        
+        socket.emit("input", "Invalid Command!. Try 'help' for a list of commands");
+        return;
+        
+    }
+    
+};
+var ocConsole = function(color, log){
+    
+    var head = "OgarConsole";
+    switch(color){
+        
+        case "red":
+            console.log("[" + "\x1b[31m" + head + "\x1b[0m" + "] " + log);
+            break;
+        case "green":
+            console.log("[" + "\x1b[32m" + head + "\x1b[0m" + "] " + log);
+            break;
+        case "cyan":
+            console.log("[" + "\x1b[36m" + head + "\x1b[0m" + "] " + log);
+            break;
+        default:
+            console.log("\x1b[32m" + "[" + "\x1b[37m" + head + "\x1b[32m" + "]" + "\x1b[0m " + log);
+            break;
+            
+    }
+    
+};
+
+var checkUpdate = function(gameServer){
+    
+  var json = require("./package.json");
+  var version = json.version;
+  var request = require('request');
+  
+  request('https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/package.json', function(e, r, b){
+      
+      if(!e && r.statusCode == 200){
+          
+          var data = b;
+          var liveVersion = JSON.parse(data);
+          
+          if(liveVersion.version !== version){
+              
+              ocConsole("green", "Preparing OgarConsole update!." + version + " > " + liveVersion.version);
+              var uc = [];
+              uc[0] = "update";
+              uc[1] = "OgarConsole";
+              
+              var execute = gameServer.consoleService.commands[uc[0]];
+              execute(gameServer, uc);
+              return true;
+              
+          }else{
+              
+              ocConsole("cyan", "No recent updates :)");
+              return false;
+              
+          }
+          
+      }
+      
+  });
     
 };
 
 
-module.exports = this;
+this.onsecond = function(gameServer) {
+
+
+};
+module.exports = this; // dont touch
