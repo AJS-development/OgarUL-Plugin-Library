@@ -21,8 +21,7 @@ this.config = {
     consolePort: 1000,
     password: "OgarConsole123", //default. Change password in ./config.ini
     requirePassword: 1
-    
-    
+
 };
 
 this.configfile = "config.ini";
@@ -257,18 +256,10 @@ var sendCommand = function(args, login, socket, gameServer, settings){
             socket.emit("input", "You have been logged out!. Please login to re-gain access.");
             return;
         case "clr":
-            fs.truncate(settings.logFile, "", function(){});
-            return;
         case "clear":
             fs.truncate(settings.logFile, "", function(){});
             return;
         case "exit":
-            if(settings.allowExit === 0)
-            {
-                socket.emit("input", "You are not allowed to terminate this console!.");
-                return;
-            }
-            break;
         case "stop":
             if(settings.allowExit === 0)
             {
@@ -282,6 +273,16 @@ var sendCommand = function(args, login, socket, gameServer, settings){
                 socket.emit("input", "You are not allowed to restart this console!.");
                 return;
             }
+            break;
+        case "-r":
+        case "r":
+        case "-refresh":
+            fs.readFile(settings.logFile, function(e, d){
+                if(!e){
+                    socket.emit("input", d.toString());
+                    return;
+                }
+            });
             break;
         case "-update":
             data = [];
