@@ -45,8 +45,6 @@ this.init = function (gameServer, config) {
         var running = true;
         setTimeout(function(){
             
-            checkUpdate(gameServer);
-            
             try{
 
                 fs.lstatSync(__dirname + '/node_modules');
@@ -68,6 +66,9 @@ this.init = function (gameServer, config) {
                 return;
 
             }
+
+            checkUpdate(gameServer);
+
 
             var request = require('request');
             var express = require('express');
