@@ -1,10 +1,6 @@
 [![OgarUL](https://img.shields.io/badge/Ogar%20Unlimited-AJS_Development-green.svg)](https://github.com/AJS-development/Ogar-unlimited)  [![GitHub issues](https://img.shields.io/github/issues/AJS-development/OgarUL-Plugin-Library.svg)](https://github.com/AJS-development/OgarUL-Plugin-Library/issues)  [![GitHub forks](https://img.shields.io/github/forks/AJS-development/OgarUL-Plugin-Library.svg)](https://github.com/AJS-development/OgarUL-Plugin-Library/network)  [![GitHub stars](https://img.shields.io/github/stars/AJS-development/OgarUL-Plugin-Library.svg)](https://github.com/AJS-development/OgarUL-Plugin-Library/stargazers)
 
 # OgarUL-Plugin-Library
-Some plugins for ogar unlimited. 
-
-
-
 ### How do I install plugins from the official library?
 the official library is here: https://github.com/AJS-development/OgarUL-Plugin-Library
 
