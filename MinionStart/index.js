@@ -35,7 +35,7 @@ this.init = function (gameServer, config) {
 };
 
 this.beforespawn = function(player) {
-  if (!player.gotminions && (player.socket.remoteAddress || this.config.giveBotsMinions == 1)) {
+  if (!player.gotminions && !player.owner && (player.socket.remoteAddress || this.config.giveBotsMinions == 1)) {
     player.gotminions = true;
     var amount = this.config.numberOfMinions;
     if (this.config.randomMinions) {
