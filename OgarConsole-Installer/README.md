@@ -1,4 +1,4 @@
-#Installs OgarConsole by LegitSoulja for you
+# OgarConsole for Ogar unlimited
 https://github.com/LegitSoulja/OgarConsole
 
 
