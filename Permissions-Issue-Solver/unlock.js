@@ -4,7 +4,7 @@ module.exports = function(gameServer,split) {
       if (error !== null) {
         console.error('[Execution Error] Failed to run chmod  Reason: ', error);
       } else {
-        console.log("[Console] Files unlocked succesfully!";
+        console.log("[Console] Files unlocked succesfully!");
       }
     });
   
