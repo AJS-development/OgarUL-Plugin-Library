@@ -1,1 +1,3 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/files.txt
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/index.js
+unlock.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/unlock.js
