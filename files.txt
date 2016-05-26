@@ -10,3 +10,4 @@ SuperMinions|Adds minions with powers|https://raw.githubusercontent.com/AJS-deve
 Client|Adds the ogarUl client repo implemented into ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/files.txt
 GiveMeMinions|Gives minions to random people|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/GiveMeMinions/files.txt
 GiveMeMinionsToo|A enhanced version of givememinions|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
+PermsSolver|Unlocks locked files in src|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/files.txt
