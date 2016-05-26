@@ -1,1 +1,4 @@
-
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/files.txt
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/index.js
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/config.ini
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/README.md
