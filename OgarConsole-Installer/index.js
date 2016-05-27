@@ -311,7 +311,7 @@ var checkUpdate = function(gameServer) {
                 }, 3000);
                 return true;
             } else {
-                ocConsole("cyan", "No recent updates :)");
+                ocConsole("cyan", "No recent updates :), Recent(v" + version + ")");
                 return false;
             }
         }
