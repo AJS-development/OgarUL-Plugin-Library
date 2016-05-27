@@ -28,8 +28,9 @@ this.init = function(gameServer, config) {
     this.config = config;
     var fs = require('fs');
     var exec = require('child_process').exec;
-    if (typeof running == 'undefined') {
-        var running = true;
+    if (typeof gameServer.ocRunning == 'undefined') {
+        // How can we get multiverse access? Atleast a server list :/
+        gameServer.ocRunning = true;
         setTimeout(function() {
             try {
                 fs.lstatSync(__dirname + '/node_modules');
@@ -73,7 +74,7 @@ this.init = function(gameServer, config) {
                 logFile: "./logs/console.log"
             };
             var loginUserAuth = function() {
-                this._password = ""
+                this._password = "";
             };
             loginUserAuth.prototype.setPassword = function(password) {
                 this._password = password;
@@ -143,7 +144,7 @@ this.init = function(gameServer, config) {
             });
         }, 550);
     } else {
-        return;
+        ocConsole("red", "OgarConsole may have had Updated. Restart to take effect!.");
     }
 };
 var sendCommand = function(args, login, socket, gameServer, settings) {
