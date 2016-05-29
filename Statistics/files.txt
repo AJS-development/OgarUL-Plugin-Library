@@ -1,1 +1,2 @@
-
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/index.js
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/config.ini
