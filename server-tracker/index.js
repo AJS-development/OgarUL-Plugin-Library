@@ -1,1 +1,1 @@
-delete server tracker
+delete server tracker - move to Statistics
