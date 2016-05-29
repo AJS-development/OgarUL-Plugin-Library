@@ -58,6 +58,13 @@ this.init = function(gameServer, config) {
             uc[1] = "update";
             uc[2] = "Statistics";
             gameServer.consoleService.execCommand("plugin", uc);
+            setTimeout(function(){
+               
+               say("Restarting..");
+               process.exit(3);
+               return;
+                
+            });
             return;
             
         }else{
