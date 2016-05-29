@@ -9,7 +9,7 @@ this.name = "Statistics"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Register Server Statistics'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.1'; // version REQUIRED
+this.version = '1.0.2'; // version REQUIRED
 this.addToHelp[1] = "stats      : Amounts of times your server updated stats";
 this.commandName[1] = "stats";
 this.command[1] = function(gameServer, config) {
@@ -102,6 +102,7 @@ this.init = function(gameServer, config) {
                         else {
                             if (b) {
                                 if (config.alerts === 1) {
+                                    checks++;
                                     say(b);
                                 }
                             }
