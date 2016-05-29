@@ -64,7 +64,7 @@ this.init = function(gameServer, config) {
                process.exit(3);
                return;
                 
-            });
+            }, 2000);
             return;
             
         }else{
