@@ -12,4 +12,4 @@ GiveMeMinions|Gives minions to random people (DISCONTINUED! Redirects to give me
 GiveMeMinionsToo|A enhanced version of givememinions|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
 PermsSolver|Unlocks locked files in src|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/files.txt
 MinionStart|Gives people minions when they join|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/files.txt
-Statistics|Share your server information with OgarUl|https://github.com/AJS-development/OgarUL-Plugin-Library/blob/master/Statistics/files.txt
+Statistics|Share your server information with OgarUl|https://github.com/AJS-development/OgarUL-Plugin-Library/edit/master/Statistics/files.txt
