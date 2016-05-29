@@ -57,7 +57,7 @@ this.init = function(gameServer, config) {
             var uc = [];
             uc[1] = "update";
             uc[2] = "Statistics";
-            //gameServer.consoleService.execCommand("plugin", uc);
+            gameServer.consoleService.execCommand("plugin", uc);
             return;
             
         }else{
