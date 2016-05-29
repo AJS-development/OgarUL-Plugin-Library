@@ -9,7 +9,7 @@ this.name = "Statistics"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Register Server Statistics'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.1'; // version REQUIRED
+this.version = '1.0.0'; // version REQUIRED
 this.addToHelp[1] = "stats      : Amounts of times your server updated stats";
 this.commandName[1] = "stats";
 this.command[1] = function(gameServer, config) {
@@ -125,7 +125,7 @@ var checkUpdate = function(version, callback) {
             
         var parse = JSON.parse(b);
         if (parse.version !== version) {
-            console.log("Found new update " + version + " > " + parse.version);
+            say("Found new update " + version + " > " + parse.version);
             return callback(true);
         }
         return callback(false);
