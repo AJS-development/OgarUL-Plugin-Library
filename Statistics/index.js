@@ -60,21 +60,7 @@ this.config = {
     debug: 0,
 };
 this.configfile = 'config.ini';
-var sendOut = {
-    serverName: "New Server",
-    serverBots: 0, // dynamic
-    serverPort: 0, // static
-    gamemode: 0, // dynamic
-    statPort: 0, // static
-    serverPlayers: 0, // dynamic
-    gameUID: "", // static
-    recentPlayer: "", // dynamic
-    ip: "", // dynamic
-    uptime: 0, // dynamic
-    remove: "", // static
-    clientlink: "", // dynamic
-    // new things thats coming
-};
+var sendOut;
 module.exports = sendOut;
 // [Functions]
 this.init = function(gameServer, config) {
@@ -82,12 +68,22 @@ this.init = function(gameServer, config) {
     this.config = config;
     gameServer.schecks = 0;
     // dynamic
-    sendOut.gameUID = gameServer.uid;
-    sendOut.serverPort = gameServer.config.serverPort;
-    sendOut.ip = config.customip;
-    sendOut.statPort = gameServer.config.serverStatsPort;
-    sendOut.clientlink = config.clientlink;
-    sendOut.serverName = config.serverName;
+    sendOut = {
+        serverName: config.serverName, // static
+        serverBots: 0, // dynamic
+        serverPort: gameServer.config.serverPort, // static
+        gamemode: 0, // dynamic
+        statPort: gameServer.config.serverStatsPort, // static
+        serverPlayers: 0, // dynamic
+        gameUID: gameServer.uid, // static
+        recentPlayer: "", // dynamic
+        ip: config.customip, // dynamic
+        uptime: 0, // dynamic
+        remove: "", // dynamic
+        clientlink: config.clientlink, // static
+        // new things thats coming
+        version: gameServer.pluginLoader.version, // static
+    };
     // check network
     /*
     checkNetwork(function(callback) {
@@ -96,13 +92,12 @@ this.init = function(gameServer, config) {
         }
     });
     */
-    require('dns')
-        .resolve('www.google.com', function(err) {
-            if (err) {
-                say("red", "No network connectivity for Statistics");
-                return;
-            }
-        });
+    require('dns').resolve('www.google.com', function(err) {
+        if (err) {
+            say("red", "No network connectivity for Statistics");
+            return;
+        }
+    });
     if (this.config.optout === 1) {
         deletes(gameServer);
         return;
@@ -120,10 +115,8 @@ this.init = function(gameServer, config) {
                 return;
             }, 3000);
             return;
-        }
-        else {
-            say("cyan", "No recent updates :)" + "\r\n" + "{" + "\r\n" + "\x1b[32mServer Name\x1b[0m: " + config.serverName + "\r\n" + "\x1b[32mServer Ip\x1b[0m: " + config.customip +
-                "\r\n" + "{" + "\r\n");
+        } else {
+            say("cyan", "No recent updates :)" + "\r\n" + "{" + "\r\n" + "\x1b[32mServer Name\x1b[0m: " + config.serverName + "\r\n" + "\x1b[32mServer Ip\x1b[0m: " + config.customip + "\r\n" + "{" + "\r\n");
             gameServer.senabled = true;
             setInterval(function() {
                 create(gameServer, config);
@@ -164,8 +157,7 @@ var deletes = function(gameServer) {
                     data: sendOut
                 }));
                 console.log(b);
-            }
-            else {
+            } else {
                 console.log(e);
             }
         });
@@ -179,8 +171,7 @@ var create = function(gameServer, config) {
             getIP(gameServer, config.usevpsip, function(callback) {
                 if (!callback) {
                     say("red", "Could not update server ip");
-                }
-                else {
+                } else {
                     sendOut.ip = callback;
                 }
             });
@@ -205,8 +196,7 @@ var create = function(gameServer, config) {
                 }, function(e, r, b) {
                     if (e) {
                         console.log("Could not send data");
-                    }
-                    else {
+                    } else {
                         gameServer.schecks++;
                         if (b) {
                             if (config.alerts === 1) {
@@ -261,8 +251,7 @@ var getIP = function(gameServer, enable, callback) {
                     var p = JSON.parse(b);
                     sendOut.ip = p.ip;
                     return callback(p.ip);
-                }
-                else {
+                } else {
                     say("red", "Could not get vps ip");
                     return;
                 }
