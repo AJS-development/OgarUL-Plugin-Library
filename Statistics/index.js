@@ -127,7 +127,7 @@ this.init = function(gameServer, config) {
             gameServer.senabled = true;
             setInterval(function() {
                 create(gameServer, config);
-            }, 10000);
+            }, 1000 * 60); // update every minute
             setTimeout(function() {
                 create(gameServer, config);
             }, 2000);
