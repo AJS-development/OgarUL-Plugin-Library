@@ -247,7 +247,6 @@ var checkUpdate = function(version, callback) {
         say.green("Found new update " + version + " > " + parse.version);
         return callback(true);
       }
-      return callback(false);
     }
   });
 };
