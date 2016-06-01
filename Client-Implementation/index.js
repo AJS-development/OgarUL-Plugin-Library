@@ -88,6 +88,10 @@ if (process.env.OPENSHIFT_NODEJS_IP !== undefined) {
     http.listen( serverport, function() {
         console.log('[Client] Listening on *:' + port);
     });
+    http.on('error', function err(e) {
+
+
+});
 }
 } catch (e) {
   console.log("[Client] Couldnt start client. Reason: " + e);
