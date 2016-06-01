@@ -70,7 +70,7 @@ this.init = function (gameServer, config) {
 var port = config.port
 
 
-
+try {
 
 var express = require('express');
 var app = express();
@@ -88,6 +88,10 @@ if (process.env.OPENSHIFT_NODEJS_IP !== undefined) {
     http.listen( serverport, function() {
         console.log('[Client] Listening on *:' + port);
     });
+}
+} catch (e) {
+  console.log("[Client] Couldnt start client. Reason: " + e);
+  
 }
   }
   
