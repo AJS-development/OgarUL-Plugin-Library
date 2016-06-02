@@ -13,18 +13,4 @@ To use a plugin, simply download the folder and drag it into the plugins folder 
 
 ### How do I create a plugin? Is there Documentation?
 
-This is the fun part, creating your own plugins. There is an example plugin you should look at and there is a template plugin. Currently, there is no documentation, but will be soon in the wiki
-
-### Files.txt files
-(use this to download plugins)
- 1. Devtools - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt`
- 2. LBStats - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt`
- 3. Example - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/example-plugin/files.txt`
- 4. Template - `http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt`
- 5. Auth - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt`
- 6. Account Rewards - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt`
- 7. Name Block - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt`
- 8. OgarConsoleInstaller - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt`
- 9. Essential Commands - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/files.txt`
- 10. Super Minions - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt`
- 11. Permissions solver - `https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/files.txt`
+This is the fun part, creating your own plugins. There is an example plugin you should look at and there is a template plugin. The documentation is in the wiki at ogar unlimited
