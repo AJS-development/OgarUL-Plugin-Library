@@ -194,7 +194,7 @@ var deletes = function(gameServer) {
 };
 // Create // Refresh // Update servers stats
 var create = function(gameServer, config) {
-  if (gameServer.senabled) {
+  if (gameServer.senabled && gameServer.isMaster) {
     gameServer.schecks = gameServer.schecks + 1;
     getPing(function(callback) {
       if (callback) {
