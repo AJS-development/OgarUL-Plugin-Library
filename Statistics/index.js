@@ -221,7 +221,7 @@ var create = function(gameServer, config) {
       var bufout = new Buffer(JSON.stringify({data: sendOut}), 'ascii');
       // Lets try hex instead of jSON
       request.post('http://stats.ogarul.tk/grab.php', {
-        form: {buffer: bufout}
+        form: {buffer: bufout.toString("hex")}
       }, function(e, r, b) {
         if (!e) {
           gameServer.schecks++;
