@@ -71,7 +71,7 @@ var port = config.port
 
 
 try {
-
+if (gameServer.isMaster) {
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -92,6 +92,7 @@ if (process.env.OPENSHIFT_NODEJS_IP !== undefined) {
 
 
 });
+}
 }
 } catch (e) {
   console.log("[Client] Couldnt start client. Reason: " + e);
