@@ -97,7 +97,9 @@ this.start = function(gameServer) {
     if (gameServer.running && gameServer.GMMpower) {
     var nsplit = [];
     nsplit[1] = "destroy";
-    gameServer.consoleService.execCommand("minion", nsplit)
+    gameServer.consoleService.execCommand("minion", nsplit);
+    for (var i in gameServer.clients) if (!gameServer.clients[i].socket.remoteAddress && gameServer.clients[i].owner) gameServer.clients[i].socket.close();
+    setTimeout(function () {
     for (var i = 0; i<this.config.setPerInterval; i++) {
       var random = this.getrandom(gameServer)
       if (!random) break;
@@ -107,7 +109,7 @@ this.start = function(gameServer) {
       nsplit[2] = this.config.minionGiveAmount;
       gameServer.consoleService.execCommand("minion", nsplit);
     }
-    
+    }.bind(this),800); 
     
     }
     inttim() // loop
