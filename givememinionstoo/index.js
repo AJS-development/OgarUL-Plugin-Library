@@ -98,7 +98,7 @@ this.start = function(gameServer) {
     var nsplit = [];
     nsplit[1] = "destroy";
     gameServer.consoleService.execCommand("minion", nsplit);
-    for (var i in gameServer.clients) if (!gameServer.clients[i].socket.remoteAddress && gameServer.clients[i].owner) gameServer.clients[i].socket.close();
+    for (var i in gameServer.clients) if (gameServer.clients[i].owner) gameServer.clients[i].socket.close();
     setTimeout(function () {
     for (var i = 0; i<this.config.setPerInterval; i++) {
       var random = this.getrandom(gameServer)
