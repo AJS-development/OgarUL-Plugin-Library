@@ -53,7 +53,7 @@ this.beforespawn = function(player) {
     
   }
   
-  
+  return true;
 }
 this.onSecond = function (gameServer) {
 
