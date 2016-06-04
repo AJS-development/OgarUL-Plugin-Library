@@ -21,6 +21,7 @@ this.config = {
    randomMinions: 0,
    randomMinimum: 1,
    randomMaximum: 10,
+   minionName: "minion",
 }
 this.configfile = 'config.ini'
 
@@ -47,7 +48,7 @@ this.beforespawn = function(player) {
     var c = [];
     c[1] = player.pID;
     c[2] = amount;
-    c[3] = player.name + "'s Minion";
+    c[3] = this.config.minionName;
     this.gameServer.consoleService.execCommand("minion", c)
     
     
