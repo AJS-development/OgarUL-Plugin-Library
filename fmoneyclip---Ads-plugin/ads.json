@@ -1,10 +1,10 @@
 [
 {
-"adname": "example",
-"adtype": "image",
-"adurl": "http://example.com",
-"adduration": 5,
-"adlink": "example.com"
+"name": "example",
+"type": "image",
+"data": "http://example.com",
+"duration": 5,
+"link": "example.com"
 }
 
 ]
