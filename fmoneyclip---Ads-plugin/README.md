@@ -16,4 +16,5 @@ adurl: url for the image ad
 addimx: The width of the add (optional and only for imgs)
 addimy: the height of the add (optional and only for img)
 adduration: Duration of the add to display
+adlink: url to directo to. Optional
 ```
