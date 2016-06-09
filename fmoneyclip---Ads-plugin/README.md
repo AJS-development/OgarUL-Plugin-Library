@@ -23,6 +23,7 @@ link: url to redirect to. Optional
 Please note .json types are very strict. Dont ask us about .json, learn it on the web. 
 ### Command
 >ads [command]
+
 ##### Commands
 1. reload - reloads ads
 2. power - turns on/off ads
