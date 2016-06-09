@@ -81,17 +81,17 @@ this.genHTML = function(ad) {
   if (ad.type == "image") {
 
     if (ad.dimx && ad.dimy) {
-      result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img>"+ end + "</center>";
+      result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
     } else {
-        result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img>"+ end + "</center>";
+        result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
     }
     
   } else if (ad.type == "text") {
    
-    result =  "<center>" + click + "<h3>" + ad.data + "</h3>"+ end + "</center>";
+    result =  "<center>" + click + "<h3>" + ad.data + "</h3>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
     
   } else if (ad.type == "custom") {
-    result = ad.data;
+    result = ad.data + "<br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
   }
   return result;
 };
