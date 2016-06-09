@@ -13,8 +13,17 @@ Configure using ads.json.
 name: the name of the ad
 type: either image or text or custom.
 data: url for the image or the text for the text ad, and the HTML for custom
-dimx: The width of the add (optional and only for imgs)
-dimy: the height of the add (optional and only for img)
-duration: Duration of the add to display
-link: url to directo to. Optional
+dimx: The width of the ad (optional and only for imgs)
+dimy: the height of the ad (optional and only for img)
+duration: Duration of the add to display (in sec)
+link: url to redirect to. Optional
 ```
+
+
+Please note .json types are very strict. Dont ask us about .json, learn it on the web. 
+### Command
+>ads [command]
+##### Commands
+1. reload - reloads ads
+2. power - turns on/off ads
+
