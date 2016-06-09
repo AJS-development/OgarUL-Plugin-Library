@@ -1,5 +1,6 @@
-
 'use strict';   // dont touch
+const Cpacket = require('../../packet').ClientPacket;
+const fs = require('fs');
 var plugin = []; // dont touch
 this.command = []; // dont touch
 this.commandName = []; // dont touch
@@ -35,7 +36,13 @@ this.configfile = 'config.ini'
 // [Functions]
 this.init = function (gameServer, config) {
   this.config = config;
-  
+   console.log("[Console] Loading ads...")
+   try {
+  this.ads = JSON.parse(fs.readFileSync(__dirname + "/ads.json"));
+   } catch (e) {
+     console.log("[Console] Failed to load ads")
+     
+   }
   // init, Used to do stuff such as overriding things
 
 
