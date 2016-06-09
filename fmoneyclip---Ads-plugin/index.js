@@ -7,7 +7,8 @@ this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
 this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
-
+this.timer = 0;
+this.adindex = 0;
 // [General]
 this.name = "Ads plugin"; // Name of plugin REQUIRED
 this.author = "Andrews54757"; // author REQUIRED
@@ -35,6 +36,8 @@ this.configfile = 'config.ini'
 
 // [Functions]
 this.init = function (gameServer, config) {
+  this.timer = 0;
+  this.adindex = 0;
   this.config = config;
    console.log("[Console] Loading ads...")
    try {
@@ -47,8 +50,48 @@ this.init = function (gameServer, config) {
 
 
 };
+this.genHTML = function(ad) {
+  var result = '';
+   if (!ad.data) return '';
+  var click = (ad.link) ? " href=\"" + ad.link + "\"";
+  if (ad.type == "image") {
 
+    if (ad.dimx && ad.dimy) {
+      result = "<center><a" + click + "><img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img></a></center>";
+    } else {
+        result = "<center><a" + click + "><img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img></a></center>";
+    }
+    
+  } else if (ad.type = "text") {
+   
+    result =  "<center><a" + click + "><h3>" + ad.data + "</h3></a></center>";
+    
+  }
+  
+};
+this.sendpacket = function(html, gameServer) {
+  
+  
+  
+};
 this.onSecond = function (gameServer) {
+this.timer++;
+var ads = this.ads;
+if (this.ads) {
+var ad = this.ads[this.adindex];
+  if (this.timer >= ad.duration) {
+    if (ads[this.adindex + 1]) {
+      this.adindex ++;
+    } else {
+      this.adindex = 0;
+    }
+    
+   var ht = this.genHTML(ads[this.adindex]);
+    this.sendpacket(ht,gameServer);
+  }
+  
+}
+
 
   // called every second
 };
