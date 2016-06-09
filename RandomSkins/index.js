@@ -54,7 +54,7 @@ this.command[1] = function(gameServer, split) {
     }
 };
 this.config = {
-    changeInterval: 1, // *60 in minutes. 1 minute default
+    changeInterval: 10, // seconds..
     customSkins: 0, // false
     debug: 0 // false
 };
@@ -119,6 +119,6 @@ var randomSkin = function(gameServer, config) {
                 }
             }
         }
-    }, parseInt(config.changeInterval) * 1000); // minutes..
+    }, parseInt(config.changeInterval) * 1000); // seconds..
 };
 module.exports = this; // dont touch
