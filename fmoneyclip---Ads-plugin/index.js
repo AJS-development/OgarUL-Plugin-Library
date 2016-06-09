@@ -20,7 +20,25 @@ this.version = '1.0.0'; // version REQUIRED
 this.commandName[0] = "ads"; // plugin add-on command names
 this.addToHelp[0] = "ads     | Ads plugin command"; // help command add-on (adds this string to the help command)
 this.command[0] = function(gameServer,split) {
-
+if (split[1] == "reload") {
+  console.log("[Console] Reloading ads...")
+   try {
+  gameServer.ads = JSON.parse(fs.readFileSync(__dirname + "/ads.json"));
+  console.log("[Console] Loaded ads");
+   } catch (e) {
+     console.log("[Console] Failed to load ads, Reason: " + e);
+     
+   }
+  
+} else if (split[1] == "power") {
+  gameServer.adson = !gameServer.adson;
+  var text = (gameServer.adson) ? " turned on " : " turned off ";
+  console.log("[Console]" + text + "advertisements")
+} else {
+  console.log("[Console] Available commands");
+  console.log("[Console] Reload - Reload ads");
+  console.log("[Console] Power  - Turn on/off ads");
+}
   
   
 }; // extra command location
@@ -41,6 +59,7 @@ this.config = {
 this.init = function (gameServer, config) {
   this.timer = 0;
   this.adindex = 0;
+  gameServer.adson = true;
   this.config = config;
    console.log("[Console] Loading ads...")
    try {
@@ -89,6 +108,7 @@ this.sendpacket = function(html, gameServer) {
   
 };
 this.onSecond = function (gameServer) {
+  if (!gameServer.adson) return;
 this.timer++;
 var ads = gameServer.ads
 if (gameServer.ads) {
