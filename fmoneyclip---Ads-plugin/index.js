@@ -56,7 +56,7 @@ this.init = function (gameServer, config) {
 this.genHTML = function(ad) {
   var result = '';
    if (!ad.data) return '';
-  var click = (ad.link) ? " href=\"" + ad.link + "\"";
+  var click = (ad.link) ? " href=\"" + ad.link + "\"" : "";
   if (ad.type == "image") {
 
     if (ad.dimx && ad.dimy) {
