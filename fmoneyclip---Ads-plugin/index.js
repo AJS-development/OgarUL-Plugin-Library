@@ -41,7 +41,7 @@ this.init = function (gameServer, config) {
   this.config = config;
    console.log("[Console] Loading ads...")
    try {
-  this.ads = JSON.parse(fs.readFileSync(__dirname + "/ads.json"));
+  gameServer.ads = JSON.parse(fs.readFileSync(__dirname + "/ads.json"));
    } catch (e) {
      console.log("[Console] Failed to load ads")
      
@@ -62,23 +62,32 @@ this.genHTML = function(ad) {
         result = "<center><a" + click + "><img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img></a></center>";
     }
     
-  } else if (ad.type = "text") {
+  } else if (ad.type == "text") {
    
     result =  "<center><a" + click + "><h3>" + ad.data + "</h3></a></center>";
     
+  } else if (ad.type == "custom") {
+    result = ad.data;
   }
-  
+  return result;
 };
 this.sendpacket = function(html, gameServer) {
-  
+  var data = {
+    customHTML: html,
+  };
+  for (var i in gameServer.clients) {
+    var client = gameServer.clients[i];
+    if (client) client.sendPacket(new Cpacket(gameServer,data));
+    
+  }
   
   
 };
 this.onSecond = function (gameServer) {
 this.timer++;
-var ads = this.ads;
-if (this.ads) {
-var ad = this.ads[this.adindex];
+var ads = gameServer.ads
+if (gameServer.ads) {
+var ad = gameServer.ads[this.adindex];
   if (this.timer >= ad.duration) {
     if (ads[this.adindex + 1]) {
       this.adindex ++;
@@ -88,6 +97,7 @@ var ad = this.ads[this.adindex];
     
    var ht = this.genHTML(ads[this.adindex]);
     this.sendpacket(ht,gameServer);
+    this.timer = 0;
   }
   
 }
