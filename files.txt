@@ -14,3 +14,4 @@ PermsSolver|Unlocks locked files in src|https://raw.githubusercontent.com/AJS-de
 MinionStart|Gives people minions when they join|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/files.txt
 Statistics|Share your server information with OgarUl|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/files.txt
 RandomSkins|Random Skins FTW!|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/files.txt
+Ads|Allows you to host ads on the client|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/fmoneyclip---Ads-plugin/files.txt
