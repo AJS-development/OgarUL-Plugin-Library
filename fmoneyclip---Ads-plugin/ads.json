@@ -3,8 +3,14 @@
 "name": "example",
 "type": "image",
 "data": "http://example.com",
-"duration": 5,
-"link": "example.com"
+"duration": 5
+},
+{
+  "name": "textexample",
+  "type": "text",
+   "data": "Join the forums at stats.ogarul.tk!",
+   "link": "http:stats.ogarul.tk",
+   "duration": 6,
 }
 
 ]
