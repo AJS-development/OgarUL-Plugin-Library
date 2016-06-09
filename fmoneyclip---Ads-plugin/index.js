@@ -45,8 +45,9 @@ this.init = function (gameServer, config) {
    console.log("[Console] Loading ads...")
    try {
   gameServer.ads = JSON.parse(fs.readFileSync(__dirname + "/ads.json"));
+  console.log("[Console] Loaded ads");
    } catch (e) {
-     console.log("[Console] Failed to load ads")
+     console.log("[Console] Failed to load ads, Reason: " + e);
      
    }
   // init, Used to do stuff such as overriding things
@@ -56,18 +57,19 @@ this.init = function (gameServer, config) {
 this.genHTML = function(ad) {
   var result = '';
    if (!ad.data) return '';
-  var click = (ad.link) ? " href=\"" + ad.link + "\"" : "";
+  var click = (ad.link) ? "<a href=\"" + ad.link + "\">" : "";
+  var end = (ad.link) ? "</a>" : "";
   if (ad.type == "image") {
 
     if (ad.dimx && ad.dimy) {
-      result = "<center><a" + click + "><img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img></a></center>";
+      result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img>"+ end + "</center>";
     } else {
-        result = "<center><a" + click + "><img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img></a></center>";
+        result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img>"+ end + "</center>";
     }
     
   } else if (ad.type == "text") {
    
-    result =  "<center><a" + click + "><h3>" + ad.data + "</h3></a></center>";
+    result =  "<center>" + click + "<h3>" + ad.data + "</h3>"+ end + "</center>";
     
   } else if (ad.type == "custom") {
     result = ad.data;
