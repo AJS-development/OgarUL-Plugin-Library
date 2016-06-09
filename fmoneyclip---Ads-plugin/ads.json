@@ -1,16 +1,21 @@
 [
 {
-"name": "example",
-"type": "image",
-"data": "http://example.com",
-"duration": 5
+  "name": "example",
+  "type": "image",
+  "data": "http://www.reactionface.info/sites/default/files/images/1287666826226.png",
+  "duration": 5
 },
 {
   "name": "textexample",
   "type": "text",
-   "data": "Join the forums at stats.ogarul.tk!",
-   "link": "http:stats.ogarul.tk",
-   "duration": 6,
+  "data": "Join the forums at stats.ogarul.tk!",
+  "link": "http:stats.ogarul.tk",
+  "duration": 6
+},
+{
+  "name": "customexample",
+  "type": "custom",
+  "data": "<h1>Test</h1>",
+  "duration": 5
 }
-
 ]
