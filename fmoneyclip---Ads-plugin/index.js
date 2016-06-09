@@ -13,7 +13,7 @@ this.adindex = 0;
 this.name = "Ads plugin"; // Name of plugin REQUIRED
 this.author = "Andrews54757"; // author REQUIRED
 this.description = 'Host your own ads!'; // Desciprtion
-this.compatVersion = ''; // compatable with (optional)
+this.compatVersion = '7.2.3'; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
