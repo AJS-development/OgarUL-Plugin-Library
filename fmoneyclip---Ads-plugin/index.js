@@ -31,7 +31,6 @@ this.config = {
   
   
 }
-this.configfile = 'config.ini'
 
 
 // [Functions]
