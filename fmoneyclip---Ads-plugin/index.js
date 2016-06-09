@@ -74,6 +74,7 @@ this.init = function (gameServer, config) {
 
 };
 this.genHTML = function(ad) {
+// please do not get rid of the made by ads plugin notice, it is to show moneyclip that we are not getting money
   var result = '';
    if (!ad.data) return '';
   var click = (ad.link) ? "<a href=\"" + ad.link + "\">" : "";
@@ -81,17 +82,17 @@ this.genHTML = function(ad) {
   if (ad.type == "image") {
 
     if (ad.dimx && ad.dimy) {
-      result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
+      result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\""+ ad.dimx + "\" height=\"" + ad.dimy +"\"></img>"+ end + "</center><br><font size=\"1\">Ads by the ads plugin. Ads not owned by AJS</font>";
     } else {
-        result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
+        result = "<center>" + click + "<img src=\"" + ad.data + "\" width=\"200\" height=\"130\"></img>"+ end + "</center><br><font size=\"1\">Ads by the ads plugin. Ads not owned by AJS</font>";
     }
     
   } else if (ad.type == "text") {
    
-    result =  "<center>" + click + "<h3>" + ad.data + "</h3>"+ end + "</center><br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
+    result =  "<center>" + click + "<h3>" + ad.data + "</h3>"+ end + "</center><br><font size=\"1\">Ads by the ads plugin. Ads not owned by AJS</font>";
     
   } else if (ad.type == "custom") {
-    result = ad.data + "<br><small>Ads by the ads plugin. Ads not owned by AJS</small>";
+    result = ad.data + "<br><font size=\"1\">Ads by the ads plugin. Ads not owned by AJS</font>";
   }
   return result;
 };
