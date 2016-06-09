@@ -6,6 +6,7 @@ this.gamemodeId = []; // dont touch
 this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
 this.addToHelp[1] = "rs [add,rem] [id]";
+this.addToHelp[1] = "rs reset     : Reset added id list";
 // [General]
 this.name = "RandomSkins"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
@@ -15,14 +16,14 @@ this.version = '1.0.0'; // version REQUIRED
 // [Commands]
 this.commandName[1] = "rs";
 this.command[1] = function(gameServer, split) {
-    if (split.length == 3) {
+    if (split.length >= 2) {
         var first = split[1].toLowerCase();
         switch (first) {
             case "add":
                 if (!isNaN(split[2])) {
                     if (ids.indexOf(parseInt(split[2])) > -1) {
                         console.log("[RS] ID is already added.");
-                        return false;
+                        return true;
                     } else {
                         ids.push(parseInt(split[2]));
                         console.log("[RS] Added " + split[2]);
@@ -46,17 +47,29 @@ this.command[1] = function(gameServer, split) {
                     console.log("[RS] Please give a valid ID");
                     return true;
                 }
+                break;
+            case "reset":
+                ids = [];
+                console.log("[RS] All ID's was reset!");
+                return true;
+            default:
+                console.log("[RS] Usage: rs add [id]");
+                console.log("[RS] Usage: rs rem [id]");
+                console.log("[RS] Usage: rs reset");   
+                return true;
         }
     } else {
         console.log("[RS] Usage: rs add [id]");
         console.log("[RS] Usage: rs rem [id]");
+        console.log("[RS] Usage: rs reset");
         return true;
     }
 };
 this.config = {
-    changeInterval: 10, // seconds..
+    changeInterval: 1, // *60 in minutes. 1 minute default
     customSkins: 0, // false
-    debug: 0 // false
+    debug: 0, // false
+    usersskin: 1
 };
 this.configfile = 'config.ini';
 var ids = [];
@@ -103,6 +116,25 @@ this.init = function(gameServer, config) {
         });
     }
 };
+this.beforespawn = function(player){
+    var name = player.name;
+    if(this.config.usersskin == 1){
+        if(name.substr(0,1) == "<"){
+            if(name.substr(0,4) == "<rs>"){
+                if(ids.indexOf(player.pID) > -1){
+                    return true;
+                }else{
+                    ids.push(player.pID);
+                    return true;
+                }
+                return true;
+            }
+            return true;
+        }
+        return true;
+    }
+    return true;
+};
 var randomSkin = function(gameServer, config) {
     setInterval(function() {
         if (gameServer.running) {
@@ -119,6 +151,6 @@ var randomSkin = function(gameServer, config) {
                 }
             }
         }
-    }, parseInt(config.changeInterval) * 1000); // seconds..
+    }, parseInt(config.changeInterval) * 1000); // minutes..
 };
 module.exports = this; // dont touch
