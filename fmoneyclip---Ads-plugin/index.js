@@ -17,9 +17,13 @@ this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
 
 // [Extra Commands]
-this.commandName[0] = ""; // plugin add-on command names
-this.addToHelp[0] = ""; // help command add-on (adds this string to the help command)
-this.command[0] = ''; // extra command location
+this.commandName[0] = "ads"; // plugin add-on command names
+this.addToHelp[0] = "ads     | Ads plugin command"; // help command add-on (adds this string to the help command)
+this.command[0] = function(gameServer,split) {
+
+  
+  
+}; // extra command location
 
 // [Extra Gamemodes]
 this.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
