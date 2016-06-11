@@ -1,0 +1,3 @@
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/files.txt
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/config.ini
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/index.js
