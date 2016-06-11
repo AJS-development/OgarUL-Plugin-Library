@@ -201,7 +201,7 @@ this.init = function (gameServer, config) {
     setTimeout(function(){
         console.log("m=minion ,, t= troll ,, f=freeze ,, ab=addbot ,, kb=kickbots ,, b= board ,,");
         console.log("rs=restart ,, sp=spwanmass ,, cb=chatban ,, k=kill ,, ka=killall ,, ms=mass ,,");
-        console.log("pl=playerlist ,, s=speed ,, c=chat ,, up=update ,, kr=killrange ,, p=pause ,, ms=merge ,,");
+        console.log("pl=playerlist ,, s=speed ,, c=chat ,, up=update ,, kr=killrange ,, p=pause ,, mg=merge ,,");
     }, 1000*5); // 5 seconds wait till print
 };
 
