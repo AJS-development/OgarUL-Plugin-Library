@@ -12,6 +12,7 @@ this.description = 'Shortcuts'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
 
+this.addToHelp[1] = "shortcuts     : Main shortcuts command."
 this.addToHelp[1] = "m     : short minion command replacement";
 this.addToHelp[2] = "t     : short troll command replacement";
 this.addToHelp[3] = "f     : short freeze command replacement";
