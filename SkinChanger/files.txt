@@ -1,5 +1,5 @@
-files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/files.txt
-index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/index.js
-config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/config.ini
-skins.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/skins.txt
-readme.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/readme.md
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/files.txt
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/index.js
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/config.ini
+skins.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/skins.txt
+readme.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/readme.md
