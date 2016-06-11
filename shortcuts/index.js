@@ -7,7 +7,7 @@ this.addToHelp = []; // dont touch
 
 // [General]
 this.name = "ShortCuts"; // Name of plugin REQUIRED
-this.author = "DavidAli&LgitSoulja"; // author REQUIRED
+this.author = "DavidAli&LegitSoulja"; // author REQUIRED
 this.description = 'Shortcuts'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
