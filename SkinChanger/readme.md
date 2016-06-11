@@ -1,4 +1,4 @@
-### RandomSkins!
+### Skin Changer!
 
 **Commands**
 - rs [add,rem] [id]
