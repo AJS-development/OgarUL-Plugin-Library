@@ -8,9 +8,9 @@ this.addToHelp = []; // dont touch
 this.addToHelp[1] = "rs [add,rem] [id]";
 this.addToHelp[1] = "rs reset     : Reset added id list";
 // [General]
-this.name = "RandomSkins"; // Name of plugin REQUIRED
+this.name = "SkinChanger"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
-this.description = 'Skins FTW'; // Desciprtion
+this.description = 'SkinChanger FTW!'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
 // [Commands]
