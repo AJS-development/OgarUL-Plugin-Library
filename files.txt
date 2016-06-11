@@ -15,3 +15,4 @@ MinionStart|Gives people minions when they join|https://raw.githubusercontent.co
 Statistics|Share your server information with OgarUl|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/files.txt
 RandomSkins|Random Skins FTW!|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/RandomSkins/files.txt
 Ads|Allows you to host ads on the client|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/fmoneyclip---Ads-plugin/files.txt
+shortcuts|Command shortcuts|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/files.txt
