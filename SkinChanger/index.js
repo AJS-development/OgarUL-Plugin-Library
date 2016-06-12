@@ -5,16 +5,19 @@ this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
 this.gamemode = []; // dont touch
 this.addToHelp = []; // dont touch
-this.addToHelp[1] = "rs [add,rem] [id]";
-this.addToHelp[1] = "rs reset     : Reset added id list";
+this.addToHelp[1] = "Skin Changer (SC) - LegitSoulja";
+this.addToHelp[2] = "sc [add,rem] [id]";
+this.addToHelp[3] = "sc reset     : Reset added id list";
+this.addToHelp[4] = "Skin <sc> available in game!."
+this.addToHelp[4] = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 // [General]
 this.name = "SkinChanger"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'SkinChanger FTW!'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
+this.version = '1.0.2'; // version REQUIRED
 // [Commands]
-this.commandName[1] = "rs";
+this.commandName[1] = "sc";
 this.command[1] = function(gameServer, split) {
     if (split.length >= 2) {
         var first = split[1].toLowerCase();
@@ -30,7 +33,7 @@ this.command[1] = function(gameServer, split) {
                         return true;
                     }
                 } else {
-                    console.log("[RS] Please give a valid ID");
+                    console.log("[RS] Please give a valid ID.");
                     return true;
                 }
                 break;
@@ -44,13 +47,13 @@ this.command[1] = function(gameServer, split) {
                         }
                     }
                 } else {
-                    console.log("[RS] Please give a valid ID");
+                    console.log("[RS] Please give a valid ID.");
                     return true;
                 }
                 break;
             case "reset":
                 ids = [];
-                console.log("[RS] All ID's was reset!");
+                console.log("[RS] All ID's was reset!.");
                 return true;
             default:
                 console.log("[RS] Usage: rs add [id]");
@@ -120,7 +123,7 @@ this.beforespawn = function(player){
     var name = player.name;
     if(this.config.usersskin == 1){
         if(name.substr(0,1) == "<"){
-            if(name.substr(0,4) == "<rs>"){
+            if(name.substr(0,4) == "<sc>"){
                 if(ids.indexOf(player.pID) > -1){
                     return true;
                 }else{
