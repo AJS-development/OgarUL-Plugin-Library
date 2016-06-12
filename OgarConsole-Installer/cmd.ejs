@@ -40,8 +40,6 @@
                 var socket = io.connect();
                 var output = $("textarea");
                 var input = $(".input");
-                var help = $(".help").html();
-                var f = false;
             
                 socket.on("disconnect", function(err) {
                     output.append("\n" + "Console Disconnected.");
