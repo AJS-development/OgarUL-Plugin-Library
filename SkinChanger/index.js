@@ -25,15 +25,15 @@ this.command[1] = function(gameServer, split) {
             case "add":
                 if (!isNaN(split[2])) {
                     if (ids.indexOf(parseInt(split[2])) > -1) {
-                        console.log("[RS] ID is already added.");
+                        console.log("[SC] ID is already added.");
                         return true;
                     } else {
                         ids.push(parseInt(split[2]));
-                        console.log("[RS] Added " + split[2]);
+                        console.log("[SC] Added " + split[2]);
                         return true;
                     }
                 } else {
-                    console.log("[RS] Please give a valid ID.");
+                    console.log("[SC] Please give a valid ID.");
                     return true;
                 }
                 break;
@@ -42,29 +42,29 @@ this.command[1] = function(gameServer, split) {
                     for (var i in ids) {
                         if (ids[i] === parseInt(split[2])) {
                             ids.splice(i, 1);
-                            console.log("[RS] Removed " + split[2]);
+                            console.log("[SC] Removed " + split[2]);
                             return true;
                         }
                     }
                 } else {
-                    console.log("[RS] Please give a valid ID.");
+                    console.log("[SC] Please give a valid ID.");
                     return true;
                 }
                 break;
             case "reset":
                 ids = [];
-                console.log("[RS] All ID's was reset!.");
+                console.log("[SC] All ID's was reset!.");
                 return true;
             default:
-                console.log("[RS] Usage: rs add [id]");
-                console.log("[RS] Usage: rs rem [id]");
-                console.log("[RS] Usage: rs reset");   
+                console.log("[SC] Usage: sc add [id]");
+                console.log("[SC] Usage: sc rem [id]");
+                console.log("[SC] Usage: sc reset");   
                 return true;
         }
     } else {
-        console.log("[RS] Usage: rs add [id]");
-        console.log("[RS] Usage: rs rem [id]");
-        console.log("[RS] Usage: rs reset");
+        console.log("[SC] Usage: sc add [id]");
+        console.log("[SC] Usage: sc rem [id]");
+        console.log("[SC] Usage: sc reset");
         return true;
     }
 };
@@ -91,11 +91,11 @@ this.init = function(gameServer, config) {
                     }
                     randomSkin(gameServer, config);
                 } else {
-                    console.log("[RS] skins.txt file is empty. Please add skins.");
+                    console.log("[SC] skins.txt file is empty. Please add skins.");
                     return;
                 }
             } else {
-                console.log("[RS] Could not find skins.txt");
+                console.log("[SC] Could not find skins.txt");
                 return;
             }
         });
@@ -109,11 +109,11 @@ this.init = function(gameServer, config) {
                     }
                     randomSkin(gameServer, config);
                 } else {
-                    console.log("[RS] customskins.txt file is empty. Please add skins.");
+                    console.log("[SC] customskins.txt file is empty. Please add skins.");
                     return;
                 }
             } else {
-                console.log("[RS] Could not find customskins.txt");
+                console.log("[SC] Could not find customskins.txt");
                 return;
             }
         });
@@ -148,7 +148,7 @@ var randomSkin = function(gameServer, config) {
                     if (client.pID === ids[p]) {
                         client.premium = "%" + skins[rskin];
                         if (config.debug == 1) {
-                            console.log("[RS] " + client.pID + " Was given the skin " + skins[rskin]);
+                            console.log("[SC] " + client.pID + " Was given the skin " + skins[rskin]);
                         }
                     }
                 }
