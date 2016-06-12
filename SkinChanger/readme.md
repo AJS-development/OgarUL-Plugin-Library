@@ -10,4 +10,6 @@ You can add each skin per line in that text file and those skins would be used i
 ### Next update 1.0.1 
 Live updated skins, (No default skin file), but customskins are still allowed.
 
+> Plugin created by LegitSoulja
+
 
