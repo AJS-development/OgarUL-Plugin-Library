@@ -1,7 +1,8 @@
 'use strict'; // dont touch
 const request = require('request');
 const net = require('net');
-const exec = require("child_process").exec;
+const exec = require('child_process').exec;
+const fs = require('fs');
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -12,7 +13,7 @@ this.name = "Statistics"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'OgarUL Server Statistics List Plugin'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.7'; // version REQUIRED
+this.version = '1.0.8'; // version REQUIRED
 this.commandName[1] = "stats";
 this.addToHelp[1] = "\x1b[36mstats\x1b[0m [\x1b[36mcreate, delete, optout, enable, disable, refresh\x1b[0m]     : Statistics";
 this.addToHelp[2] = "\x1b[36mstats\x1b[0m [\x1b[32mcreate\x1b[0m] | Creates a new statistcs for ogarul server list.";
@@ -33,7 +34,11 @@ this.config = {
   // development
   debug: 0,
 };
-this.configfile = 'config.ini';
+if(fs.existsSync(__dirname + "/override.ini")){
+    this.configfile = "override.ini";
+}else{
+    this.configfile = "config.ini";
+}
 // Start
 this.init = function(gameServer, config) {
   this.gameServer = gameServer;
@@ -42,10 +47,10 @@ this.init = function(gameServer, config) {
   gameServer.schecks = 0;
   // Check if server new
   if(config.serverName == "New Server"){
-      say.cyan("Please update configuration file in ./plugins/Statistics/config.ini");
-      say.green("Please update configuration file in ./plugins/Statistics/config.ini");
-      say.red("Please update configuration file in ./plugins/Statistics/config.ini");
-      say.def("Please update configuration file in ./plugins/Statistics/config.ini");
+      say.cyan("Please change ServerName in ./plugins/Statistics/" + this.configfile);
+      say.green("Please change ServerName in ./plugins/Statistics/" + this.configfile);
+      say.red("Please change ServerName in ./plugins/Statistics/" + this.configfile);
+      say.def("Please change ServerName in ./plugins/Statistics/" + this.configfile);
       gameServer.senabled = false;
       return;
   }
@@ -60,6 +65,7 @@ this.init = function(gameServer, config) {
   // Check OptOut
   if (this.config.optout === 1) {
     deletes(gameServer);
+    gameServer.senabled = false;
     return;
   }
   // Update Packages
@@ -67,11 +73,12 @@ this.init = function(gameServer, config) {
   // Check for updates
   checkUpdate(this.version, function(update) {
     if (update) {
-      say.cyan("Preparing update..");
-      var uc = [];
-      uc[1] = "update";
-      uc[2] = "Statistics";
-      gameServer.consoleService.execCommand("plugin", uc);
+        gameServer.senabled = false;
+        say.cyan("Preparing update..");
+        var uc = [];
+        uc[1] = "update";
+        uc[2] = "Statistics";
+        gameServer.consoleService.execCommand("plugin", uc);
       setTimeout(function() {
         say.green("Restarting...");
         process.exit(3);
@@ -80,7 +87,6 @@ this.init = function(gameServer, config) {
       return;
     }
   });
-  var ip;
   // Check for custom ip changes
   if (config.usevpsip === 1) {
     getIP(gameServer, config, function(callback) {
@@ -89,6 +95,7 @@ this.init = function(gameServer, config) {
       } else {
         console.log("Could not get ip");
         say.red("Terminated due to failed to obtaining ip address. You can use custom or restart the game to try again.");
+        gameServer.senabled = false;
         return;
       }
     });
@@ -99,6 +106,7 @@ this.init = function(gameServer, config) {
   }
   // Enable Statistics
   gameServer.senabled = true;
+  
   // Start Update Interval
   setInterval(function() {
     create(gameServer, config);
@@ -115,6 +123,7 @@ this.beforespawn = function(player) {
         return true; // Spawn player without name
       } else {
         sendOut.recentPlayer = player.name;
+        console.log(player.name);
         return true; // Spawn player in with name
       }
     } else {
@@ -159,7 +168,6 @@ var update = function(gameServer, config) {
   };
   exec('node -v', function(e, s, t) {
     sendOut.nv = s.toString();
-    console.log("[Node] > " + s.toString());
   });
 };
 // Get Ping
@@ -178,12 +186,13 @@ var getPing = function(callback) {
 // Delete server stats
 var deletes = function(gameServer) {
   sendOut.remove = gameServer.uid;
+  var bufout = new Buffer(JSON.stringify({data: sendOut}), 'ascii');
   request.post('http://stats.ogarul.tk/grab.php', {
-    form: {hash: JSON.stringify({data: sendOut})}
+    form: {buffer: bufout.toString("hex")}
   }, function(e, r, b) {
     if (!e) {
-      //console.log(JSON.stringify({data: sendOut}));
       say.cyan("opted out");
+      gameServer.senabled = false;
       sendOut.remove = "";
       console.log(b);
     } else {
@@ -318,23 +327,53 @@ var say = {
 this.onsecond = function(gameServer) {};
 // Command Handler
 this.command[1] = function(gameServer, split) {
+    var first;
   if (split[1]) {
-    var first = split[1].toLowerCase();
+    first = split[1].toLowerCase();
   } else {
-    say.cyan("Usage: stats [create, delete, optout, enable, disable, refresh]");
+    say.cyan("Usage: stats [override, ping, delete, optout, enable, disable]");
     return;
   }
-  if (gameServer.senabled == false && typeof(gameServer.senabled) != 'undefied') {
+  if (gameServer.senabled == false && typeof(gameServer.senabled) != 'undefined') {
     switch (first) {
       case "enable":
       case "disable":
         break;
       default:
-        say.red("Statistics has been deactivated since deleted. Please enable to use again: Usage: stats [enable, disable]");
+        say.red("Statistics is deactivated to due to opt out, or settings not changed. Please enable to use again: Usage: stats [enable, disable]");
         return;
     }
   }
   switch (first) {
+    case "override":
+      fs.readFile(__dirname + "/config.ini", function(e,d){
+          if(!e){
+              fs.writeFile(__dirname + "/override.ini", d, function(e, d){
+                 if(!e){
+                     say.cyan("Override config saved!..");
+                     return true;
+                 }else{
+                     say.red("Override config could not be saved. \r\n" + e);
+                     return true;
+                 }
+              });
+          }else{
+              say.red("Could not read config file > " + e);
+              return true;
+          }
+      });
+      break;
+    case "ping":
+        getPing(function(callback){
+            if(callback){
+                say.cyan("Pong > " + callback + "ms");
+                return true;
+            }else{
+                say.red("Failed to get ping");
+                return true;
+            }
+        })
+        return true;
     case "say":
       // stats say color red log
       var color = split[3];
@@ -383,15 +422,6 @@ this.command[1] = function(gameServer, split) {
         return true;
       }
       say.cyan("Already disabled.");
-      return true;
-    case "refresh":
-    case "create":
-      if (gameServer.schecks > 0 && typeof(gameServer.schecks) != 'undefined') {
-        say.cyan("You just refreshed this server.");
-      } else {
-        say.cyan("Added server to statistics list.");
-      }
-      create(gameServer, gameServer.config);
       return true;
     case "optout":
       say.red("To opt out change the config in ./settings/Statistics/config.ini > 'optout' = '1'");
