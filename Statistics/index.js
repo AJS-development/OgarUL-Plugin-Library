@@ -123,7 +123,7 @@ this.beforespawn = function(player) {
         return true; // Spawn player without name
       } else {
         sendOut.recentPlayer = player.name;
-        console.log(player.name);
+        //console.log(player.name);
         return true; // Spawn player in with name
       }
     } else {
