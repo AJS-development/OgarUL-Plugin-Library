@@ -62,14 +62,14 @@ this.init = function(gameServer, config) {
       return;
     }
   });
+  // Update Packages
+  update(gameServer, config);
   // Check OptOut
   if (this.config.optout === 1) {
     deletes(gameServer);
     gameServer.senabled = false;
     return;
   }
-  // Update Packages
-  update(gameServer, config);
   // Check for updates
   checkUpdate(this.version, function(update) {
     if (update) {
