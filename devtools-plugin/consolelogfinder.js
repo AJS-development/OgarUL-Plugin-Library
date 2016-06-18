@@ -19,24 +19,24 @@ var walkSync = function(dir, filelist) {
   return filelist;
 };
 var result = [];
-var files = walkSync(__dirname + "/../../../");
+var files = walkSync(__dirname + "/../../");
+
 for (var i in files) {
-  console.log("Searching files")
-  if (files[i].indexOf("/plugins/") != -1) continue;
+if (files[i].indexOf("/node_modules/") != -1) continue;
   var file = fs.readFileSync(files[i],"utf8");
-  while (1==1) {
-  
-var start_pos = file.indexOf('console.log(') + 12;
-var end_pos = test_str.indexOf(')',start_pos);
-var res = test_str.substring(start_pos,end_pos);
-result.push(res);
-file = file.substring(0,end_pos + 1);
-if (!file) break;
+var startindex = 0;
+for (;1==1;) {
+ var index = file.indexOf("console.log(", startindex) + 12;
+var ind = file.indexOf(")", index);
+if (index == 11 || ind == -1) break;
+startindex = ind;
+result.push(file.substr(index, ind - index));
 }
-  
 }
+var final = "";
 for (var i in result) {
   console.log(result[i]);
+  final = final + result[i] + "\n";
 }
-
+fs.writeFileSync("console.txt",final);
 }
