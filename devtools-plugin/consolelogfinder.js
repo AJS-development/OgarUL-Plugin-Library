@@ -21,6 +21,7 @@ var walkSync = function(dir, filelist) {
 var result = [];
 var files = walkSync(__dirname + "/../../../");
 for (var i in files) {
+  console.log("Searching files")
   if (files[i].indexOf("/plugins/") != -1) continue;
   var file = fs.readFileSync(files[i],"utf8");
   while (1==1) {
