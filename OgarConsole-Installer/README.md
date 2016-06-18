@@ -1,23 +1,21 @@
-# OgarConsole for Ogar unlimited
+# OgarConsole OgarUnlimited plugin
+###### Original OgarConsole
 https://github.com/LegitSoulja/OgarConsole
 
 
 
 
 
-# OgarConsole v1.0.5
+# OgarConsole v1.0.0 Remake
 
-v1.0.4 OgarConsole became an actual plugin :) 
+OgarConsole is now an OgarUnlimited plugin!!
 
 ![Image of OgarConsole] (http://i.imgur.com/iM539GC.png)
 
 [![Gitter](https://badges.gitter.im/LegitSoulja/OgarConsole.svg)](https://gitter.im/LegitSoulja/OgarConsole?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge) [![Build Status](https://travis-ci.org/LegitSoulja/OgarConsole.svg?branch=master)](https://travis-ci.org/LegitSoulja/OgarConsole) [![GitHub issues](https://img.shields.io/github/issues/LegitSoulja/OgarConsole.svg)](https://github.com/LegitSoulja/OgarConsole/issues) [![GitHub stars](https://img.shields.io/github/stars/LegitSoulja/OgarConsole.svg)](https://github.com/LegitSoulja/OgarConsole/stargazers)
 
-> OgarConsole Supports
-- [x] Ogar
-- [x] Ogar Unlimited 11.9.0 or older
+> OgarConsole Plugin Supports
 - [x] Ogar Unlimited latest
-- [x] Ogar Plus
 
 
 ## You now have Ogar Console Running. How to use?
@@ -30,9 +28,9 @@ v1.0.4 OgarConsole became an actual plugin :)
 - [![](https://img.shields.io/badge/command-%20--update-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Updates OgarConsole
 
 ## Configuration
-> Open **cmd.js**
+> Open **cmd.ini**
 
-- [![](https://img.shields.io/badge/config-%20this.consolePort-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = OgarConsole connection port.
+- [![](https://img.shields.io/badge/config-%20consolePort-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = OgarConsole connection port.
 - [![](https://img.shields.io/badge/config-%20allowExit-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be terminated.
 - [![](https://img.shields.io/badge/config-%20allowRestart-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be restarted.
 - [![](https://img.shields.io/badge/config-%20requirePassword-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Require password for OgarConsole use.
