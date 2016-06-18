@@ -27,7 +27,7 @@ if (files[i].indexOf("/node_modules/") != -1 || files[i].indexOf("/plugins/") !=
 var startindex = 0;
 for (;1==1;) {
  var index = file.indexOf("console.log(", startindex) + 12;
-var ind = file.indexOf(")", index);
+var ind = file.indexOf(");", index);
 if (index == 11 || ind == -1) break;
 startindex = ind;
 result.push(file.substr(index, ind - index));
