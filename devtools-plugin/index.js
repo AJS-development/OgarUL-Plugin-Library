@@ -18,6 +18,9 @@ plugin.commandName[0] = "dev"; // plugin add-on command names
 plugin.addToHelp[0] = "dev        : Devtools plugin command"; // help command add-on (adds this string to the help command)
 plugin.command[0] = require('./devtoolscmd.js'); // extra command location
 
+plugin.commandName[1] = "console";
+plugin.command[1] = require('./consolelogfinder.js');
+
 // [Extra Gamemodes]
 plugin.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 plugin.gamemode[0] = ''; // gamemode location
