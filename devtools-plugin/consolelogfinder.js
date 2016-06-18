@@ -19,10 +19,10 @@ var walkSync = function(dir, filelist) {
   return filelist;
 };
 var result = [];
-var files = walkSync(__dirname + "/../../");
+var files = walkSync("./");
 
 for (var i in files) {
-if (files[i].indexOf("/node_modules/") != -1) continue;
+if (files[i].indexOf("/node_modules/") != -1 || files[i].indexOf("/plugins/") != -1) continue;
   var file = fs.readFileSync(files[i],"utf8");
 var startindex = 0;
 for (;1==1;) {
@@ -35,7 +35,6 @@ result.push(file.substr(index, ind - index));
 }
 var final = "";
 for (var i in result) {
-  console.log(result[i]);
   final = final + result[i] + "\n";
 }
 fs.writeFileSync("console.txt",final);
