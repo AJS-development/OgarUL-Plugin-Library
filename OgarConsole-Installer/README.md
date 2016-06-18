@@ -28,7 +28,7 @@ OgarConsole is now an OgarUnlimited plugin!!
 - [![](https://img.shields.io/badge/command-%20--update-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Updates OgarConsole
 
 ## Configuration
-> Open **cmd.ini**
+> Open **config.ini**
 
 - [![](https://img.shields.io/badge/config-%20consolePort-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = OgarConsole connection port.
 - [![](https://img.shields.io/badge/config-%20allowExit-green.svg?style=flat-square)](https://github.com/LegitSoulja/OgarConsole) = Allow server to be terminated.
