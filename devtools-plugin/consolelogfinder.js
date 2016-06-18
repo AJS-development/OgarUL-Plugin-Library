@@ -30,7 +30,9 @@ for (;1==1;) {
 var ind = file.indexOf(");", index);
 if (index == 11 || ind == -1) break;
 startindex = ind;
-result.push(file.substr(index, ind - index));
+var tx = file.substr(index, ind - index);
+var split = tx.split("\n");
+if (!split[1]) result.push(tx);
 }
 }
 var final = "";
