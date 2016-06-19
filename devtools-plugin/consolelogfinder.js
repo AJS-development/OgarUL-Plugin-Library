@@ -33,14 +33,21 @@ startindex = ind;
 var tx = file.substr(index, ind - index);
 var split = tx.split("\n");
 if (split[1]) continue;
-
-for (;1==1;) {
- var n = tx.indexOf("\"") + 1;
- var c = tx.indexOf("\"",n);
- if (n == 0 || c == -1) break;
- tx = tx.replace(tx.slice(n,c),"");
+var inde = 0;
+var tr = tx.split("\"");
+var news = "";
+for (var j in tr) {
+  if (j == inde) {
+   news = news + "\"\"" + tr[j];
+  if (tr[j].slice(-1) == "\\") {
+  inde ++;
+  } else {
+    inde ++;
+    inde ++;
+  }
+  }
 }
-result.push(tx);
+result.push(news);
 }
 }
 var final = "";
