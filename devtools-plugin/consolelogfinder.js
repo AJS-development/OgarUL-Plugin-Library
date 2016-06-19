@@ -38,7 +38,8 @@ var tr = tx.split("\"");
 var news = "[";
 for (var j in tr) {
   if (j == inde) {
-   news = news + "\"" + tr[j] + "\",";
+  var comma = (j != 0) ? "," : "";
+   news = news + comma + "\"" + tr[j] + "\"";
   if (tr[j].slice(-1) == "\\") {
   inde ++;
   } else {
@@ -47,7 +48,7 @@ for (var j in tr) {
   }
   }
 }
-if (news) result.push(news + "];");
+if (news) result.push(news + "]");
 }
 }
 var final = "";
