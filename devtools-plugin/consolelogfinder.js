@@ -27,11 +27,35 @@ if (files[i].indexOf("/node_modules/") != -1 || files[i].indexOf("/plugins/") !=
 var startindex = 0;
 for (;1==1;) {
  var index = file.indexOf("console.log(\"", startindex) + 13;
- var elindex = file.indexOf("this.log(\"", startindex) + 10;
 var ind = file.indexOf("\");", index);
-if ((index == 12 && elindex == 9) || ind == -1) break;
+if (index == 12 || ind == -1) break;
 startindex = ind;
-if (elindex > index) index = elindex
+var tx = file.substr(index, ind - index);
+var split = tx.split("\n");
+if (split[1]) continue;
+var inde = 0;
+var tr = tx.split("\"");
+var news = "[";
+for (var j in tr) {
+  if (j == inde) {
+  var comma = (j != 0) ? "," : "";
+   news = news + comma + "\"" + tr[j] + "\"";
+  if (tr[j].slice(-1) == "\\") {
+  inde ++;
+  } else {
+    inde ++;
+    inde ++;
+  }
+  }
+}
+if (tr[0]) result.push(news + "]");
+}
+startindex = 0;
+for (;1==1;) {
+ var index = file.indexOf("this.log(\"", startindex) + 10;
+var ind = file.indexOf("\");", index);
+if (index == 9 || ind == -1) break;
+startindex = ind;
 var tx = file.substr(index, ind - index);
 var split = tx.split("\n");
 if (split[1]) continue;
