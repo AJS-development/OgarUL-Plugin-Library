@@ -38,7 +38,7 @@ var tr = tx.split("\"");
 var news = "";
 for (var j in tr) {
   if (j == inde) {
-   news = news + "\"\"" + tr[j];
+   news = news + "\"" + tr[j] + "\"";
   if (tr[j].slice(-1) == "\\") {
   inde ++;
   } else {
