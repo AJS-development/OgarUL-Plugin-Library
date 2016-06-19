@@ -50,7 +50,7 @@ for (var j in tr) {
   }
   }
 }
-if (news) result.push(news + "]");
+if (tr[0]) result.push(news + "]");
 }
 }
 var final = "";
