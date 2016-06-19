@@ -35,10 +35,10 @@ var split = tx.split("\n");
 if (split[1]) continue;
 var inde = 0;
 var tr = tx.split("\"");
-var news = "";
+var news = "[";
 for (var j in tr) {
   if (j == inde) {
-   news = news + "\"" + tr[j] + "\"";
+   news = news + "\"" + tr[j] + "\",";
   if (tr[j].slice(-1) == "\\") {
   inde ++;
   } else {
@@ -47,7 +47,7 @@ for (var j in tr) {
   }
   }
 }
-result.push(news);
+if (news) result.push(news + "];");
 }
 }
 var final = "";
