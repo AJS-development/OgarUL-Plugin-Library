@@ -38,7 +38,7 @@ for (;1==1;) {
  var n = tx.indexOf("\"") + 1;
  var c = tx.indexOf("\"",n);
  if (n == 0 || c == -1) break;
-  tx = tx.slice(n,c);
+ tx = tx.replace(tx.slice(n,c),"");
 }
 result.push(tx);
 }
