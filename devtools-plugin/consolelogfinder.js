@@ -31,7 +31,7 @@ for (;1==1;) {
 var ind = file.indexOf("\");", index);
 if ((index == 12 && elindex == 9) || ind == -1) break;
 startindex = ind;
-if (!index) index = elindex
+if (elindex > index) index = elindex
 var tx = file.substr(index, ind - index);
 var split = tx.split("\n");
 if (split[1]) continue;
