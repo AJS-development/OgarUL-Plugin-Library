@@ -8,6 +8,8 @@ var result = "";
 for (var i in one) {
  var on = one[i];
   var tw = two[i];
-  var s = "this." +  + on +
+  var s =  "this.lang[" + i + "] = { original:" + on + ",replace:" + tw + "};\n"
+  result = result + s;
 }
+fs.writeFileSync("result.js",result);
 };
