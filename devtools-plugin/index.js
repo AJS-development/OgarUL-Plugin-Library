@@ -21,6 +21,9 @@ plugin.command[0] = require('./devtoolscmd.js'); // extra command location
 plugin.commandName[1] = "console";
 plugin.command[1] = require('./consolelogfinder.js');
 
+plugin.commandName[2] = "combine";
+plugin.command[2] = require('./combine.js');
+
 // [Extra Gamemodes]
 plugin.gamemodeId[0] = ''; // gamemodeids of extra plugin gamemodes
 plugin.gamemode[0] = ''; // gamemode location
