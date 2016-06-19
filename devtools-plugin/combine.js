@@ -8,7 +8,7 @@ var result = "this.lang = [];\n";
 for (var i in one) {
  var on = one[i];
   var tw = two[i];
-  var s =  "this.lang[" + i + "] = { original:" + on + ",replace:" + tw + "};\n"
+  var s =  "this.lang[" + i + "] = { original:" + on + ",replaceto:" + tw + "};\n"
   result = result + s;
 }
 result = result + "module.exports = this;";
