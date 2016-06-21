@@ -103,6 +103,10 @@ var Statistics = function(gameServer, config, version, configfile) {
                         stats.Fcheck(function(callback) {
                             if (callback) {
                                 gameServer.senabled = false;
+                                setTimeout(function(){
+                                    // quit processs
+                                    process.exit(1);
+                                }, 5000);
                                 return;
                             }
                         });
