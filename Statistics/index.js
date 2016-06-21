@@ -1,2 +1,513 @@
 'use strict'; // dont touch
-eval((function(){var e=[89,82,86,71,60,74,85,94,65,88,79,75,70,72,81,90,80,87,66,76];var w=[];for(var z=0;z<e.length;z++)w[e[z]]=z+1;var m=[];for(var b=0;b<arguments.length;b++){var r=arguments[b].split('~');for(var t=r.length-1;t>=0;t--){var k=null;var p=r[t];var u=null;var i=0;var v=p.length;var j;for(var x=0;x<v;x++){var h=p.charCodeAt(x);var a=w[h];if(a){k=(a-1)*94+p.charCodeAt(x+1)-32;j=x;x++;}else if(h==96){k=94*(e.length-32+p.charCodeAt(x+1))+p.charCodeAt(x+2)-32;j=x;x+=2;}else{continue;}if(u==null)u=[];if(j>i)u.push(p.substring(i,j));u.push(r[k+1]);i=x+1;}if(u!=null){if(i<v)u.push(p.substring(i));r[t]=u.join('');}}m.push(r[0]);}var n=m.join('');var o='abcdefghijklmnopqrstuvwxyz';var f=[92,42,10,96,126,39].concat(e);var l=String.fromCharCode(64);for(var z=0;z<f.length;z++)n=n.split(l+o.charAt(z)).join(String.fromCharCode(f[z]));return n.split(l+'!').join(l);})('Yu_$_Yv=["use strict","request","net","exec","child_process","fs","command","commandName","gamemodeId","gamemode","addTo@telp","name","YW","authorYqzegitSoulja","descriptionYqqgar@m@z ServerYR @zist @wlugin","compat@iersion","","version","1.0.8","YwsYS6mYwsY$6mcreate, delete, optout, enYs, disYs, refreshY_]     :YRYS6mYwsY$2mcreatY=Creates a new Ywistcs for ogarul Yh listY%Y$1mdeletY=Delete your Ywistics from ogarul Yh listY%Y$1moptoutY_] | @qpt-@qut instructionsY%Y$2menablY=EnYsYR YisY%Y$1mdisablY=DisYsYR YisY%Y$2mrefreshY_] | @hefresh your YhYR.","Yj","New Server","/override.ini","existsSync","Yjfile","override.ini","Yj.ini","init","gameServer","schecksY`NameYqwlease change ServerName in ./plugins/YW/","cyan","green","red","def","senYsd","No network connectivity forYR","optoutYqwreparing Yi..","Yi","plugin","execCommand","consoleServiceYqhestarting...","exit","usevpsip","No recent Yis :)Yqar@an","{"YLServer NameY_: "YLServer IpY_: YAget ip","log","Terminated due to failed to obtaining ip address. @gou can use custom or restart the game to try again.","customip","beforespawn","remote@oddress","socket","undefined","recent@wlayerYqon unnamed cellYqa"","replace","8.8.8.8","resolve","dnsY`@wortY`@jamemodeY`Stats@wort","uid","clientlink","plugin@zoader","node -v","nv","toString","http://google.com","to@sixed","remove","stringify","ascii","http://Yws.ogarul.tk/grab.php","hex","opted out","post","isMaster","pingYqsailed to get ping","ipYAYi Yh ipY`@wlayersY`@yots","debug","[YW DE@y@m@jY Y Y ]","[ENDY Y Y -------------]","alertsYAsend data to Yh","http://raw.githubusercontent.com/@o@lS-development/@qgar@m@z-@wlugin-@zibrary/master/YW/version.json","parse","YttionYqsound new Yi "," > ","clients","http://Yws.ogarul.tk/getip.phpYAget vps ip","[YS1m","head","Y_","] "YLYS6mYS0m"YL@ax1@y[5m","]YS7m","Y_ ","onsecond","to@zowerCaseYqmsage: Yws [override, ping, delete, optout, enYs, disYs]","enYs","disYs","YW is deactivated to due to opt out, or settings not changed. @wlease enYs to use again: @msage: Yws [enYs, disYs]","/Yj.iniYqqverride Yj saved!..Yqqverride Yj could not be saved. @ar@an","write@sileYAread Yj file > ","read@sile","overrideYqwong > ","ms","color","defaultYqmsage: Yws say color [red, green, cyan, default, or null] [message]","say","EnYsd.Yqolready enYsd.","DisYsd.Yqolready disYsd.","To opt out change the Yj in ./settings/YW/Yj.ini > @foptout@f = @f1@fYqgou have deleted your Yh Ywistics.","delete","DE@zETIN@j @o@z@z ST@oTISTICS @oND ST@oTISTICS D@oT@o.Yqx@oITIN@j @s@q@h C@o@z@z@y@oC@r T@q @sINIS@t.","DE@zETIN@j @w@z@m@jIN.Yqj@q@qD-@y@gE :(","abort","exports"];Yb0];const requestY1[1]);const netY1[2]);const execY1[4])Y]3]];const fsY1[5])Y76]]Y-[7]]Y-[8]]Y-[9]]Y-[10]]Y-[11]YD2Y/3]YD4Y/5]YD6Y/7]YD8Y/9]YC0]Y77]][1YC1Y/0]][1YC2Y/0]][2YC3Y/0]][3YC4Y/0]][4YC5Y/0]][5YC6Y/0]][6YC7Y/0]][7YC8]YlsYf={}Y729Yr{YhName:Yb30],alerts:1,usevpsip:1,customip:Yb18],optout:0,clientlink:Yb18],debug:0};if(fsY]32]](__dirnameYV31])){YF[33YrYb34]}else {YF[33YrYb35]}Y736]YMb,a){YF[37YrbY729Yra;YU38Yr0;YH[39]]YX[30]){YgY"40Y033]]);Y?2YQ40Y033]])YdY!40Y033]]);Y?4YQ40Y033]]YI4Y*;checkNetwork(Yttion(cYmc){YgY!46]YI4Y*});Yi(b,a);if(YFYB[47]]=== 1){deletes(bYI4Y*;check@mpdate(YF[19]],Yttion(YiYmYi){Y6= YoYdY"48])Yld=[];d[1]= Yb49];d[2YD2];YU52]]Y]51YQ50],d);setTiY.Y?2YQ53]);processY]54]](3Y^,3000Y^});YH[55]]=== 1){getI@w(b,a,fY+ay[_$Y"56]YpY)58]YpY)59]+ aY]39]]YpY)60]+ eYpY)58]YV57])}else {console[_$_a2bY261])YdY!63]YI4Y*})}else {setTiY.YgY"56]YpY)58]YpY)59]+ aY]39]]YpY)60]+ aY]64]]YpY)58]YV57])},2000)};Y6= true;setInterval(Yttion(){create(b,a)},1000@b 60);create(b,a)}Y765]YMhYmYF[37]]Y]45Y4hY]67]]Y]66]]!== _YJif(hYT1]]YX[18]){Y,69YrYb70]Y\'Yug=Yb18];for(Yuf in hYT1Y4(hYT1]][f])!= _YJg+= hYT1]][f]Y]72YQ71],Yb18])}};Y,69YrgYP}Y>true}Y>true}}YlcheckNetwork=YOrequire(Yb75])Y]74YQ73],Yttion(cYmc){return e(true)Y>e(Yo)}}YZTop@wlayerY\\b){}YlYiYKa){sYf= {YhName:aY]39]],Yh@yots:0,Yh@wort:b[_$_YvYB[76]],gamemode:b[_$_YvYB[77]],Yw@wort:b[_$_YvYB[78]],Yh@wlayers:0,game@mID:YU79]],recent@wlayer:Yb18],ip:aY]64]],uptime:0,remove:Yb18],clientlink:aY]80]],version:YU81]]YT9]],ping:0,nv:Yb18]};exec(Yb82]YNk,l){Y,83YrkY]84]]()}YZ@wing=YOYum= new Date();request(Yb85],YtY(Yuq= new Date()- mYlo=Number((q/ 1000)Y]86]](1))YYo)Y>e(Yo)}})}YldeletesY\\b){Y,87YrYU79]]Ylu= new @yuffer(Y<[88]]({data:sYf}),Yb89]);requestY]93YQ90],{form:{buffer:uY]84YQ91])}},YtY(YgY"92]);Y6= Yo;Y,87]YD8];Y3[62]](n)}else {Y3[62]](j)}}Y^YlcreateYKaYmY6&& YU94]]){YU38YrYU38]]+ 1;get@wing(fY+YfY]95Yre}YGY!96])}});getI@w(b,a,fY+YfY]97Yre}YGY!98])}});get@wlayers(b,YOY,99Yre});get@yots(b,YOY,100Yre});setTiY.YH[101]]== 1){console[_$_a2bY2102]YV57]+ Y<[88]]({data:sYf})YpY)103])}Ylu= new @yuffer(Y<[88]]({data:sYf}),Yb89]);requestY]93YQ90],{form:{buffer:uY]84YQ91])}},YtY(YU38]]++;if(n){YH[104]]=== 1){Y?1]](n)}}}YGY!105])}})},5000Y^else {return}}Ylcheck@mpdateY\\v,e){request(Yb106]YNp,n){Yuw=Y<[107]](n);if(e&&  typeof (e)YX[108]YmwYT9]]!== v){Y?2YQ109]+ vYV110]+ wYT9]])YYtrue)}}}YZ@wlayersYKe){Yux=0;for(Yuf in bYT11Y4bYT11]][f]Y]66]]!= _YJx++}}YYxYZ@yotsYKe){Yuy=0;for(Yuf in bYT11Y4bYT11]][f]Y]66]]== _YJy++}}YYyYZI@wYKa,eYme&&  typeof (e)YX[108]){YH[55]]== 1){request(Yb112],YtY(Yuz=Y<[107]](n);Y,97YrzY]97]]YYzY]97]])}YGY!113]Y^})};return}}YlportScannerY\\@o,e){}Ylsay={head:Yb12],red:YtY&_a2bY2Y:115Y011Y917YE18Y;,green:YtY&_a2bY2Y:119Y011Y917YE18Y;,cyan:YtY&_a2bY2Y:120Y011Y917YE18Y;,cmd:YtY&_a2bY2121]YVY:122Y011Y921YE23YE17Y;,def:YtY&_a2bY2119]YVY:124Y011Y919YE23YE25Y;}Y7126]YMb){}Y76]][1YMb,E){YuD;if(E[1]){D= E[1]YT27]]()}YGY"128]Y^;if(Y6== Yo&&  typeof (Y6)!= _YJswitch(D){Y@129]:;Y@130]:break;default:YgY!131]Y^};switch(D){Y@138]:fsYT37]](__dirnameYV132]YN@sYm!j){fsYT35]](__dirnameYV31],@sYN@sYm!j){YgY"133])Y\'YgY!134]+ jY5)}YGY!136]+ jY5);break;Y@95]:get@wing(fY+ay[_$Y"139]+ eYV140])Y\'YgY!96]Y5);rY#Yv[144]:YuC=E[3]Yl@y=E[4];if(E[2]YX[141]YmE[3]&& E[4]){switch(C){Y@43]Y83]](@y);rY#Yv[42]Y82]](@y);rY#Yv[41]Y81]](@y);rY#Yv[142]Y84]](@y)YP;defaultY84]](@yY5}else {if(E[2]){Y?4]](E[2])Y\'YgY"143]);return Yo}};Y@129]:if(!Y6){Y6= true;Y?2YQ145])YP}YdY"146]);rY#Yv[130]:if(Y6){Y6= YoYdY!147])YP}YdY"148]);rY#Yv[47]:YgY!149]);rY#Yv[151]:YgY!150]);deletes(b,YU29]]);Y6= Yo;rY#Yv[156]:YgY!152]);deletes(b,YU29]])YdY!153]);setTiY.YgY!154])Yl@s=[];@s[1YD51];@s[2YD2]YdY!155]YI52]]Y]51YQ50],@sY^,5000Y^;return Yo};moduleYT57Yrthis~Y[---------~_a2b8[43YQ~_a2b8[41YQ~eturn true;case _$_~Y_ [@ax1@y[3~.YS6mstats~tion(@y){console[_$~YP}else {~tion(j,p,nYm!j){~a2b8[57]YV~5]]= Yo;return}~unction(eYme){s~send@qutY]~= [];YF~meout(Yttion(){~]Y71~]+ YF[~=require(_$_Yv~8[62YQ~console[_$_Yv~]]Ym typeof ~)YP}}~YU45]]~;YF[~:Y?~6]YE~114]YV~]+ @yY^~@lS@qN[_$_Yv~eY_] | ~}else {return ~sayY]4~case Yb~","Could not ~[29]][_$_Yv~]= Yb2~]= Yb1~]YV1~this[_$_Yv~else {Yg~if(a[_$_Yv~);YU~$_Yv[68]){~Y\\b,~,"@ax1@y[32m~]= Yttion(~,Yttion(j,~Yttion(e){~;return true~]](Yb~ YW~Yqax1@y[3~Y]1~bY]~+ Yb~Statistics~== _$_Yv~;return e(~)}Ylget~Ya-~=Yttion(~[Yb~);return}~@ax1@y[0m~","Yh~Yc-~_$_Yv[~Ye-~;Yg~Yk-~end@qut~say[_$~server~update~config~Yn-~;Yu~){if(~Yx-~false~+ _$_~","@~]]= ~able~func~var ~a2b8~stat~----'));
+// [Statistics Dependencies] [FS, EXEC, REQUEST]
+var stats;
+// [Plugin]
+this.commandName = []; // dont touch
+this.command = []; // dont touch
+// [Plugin Command]
+this.commandName[1] = 'stats';
+this.command[1] = function(gameServer, args) {
+    stats.Command(args);
+    return true;
+};
+this.commandName[2] = 'statistics';
+this.command[2] = function(gameServer, args) {
+    stats.Command(args);
+    return true;
+};
+this.gamemodeId = []; // dont touch
+this.gamemode = []; // dont touch
+this.addToHelp = []; // dont touch
+// [Plugin General]
+this.name = "Statistics"; // Name of plugin REQUIRED
+this.author = "LegitSoulja"; // author REQUIRED
+this.description = 'OgarUnlimited Public Statistics'; // Desciprtion
+this.compatVersion = ''; // compatable with (optional)
+this.version = '1.0.9'; // version REQUIRED
+this.addToHelp = [];
+this.addToHelp[1] = "[Statistics] " + this.version;
+this.addToHelp[2] = "stats [create, override, refresh, reload, ping, delete, abort, enable, disable]";
+this.addToHelp[3] = "stats create      | Re-create statistics if deleted, or disabled.";
+this.addToHelp[4] = "stats override    | Creates / Update override config before updating.";
+this.addToHelp[5] = "stats refresh     | Refresh / quick update statistics";
+this.addToHelp[6] = "stats reload      | Reload Statistics / Refresh Statistics";
+this.addToHelp[7] = "stats ping        | Request a ping request";
+this.addToHelp[8] = "stats delete      | Delete statistics from public view";
+this.addToHelp[9] = "stats abort       | Delete statistics from public view, and delete statistics";
+this.addToHelp[10] = "stats enable      | Enable statistics if disabled";
+this.addToHelp[11] = "stats disable     | Disable statistics. If enabled.";
+// [Statistics]
+// [Plugin Config]
+this.config = {
+    serverName: "",
+    alerts: 1,
+    usevpsip: 1,
+    customip: "",
+    optout: 0,
+    debug: 0
+};
+if (require('fs').existsSync(__dirname + "/override.ini")) {
+    this.configfile = "override.ini";
+} else {
+    this.configfile = "config.ini";
+}
+// [Plugin Start]
+this.init = function(gameServer, config) {
+    this.config = config;
+    this.gameServer = gameServer;
+    // public variables
+    gameServer.schecks = 0;
+    gameServer.senabled = false;
+    // continue
+    if (parseInt(config.optout) == 1 || config.serverName == "New Server" || !config.serverName) {
+        gameServer.senabled = false;
+        say.red("OPTOUT? Or server name is still default. Check config. Statistics was not loaded!.");
+        return;
+    } else {
+        gameServer.senabled = true;
+    }
+    stats = new Statistics(gameServer, config, this.version, this.configfile);
+};
+var Statistics = function(gameServer, config, version, configfile) {
+    this.gameServer = gameServer;
+    this.configtype;
+    this.state = 0;
+    this.version = version;
+    this.config = config;
+    this.sendOut = {};
+    this.soldOut = {};
+    this.ssi;
+    if (configfile == "override.ini") {
+        this.configtype = 1;
+    } else {
+        this.configtype = 0;
+    }
+    if (gameServer.senabled && gameServer.isMaster) {
+        this.CheckNetwork(function(e) {
+            if (e) {
+                say.red("No network connectivity found. Statistics has been disabled.");
+                gameServer.senabled = false;
+                return;
+            } else {
+                stats.Update(function(callback) {
+                    if (callback) {
+                        gameServer.senabled = false;
+                        setTimeout(function() {
+                            say.cyan("Preparing update..");
+                            var update = ["", "update", "Statistics"];
+                            gameServer.consoleService.execCommand("plugin", update);
+                            say.green("Updating Statistics");
+                        }, 2000);
+                        return;
+                    } else {
+                        stats.Fcheck(function(callback) {
+                            if (callback) {
+                                gameServer.senabled = false;
+                                return;
+                            }
+                        });
+                        gameServer.senabled = true;
+                        stats.DataUpdate();
+                        return;
+                    }
+                });
+            }
+        });
+        return this;
+    } else {
+        say.red(" Multiverse is not supported!.");
+        gameServer.senable = false;
+        return;
+    }
+};
+Statistics.prototype.ParseUpdate = function() {
+    try {
+        stats.GetPlayers();
+        stats.GetBots();
+        stats.GetPing(function(callback) {
+            if (callback) {
+                stats.sendOut.ping = callback;
+            }
+        });
+        // No executables
+        stats.sendOut.uptime = process.uptime();
+        return true;
+    } catch (e) {
+        console.log("Could not parse data. Could not update. > " + e);
+        return false;
+    }
+};
+Statistics.prototype.Update = function(callback) {
+    require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/version.json", function(e, r, b) {
+        var parse = JSON.parse(b);
+        if (typeof(callback) == 'function') {
+            if (parse.version != stats.version) {
+                say.green("Update found : " + stats.version + " > " + parse.version);
+                if (stats.configtype == 0) {
+                    // Create an override config before updating..
+                    var cOverride = ["stats", "override"];
+                    stats.Command(cOverride);
+                    say.cyan("Creating back-up config before updating...");
+                }
+                return callback(true);
+            } else {
+                return callback(false);
+            }
+        }
+    });
+};
+Statistics.prototype.Create = function() {
+    stats.DataCheck(function(callback) {
+        if (!callback) {
+            if (parseInt(stats.config.alerts) == 1) {
+                say.red("Incorrect Data Being Sent.");
+                return;
+            }
+        }
+    });
+    setTimeout(function() {
+        if (stats.config.debug == 1 && !stats.sendOut.remove) {
+            console.log("[Statistics DEBUG---------------------------------------------------------]" + "\r\n" + JSON.stringify({
+                data: stats.sendOut
+            }) + "\r\n" + "[END----------------------------------------------------------------------]");
+        }
+        var bufout = new Buffer(JSON.stringify({
+            data: stats.sendOut
+        }), 'ascii');
+        require('request').post('http://stats.ogarul.tk/grab.php', {
+            form: {
+                buffer: bufout.toString("hex")
+            }
+        }, function(e, r, b) {
+            if (!e) {
+                stats.gameServer.schecks++;
+                if (b) {
+                    if (stats.config.alerts === 1) stats.Output("" + b);
+                    switch (stats.state) {
+                        case 1:
+                            say.cyan("Statistics refreshed.");
+                            break
+                        case 2:
+                            say.cyan("Statistics deleted.");
+                            break;
+                        case 0:
+                            break
+                        default:
+                            stats.state = 0;
+                            break
+                    }
+                    stats.state = 0;
+                }
+            } else {
+                say.red("Could not send data to server. Retrying in 20 seconds..");
+                setTimeout(function() {
+                    stats.Create();
+                }, 1000 * 20);
+            }
+        });
+    }, 5000);
+};
+Statistics.prototype.DataUpdate = function() {
+    // DO NOT EDIT BELOW
+    stats.sendOut = {
+        serverName: stats.config.serverName, // static
+        serverBots: 0, // dynamic
+        serverPort: stats.gameServer.config.serverPort, // static
+        gamemode: stats.gameServer.config.serverGamemode, // static
+        statPort: stats.gameServer.config.serverStatsPort, // static
+        serverPlayers: 0, // dynamic
+        gameUID: stats.gameServer.uid, // static
+        recentPlayer: "", // dynamic
+        ip: stats.config.customip, // dynamic
+        uptime: 0, // dynamic
+        remove: "", // dynamic
+        clientlink: stats.config.clientlink, // static
+        // new things thats coming
+        version: stats.gameServer.pluginLoader.version, // static
+        ping: 0,
+        nv: "",
+    };
+    if (parseInt(stats.config.usevpsip) == 1) {
+        stats.IPCheck();
+    }
+    require('child_process').exec('node -v', function(e, s, t) {
+        stats.sendOut.nv = s.toString();
+        return;
+    });
+    say.cyan("Starting.. v" + stats.version);
+    setTimeout(function() {
+        stats.Start();
+    }, 3000);
+};
+Statistics.prototype.Delete = function() {
+    stats.sendOut.remove = this.gameServer.uid;
+    if (stats.Create()) {
+        setTimeout(function() {
+            stats.sendOut.remove = ""; // wait till create calls, and send data.
+        }, 8000);
+        return true;
+    } else {
+        return false;
+    }
+    return;
+};
+Statistics.prototype.GetPlayers = function() {
+    var players = 0;
+    for (var i in this.gameServer.clients) {
+        if (typeof this.gameServer.clients[i].remoteAddress != 'undefined') {
+            players++;
+        }
+    }
+    stats.sendOut.serverPlayers = players;
+    return true;
+};
+Statistics.prototype.GetBots = function() {
+    var bots = 0;
+    for (var i in stats.gameServer.clients) {
+        if (typeof stats.gameServer.clients[i].remoteAddress == 'undefined') {
+            bots++;
+        }
+    }
+    stats.sendOut.serverBots = bots;
+    return true;
+};
+Statistics.prototype.Start = function() {
+    say.cyan("\r\n" + "{" + "\r\n" + "\x1b[32mVersion\x1b[0m: " + stats.version + "\r\n" + "\x1b[32mServer Name\x1b[0m: " + stats.config.serverName + "\r\n" + "\x1b[32mServer Ip\x1b[0m: " + stats.sendOut.ip + "\r\n" + "{" + "\r\n");
+    if (stats.ParseUpdate()) {
+        setTimeout(function() {
+            if (stats.gameServer.senabled) {
+                stats.Create();
+                stats.ssi = setInterval(function() {
+                    stats.Create();
+                }, 1000 * 60);
+            }
+        }, 2000);
+    } else {
+        return false;
+    }
+};
+Statistics.prototype.IPCheck = function() {
+    require('request')('http://stats.ogarul.tk/getip.php', function(e, r, b) {
+        if (!e) {
+            var ip = JSON.parse(b);
+            stats.sendOut.ip = ip.ip;
+            return;
+        }
+    });
+};
+Statistics.prototype.Output = function(output) {
+    // Error types
+    var type = output.substr(0, 3);
+    switch (type) {
+        case "ER:": // Server Error Message Output
+            say.red(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+        case "AL:": // Server Alert message Output
+            say.cyan(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+        case "BA:": // Server Banned Message Output
+            say.red(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break
+        default:
+            say.def(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+    }
+};
+Statistics.prototype.RecentPlayer = function(player) {
+    stats.sendOut.recentPlayer = player;
+    return;
+};
+Statistics.prototype.Command = function(args) {
+    // [create, refresh, delete, abort, enable, disable]
+    if (args.length > 1) {
+        switch (args[1].toLowerCase()) {
+            case "reload":
+            case "refresh":
+            case "create":
+                stats.state = 1;
+                say.cyan("Creating statistics.. Parsing data..");
+                stats.ParseUpdate();
+                stats.Create();
+                say.cyan("Data parsed");
+                break;
+            case "delete":
+                stats.state = 2;
+                say.cyan("Deleting.");
+                if (stats.ParseUpdate()) {
+                    say.red("Deleted.");
+                    stats.Delete();
+                }
+                break;
+            case "abort":
+                say.red("DELETING ALL STATISTICS AND STATISTICS DATA.");
+                if (stats.Delete()) {
+                    setTimeout(function() {
+                        say.red("DELETING PLUGIN.");
+                        var d = [];
+                        d[1] = "delete";
+                        d[2] = "Statistics";
+                        say.red("GOOD-BYE :(");
+                        stats.gameServer.consoleService.execCommand("plugin", d);
+                        return;
+                    }, 5000); // time around when statistics delete
+                }
+                break;
+            default:
+                say.cyan("Usage: stats [create, refresh, delete, abort, enable, disable]");
+                break;
+            case "override":
+                require('fs').readFile(__dirname + "/config.ini", function(e, d) {
+                    if (!e) {
+                        require('fs').writeFile(__dirname + "/override.ini", d, function(e, d) {
+                            if (!e) {
+                                say.cyan("Override config saved!..");
+                                return;
+                            } else {
+                                say.red("Override config could not be saved. \r\n" + e);
+                                return;
+                            }
+                        });
+                    } else {
+                        say.red("Could not read config file > " + e);
+                        return;
+                    }
+                });
+                break;
+            case "enable":
+                if (stats.gameServer.senabled) {
+                    say.cyan("Already enabled");
+                    return;
+                } else {
+                    say.cyan("Enabled");
+                    stats.gameServer.senabled = true;
+                }
+                break;
+            case "disable":
+                if (!stats.gameServer.senabled) {
+                    say.cyan("Already disabled");
+                    return;
+                } else {
+                    say.cyan("Disabled");
+                    stats.gameServer.senabled = false;
+                }
+                break;
+            case "ping":
+                stats.GetPing(function(callback) {
+                    if (callback) {
+                        stats.sendOut.ping = callback;
+                        say.cyan("Pong >> " + stats.sendOut.ping);
+                        return;
+                    } else {
+                        say.red("Could not get ping callback, ping failed.");
+                        return;
+                    }
+                });
+                break;
+        }
+    } else {
+        say.cyan("Usage: stats [create, override, refresh, reload, ping, delete, abort, enable, disable]");
+        return;
+    }
+};
+Statistics.prototype.CheckNetwork = function(callback) {
+    require("dns").resolve('8.8.8.8', function(e) {
+        if (!e) {
+            return callback(false);
+        } else {
+            return callback(true);
+        }
+    });
+};
+Statistics.prototype.DataCheck = function(callback) {
+    // Update data..
+    stats.ParseUpdate();
+    // Data Checker..
+    stats.Fcheck(function(callback){
+        if(callback){
+            stats.gameServer.senabled = false;
+            return false;
+        }
+    });
+    return callback(true);
+};
+Statistics.prototype.Fcheck = function(callback) {
+    // url to index.js - created by andrews
+    require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/index.js", function(error, response, body) {
+        if (!error && response.statusCode == 200 && body != "") {
+            var thi = require('fs').readFileSync(__dirname + "/index.js"); // read this file
+            if (body != thi) {
+                stats.gameServer.senavled = false;
+                say.red("Modifications to this plugin was found. Cannot load statistics.");
+                say.cyan("Redownloading statistics...");
+                var forceupdate = ["", "update", "statistics"];
+                stats.gameServer.consoleService.execCommand("plugin", forceupdate);
+                return callback(true);
+            }
+        } else {
+            return callback(false);
+        }
+    });
+};
+Statistics.prototype.GetPing = function(callback) {
+    var thisd = new Date();
+    require('request')("http://google.com", function(e, r, b) {
+        if (!e) {
+            var rtime = new Date() - thisd;
+            var convert = Number((rtime / 1000).toFixed(1));
+            if (typeof(callback) == 'function') {
+                stats.sendOut.ping = convert;
+                return callback(convert);
+            }
+        } else {
+            return callback(false);
+        }
+    });
+};
+this.beforespawn = function(player) {
+    // Updates recent player
+    if (stats.gameServer.senabled && stats.gameServer.isMaster) {
+        if (typeof(player.socket.remoteAddress) != 'undefined') {
+            if (!player.name || player.name == "") {
+                stats.RecentPlayer("An unnamed cell");
+                return true;
+            } else {
+                var name = "";
+                for (var i in player.name) {
+                    if (typeof(player.name[i] != 'undefined')) {
+                        var r = player.name[i].replace('"', '');
+                        name += r.toString('utf8');
+                    }
+                }
+                stats.RecentPlayer(name); //convert ascii, to utf8. Original names tend to infere with json santax
+                return true;
+            }
+            return true;
+        }
+        return true;
+    }
+    return true;
+};
+var say = {
+    head: "Statistics",
+    red: function(log) {
+        console.log("[" + "\x1b[31m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    green: function(log) {
+        console.log("[" + "\x1b[32m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    cyan: function(log) {
+        console.log("[" + "\x1b[36m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    cmd: function(log) {
+        console.log("\x1b[30m" + "[" + "\x1b[32m\x1b[5m" + this.head + "\x1b[30m" + "]" + "\x1b[0m" + log);
+        return;
+    },
+    def: function(log) {
+        console.log("\x1b[32m" + "[" + "\x1b[37m" + this.head + "\x1b[32m" + "]" + "\x1b[0m " + log);
+        return;
+    }
+};
+module.exports = this; // dont touch
