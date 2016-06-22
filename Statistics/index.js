@@ -1,1 +1,517 @@
-var _0xf96a=["\x75\x73\x65\x20\x73\x74\x72\x69\x63\x74","\x63\x6F\x6D\x6D\x61\x6E\x64\x4E\x61\x6D\x65","\x63\x6F\x6D\x6D\x61\x6E\x64","\x73\x74\x61\x74\x73","\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x67\x61\x6D\x65\x6D\x6F\x64\x65\x49\x64","\x67\x61\x6D\x65\x6D\x6F\x64\x65","\x61\x64\x64\x54\x6F\x48\x65\x6C\x70","\x6E\x61\x6D\x65","\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x61\x75\x74\x68\x6F\x72","\x4C\x65\x67\x69\x74\x53\x6F\x75\x6C\x6A\x61","\x64\x65\x73\x63\x72\x69\x70\x74\x69\x6F\x6E","\x4F\x67\x61\x72\x55\x6E\x6C\x69\x6D\x69\x74\x65\x64\x20\x50\x75\x62\x6C\x69\x63\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x63\x6F\x6D\x70\x61\x74\x56\x65\x72\x73\x69\x6F\x6E","","\x76\x65\x72\x73\x69\x6F\x6E","\x31\x2E\x30\x2E\x39","\x5B\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x5D\x20","\x73\x74\x61\x74\x73\x20\x5B\x63\x72\x65\x61\x74\x65\x2C\x20\x6F\x76\x65\x72\x72\x69\x64\x65\x2C\x20\x72\x65\x66\x72\x65\x73\x68\x2C\x20\x72\x65\x6C\x6F\x61\x64\x2C\x20\x70\x69\x6E\x67\x2C\x20\x64\x65\x6C\x65\x74\x65\x2C\x20\x61\x62\x6F\x72\x74\x2C\x20\x65\x6E\x61\x62\x6C\x65\x2C\x20\x64\x69\x73\x61\x62\x6C\x65\x5D","\x73\x74\x61\x74\x73\x20\x63\x72\x65\x61\x74\x65\x20\x20\x20\x20\x20\x20\x7C\x20\x52\x65\x2D\x63\x72\x65\x61\x74\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x69\x66\x20\x64\x65\x6C\x65\x74\x65\x64\x2C\x20\x6F\x72\x20\x64\x69\x73\x61\x62\x6C\x65\x64\x2E","\x73\x74\x61\x74\x73\x20\x6F\x76\x65\x72\x72\x69\x64\x65\x20\x20\x20\x20\x7C\x20\x43\x72\x65\x61\x74\x65\x73\x20\x2F\x20\x55\x70\x64\x61\x74\x65\x20\x6F\x76\x65\x72\x72\x69\x64\x65\x20\x63\x6F\x6E\x66\x69\x67\x20\x62\x65\x66\x6F\x72\x65\x20\x75\x70\x64\x61\x74\x69\x6E\x67\x2E","\x73\x74\x61\x74\x73\x20\x72\x65\x66\x72\x65\x73\x68\x20\x20\x20\x20\x20\x7C\x20\x52\x65\x66\x72\x65\x73\x68\x20\x2F\x20\x71\x75\x69\x63\x6B\x20\x75\x70\x64\x61\x74\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x73\x74\x61\x74\x73\x20\x72\x65\x6C\x6F\x61\x64\x20\x20\x20\x20\x20\x20\x7C\x20\x52\x65\x6C\x6F\x61\x64\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x2F\x20\x52\x65\x66\x72\x65\x73\x68\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x73\x74\x61\x74\x73\x20\x70\x69\x6E\x67\x20\x20\x20\x20\x20\x20\x20\x20\x7C\x20\x52\x65\x71\x75\x65\x73\x74\x20\x61\x20\x70\x69\x6E\x67\x20\x72\x65\x71\x75\x65\x73\x74","\x73\x74\x61\x74\x73\x20\x64\x65\x6C\x65\x74\x65\x20\x20\x20\x20\x20\x20\x7C\x20\x44\x65\x6C\x65\x74\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x66\x72\x6F\x6D\x20\x70\x75\x62\x6C\x69\x63\x20\x76\x69\x65\x77","\x73\x74\x61\x74\x73\x20\x61\x62\x6F\x72\x74\x20\x20\x20\x20\x20\x20\x20\x7C\x20\x44\x65\x6C\x65\x74\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x66\x72\x6F\x6D\x20\x70\x75\x62\x6C\x69\x63\x20\x76\x69\x65\x77\x2C\x20\x61\x6E\x64\x20\x64\x65\x6C\x65\x74\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x73\x74\x61\x74\x73\x20\x65\x6E\x61\x62\x6C\x65\x20\x20\x20\x20\x20\x20\x7C\x20\x45\x6E\x61\x62\x6C\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x69\x66\x20\x64\x69\x73\x61\x62\x6C\x65\x64","\x73\x74\x61\x74\x73\x20\x64\x69\x73\x61\x62\x6C\x65\x20\x20\x20\x20\x20\x7C\x20\x44\x69\x73\x61\x62\x6C\x65\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x20\x49\x66\x20\x65\x6E\x61\x62\x6C\x65\x64\x2E","\x63\x6F\x6E\x66\x69\x67","\x2F\x6F\x76\x65\x72\x72\x69\x64\x65\x2E\x69\x6E\x69","\x65\x78\x69\x73\x74\x73\x53\x79\x6E\x63","\x66\x73","\x63\x6F\x6E\x66\x69\x67\x66\x69\x6C\x65","\x6F\x76\x65\x72\x72\x69\x64\x65\x2E\x69\x6E\x69","\x63\x6F\x6E\x66\x69\x67\x2E\x69\x6E\x69","\x69\x6E\x69\x74","\x67\x61\x6D\x65\x53\x65\x72\x76\x65\x72","\x73\x63\x68\x65\x63\x6B\x73","\x73\x65\x6E\x61\x62\x6C\x65\x64","\x6F\x70\x74\x6F\x75\x74","\x73\x65\x72\x76\x65\x72\x4E\x61\x6D\x65","\x4E\x65\x77\x20\x53\x65\x72\x76\x65\x72","\x4F\x50\x54\x4F\x55\x54\x3F\x20\x4F\x72\x20\x73\x65\x72\x76\x65\x72\x20\x6E\x61\x6D\x65\x20\x69\x73\x20\x73\x74\x69\x6C\x6C\x20\x64\x65\x66\x61\x75\x6C\x74\x2E\x20\x43\x68\x65\x63\x6B\x20\x63\x6F\x6E\x66\x69\x67\x2E\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x77\x61\x73\x20\x6E\x6F\x74\x20\x6C\x6F\x61\x64\x65\x64\x21\x2E","\x72\x65\x64","\x63\x6F\x6E\x66\x69\x67\x74\x79\x70\x65","\x73\x74\x61\x74\x65","\x73\x65\x6E\x64\x4F\x75\x74","\x73\x6F\x6C\x64\x4F\x75\x74","\x73\x73\x69","\x69\x73\x4D\x61\x73\x74\x65\x72","\x4E\x6F\x20\x6E\x65\x74\x77\x6F\x72\x6B\x20\x63\x6F\x6E\x6E\x65\x63\x74\x69\x76\x69\x74\x79\x20\x66\x6F\x75\x6E\x64\x2E\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x68\x61\x73\x20\x62\x65\x65\x6E\x20\x64\x69\x73\x61\x62\x6C\x65\x64\x2E","\x50\x72\x65\x70\x61\x72\x69\x6E\x67\x20\x75\x70\x64\x61\x74\x65\x2E\x2E","\x63\x79\x61\x6E","\x75\x70\x64\x61\x74\x65","\x70\x6C\x75\x67\x69\x6E","\x65\x78\x65\x63\x43\x6F\x6D\x6D\x61\x6E\x64","\x63\x6F\x6E\x73\x6F\x6C\x65\x53\x65\x72\x76\x69\x63\x65","\x55\x70\x64\x61\x74\x69\x6E\x67\x20\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73","\x67\x72\x65\x65\x6E","\x65\x78\x69\x74","\x20\x4D\x75\x6C\x74\x69\x76\x65\x72\x73\x65\x20\x69\x73\x20\x6E\x6F\x74\x20\x73\x75\x70\x70\x6F\x72\x74\x65\x64\x21\x2E","\x73\x65\x6E\x61\x62\x6C\x65","\x50\x61\x72\x73\x65\x55\x70\x64\x61\x74\x65","\x70\x72\x6F\x74\x6F\x74\x79\x70\x65","\x70\x69\x6E\x67","\x75\x70\x74\x69\x6D\x65","\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x70\x61\x72\x73\x65\x20\x64\x61\x74\x61\x2E\x20\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x75\x70\x64\x61\x74\x65\x2E\x20\x3E\x20","\x6C\x6F\x67","\x55\x70\x64\x61\x74\x65","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x72\x61\x77\x2E\x67\x69\x74\x68\x75\x62\x75\x73\x65\x72\x63\x6F\x6E\x74\x65\x6E\x74\x2E\x63\x6F\x6D\x2F\x41\x4A\x53\x2D\x64\x65\x76\x65\x6C\x6F\x70\x6D\x65\x6E\x74\x2F\x4F\x67\x61\x72\x55\x4C\x2D\x50\x6C\x75\x67\x69\x6E\x2D\x4C\x69\x62\x72\x61\x72\x79\x2F\x6D\x61\x73\x74\x65\x72\x2F\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2F\x76\x65\x72\x73\x69\x6F\x6E\x2E\x6A\x73\x6F\x6E","\x70\x61\x72\x73\x65","\x66\x75\x6E\x63\x74\x69\x6F\x6E","\x55\x70\x64\x61\x74\x65\x20\x66\x6F\x75\x6E\x64\x20\x3A\x20","\x20\x3E\x20","\x6F\x76\x65\x72\x72\x69\x64\x65","\x43\x72\x65\x61\x74\x69\x6E\x67\x20\x62\x61\x63\x6B\x2D\x75\x70\x20\x63\x6F\x6E\x66\x69\x67\x20\x62\x65\x66\x6F\x72\x65\x20\x75\x70\x64\x61\x74\x69\x6E\x67\x2E\x2E\x2E","\x72\x65\x71\x75\x65\x73\x74","\x43\x72\x65\x61\x74\x65","\x61\x6C\x65\x72\x74\x73","\x49\x6E\x63\x6F\x72\x72\x65\x63\x74\x20\x44\x61\x74\x61\x20\x42\x65\x69\x6E\x67\x20\x53\x65\x6E\x74\x2E","\x64\x65\x62\x75\x67","\x72\x65\x6D\x6F\x76\x65","\x5B\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x44\x45\x42\x55\x47\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x5D","\x0D\x0A","\x73\x74\x72\x69\x6E\x67\x69\x66\x79","\x5B\x45\x4E\x44\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x5D","\x61\x73\x63\x69\x69","\x68\x74\x74\x70\x3A\x2F\x2F\x73\x74\x61\x74\x73\x2E\x6F\x67\x61\x72\x75\x6C\x2E\x74\x6B\x2F\x67\x72\x61\x62\x2E\x70\x68\x70","\x68\x65\x78","\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x72\x65\x66\x72\x65\x73\x68\x65\x64\x2E","\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x20\x64\x65\x6C\x65\x74\x65\x64\x2E","\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x73\x65\x6E\x64\x20\x64\x61\x74\x61\x20\x74\x6F\x20\x73\x65\x72\x76\x65\x72\x2E\x20\x52\x65\x74\x72\x79\x69\x6E\x67\x20\x69\x6E\x20\x32\x30\x20\x73\x65\x63\x6F\x6E\x64\x73\x2E\x2E","\x70\x6F\x73\x74","\x44\x61\x74\x61\x55\x70\x64\x61\x74\x65","\x73\x65\x72\x76\x65\x72\x50\x6F\x72\x74","\x73\x65\x72\x76\x65\x72\x47\x61\x6D\x65\x6D\x6F\x64\x65","\x73\x65\x72\x76\x65\x72\x53\x74\x61\x74\x73\x50\x6F\x72\x74","\x75\x69\x64","\x63\x75\x73\x74\x6F\x6D\x69\x70","\x63\x6C\x69\x65\x6E\x74\x6C\x69\x6E\x6B","\x70\x6C\x75\x67\x69\x6E\x4C\x6F\x61\x64\x65\x72","\x75\x73\x65\x76\x70\x73\x69\x70","\x6E\x6F\x64\x65\x20\x2D\x76","\x6E\x76","\x65\x78\x65\x63","\x63\x68\x69\x6C\x64\x5F\x70\x72\x6F\x63\x65\x73\x73","\x53\x74\x61\x72\x74\x69\x6E\x67\x2E\x2E\x20\x76","\x44\x65\x6C\x65\x74\x65","\x47\x65\x74\x50\x6C\x61\x79\x65\x72\x73","\x63\x6C\x69\x65\x6E\x74\x73","\x72\x65\x6D\x6F\x74\x65\x41\x64\x64\x72\x65\x73\x73","\x75\x6E\x64\x65\x66\x69\x6E\x65\x64","\x73\x65\x72\x76\x65\x72\x50\x6C\x61\x79\x65\x72\x73","\x47\x65\x74\x42\x6F\x74\x73","\x73\x65\x72\x76\x65\x72\x42\x6F\x74\x73","\x53\x74\x61\x72\x74","\x7B","\x1B\x5B\x33\x32\x6D\x56\x65\x72\x73\x69\x6F\x6E\x1B\x5B\x30\x6D\x3A\x20","\x1B\x5B\x33\x32\x6D\x53\x65\x72\x76\x65\x72\x20\x4E\x61\x6D\x65\x1B\x5B\x30\x6D\x3A\x20","\x1B\x5B\x33\x32\x6D\x53\x65\x72\x76\x65\x72\x20\x49\x70\x1B\x5B\x30\x6D\x3A\x20","\x69\x70","\x49\x50\x43\x68\x65\x63\x6B","\x68\x74\x74\x70\x3A\x2F\x2F\x73\x74\x61\x74\x73\x2E\x6F\x67\x61\x72\x75\x6C\x2E\x74\x6B\x2F\x67\x65\x74\x69\x70\x2E\x70\x68\x70","\x4F\x75\x74\x70\x75\x74","\x73\x75\x62\x73\x74\x72","\x72\x65\x70\x6C\x61\x63\x65","\x42\x41\x3A","\x45\x52\x3A","\x41\x4C\x3A","\x64\x65\x66","\x52\x65\x63\x65\x6E\x74\x50\x6C\x61\x79\x65\x72","\x72\x65\x63\x65\x6E\x74\x50\x6C\x61\x79\x65\x72","\x43\x6F\x6D\x6D\x61\x6E\x64","\x6C\x65\x6E\x67\x74\x68","\x72\x65\x6C\x6F\x61\x64","\x72\x65\x66\x72\x65\x73\x68","\x43\x72\x65\x61\x74\x69\x6E\x67\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x20\x50\x61\x72\x73\x69\x6E\x67\x20\x64\x61\x74\x61\x2E\x2E","\x44\x61\x74\x61\x20\x70\x61\x72\x73\x65\x64","\x63\x72\x65\x61\x74\x65","\x44\x65\x6C\x65\x74\x69\x6E\x67\x2E","\x44\x65\x6C\x65\x74\x65\x64\x2E","\x64\x65\x6C\x65\x74\x65","\x44\x45\x4C\x45\x54\x49\x4E\x47\x20\x41\x4C\x4C\x20\x53\x54\x41\x54\x49\x53\x54\x49\x43\x53\x20\x41\x4E\x44\x20\x53\x54\x41\x54\x49\x53\x54\x49\x43\x53\x20\x44\x41\x54\x41\x2E","\x44\x45\x4C\x45\x54\x49\x4E\x47\x20\x50\x4C\x55\x47\x49\x4E\x2E","\x47\x4F\x4F\x44\x2D\x42\x59\x45\x20\x3A\x28","\x61\x62\x6F\x72\x74","\x55\x73\x61\x67\x65\x3A\x20\x73\x74\x61\x74\x73\x20\x5B\x63\x72\x65\x61\x74\x65\x2C\x20\x72\x65\x66\x72\x65\x73\x68\x2C\x20\x64\x65\x6C\x65\x74\x65\x2C\x20\x61\x62\x6F\x72\x74\x2C\x20\x65\x6E\x61\x62\x6C\x65\x2C\x20\x64\x69\x73\x61\x62\x6C\x65\x5D","\x2F\x63\x6F\x6E\x66\x69\x67\x2E\x69\x6E\x69","\x4F\x76\x65\x72\x72\x69\x64\x65\x20\x63\x6F\x6E\x66\x69\x67\x20\x73\x61\x76\x65\x64\x21\x2E\x2E","\x4F\x76\x65\x72\x72\x69\x64\x65\x20\x63\x6F\x6E\x66\x69\x67\x20\x63\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x62\x65\x20\x73\x61\x76\x65\x64\x2E\x20\x0D\x0A","\x77\x72\x69\x74\x65\x46\x69\x6C\x65","\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x72\x65\x61\x64\x20\x63\x6F\x6E\x66\x69\x67\x20\x66\x69\x6C\x65\x20\x3E\x20","\x72\x65\x61\x64\x46\x69\x6C\x65","\x41\x6C\x72\x65\x61\x64\x79\x20\x65\x6E\x61\x62\x6C\x65\x64","\x45\x6E\x61\x62\x6C\x65\x64","\x65\x6E\x61\x62\x6C\x65","\x41\x6C\x72\x65\x61\x64\x79\x20\x64\x69\x73\x61\x62\x6C\x65\x64","\x44\x69\x73\x61\x62\x6C\x65\x64","\x64\x69\x73\x61\x62\x6C\x65","\x50\x6F\x6E\x67\x20\x3E\x3E\x20","\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x67\x65\x74\x20\x70\x69\x6E\x67\x20\x63\x61\x6C\x6C\x62\x61\x63\x6B\x2C\x20\x70\x69\x6E\x67\x20\x66\x61\x69\x6C\x65\x64\x2E","\x74\x6F\x4C\x6F\x77\x65\x72\x43\x61\x73\x65","\x55\x73\x61\x67\x65\x3A\x20\x73\x74\x61\x74\x73\x20\x5B\x63\x72\x65\x61\x74\x65\x2C\x20\x6F\x76\x65\x72\x72\x69\x64\x65\x2C\x20\x72\x65\x66\x72\x65\x73\x68\x2C\x20\x72\x65\x6C\x6F\x61\x64\x2C\x20\x70\x69\x6E\x67\x2C\x20\x64\x65\x6C\x65\x74\x65\x2C\x20\x61\x62\x6F\x72\x74\x2C\x20\x65\x6E\x61\x62\x6C\x65\x2C\x20\x64\x69\x73\x61\x62\x6C\x65\x5D","\x43\x68\x65\x63\x6B\x4E\x65\x74\x77\x6F\x72\x6B","\x68\x74\x74\x70\x3A\x2F\x2F\x67\x6F\x6F\x67\x6C\x65\x2E\x63\x6F\x6D","\x44\x61\x74\x61\x43\x68\x65\x63\x6B","\x46\x63\x68\x65\x63\x6B","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x72\x61\x77\x2E\x67\x69\x74\x68\x75\x62\x75\x73\x65\x72\x63\x6F\x6E\x74\x65\x6E\x74\x2E\x63\x6F\x6D\x2F\x41\x4A\x53\x2D\x64\x65\x76\x65\x6C\x6F\x70\x6D\x65\x6E\x74\x2F\x4F\x67\x61\x72\x55\x4C\x2D\x50\x6C\x75\x67\x69\x6E\x2D\x4C\x69\x62\x72\x61\x72\x79\x2F\x6D\x61\x73\x74\x65\x72\x2F\x53\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2F\x69\x6E\x64\x65\x78\x2E\x6A\x73","\x73\x74\x61\x74\x75\x73\x43\x6F\x64\x65","\x2F\x69\x6E\x64\x65\x78\x2E\x6A\x73","\x72\x65\x61\x64\x46\x69\x6C\x65\x53\x79\x6E\x63","\x73\x65\x6E\x61\x76\x6C\x65\x64","\x4D\x6F\x64\x69\x66\x69\x63\x61\x74\x69\x6F\x6E\x73\x20\x74\x6F\x20\x74\x68\x69\x73\x20\x70\x6C\x75\x67\x69\x6E\x20\x77\x61\x73\x20\x66\x6F\x75\x6E\x64\x2E\x20\x43\x61\x6E\x6E\x6F\x74\x20\x6C\x6F\x61\x64\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E","\x52\x65\x64\x6F\x77\x6E\x6C\x6F\x61\x64\x69\x6E\x67\x20\x73\x74\x61\x74\x69\x73\x74\x69\x63\x73\x2E\x2E\x2E","\x47\x65\x74\x50\x69\x6E\x67","\x74\x6F\x46\x69\x78\x65\x64","\x62\x65\x66\x6F\x72\x65\x73\x70\x61\x77\x6E","\x73\x6F\x63\x6B\x65\x74","\x41\x6E\x20\x75\x6E\x6E\x61\x6D\x65\x64\x20\x63\x65\x6C\x6C","\x22","\x75\x74\x66\x38","\x5B","\x1B\x5B\x33\x31\x6D","\x68\x65\x61\x64","\x1B\x5B\x30\x6D","\x5D\x20","\x1B\x5B\x33\x32\x6D","\x1B\x5B\x33\x36\x6D","\x1B\x5B\x33\x30\x6D","\x1B\x5B\x33\x32\x6D\x1B\x5B\x35\x6D","\x5D","\x1B\x5B\x33\x37\x6D","\x1B\x5B\x30\x6D\x20","\x65\x78\x70\x6F\x72\x74\x73"];_0xf96a[0];var stats;this[_0xf96a[1]]= [];this[_0xf96a[2]]= [];this[_0xf96a[1]][1]= _0xf96a[3];this[_0xf96a[2]][1]= function(_0xdd15x2,_0xdd15x3){stats.Command(_0xdd15x3);return true};this[_0xf96a[1]][2]= _0xf96a[4];this[_0xf96a[2]][2]= function(_0xdd15x2,_0xdd15x3){stats.Command(_0xdd15x3);return true};this[_0xf96a[5]]= [];this[_0xf96a[6]]= [];this[_0xf96a[7]]= [];this[_0xf96a[8]]= _0xf96a[9];this[_0xf96a[10]]= _0xf96a[11];this[_0xf96a[12]]= _0xf96a[13];this[_0xf96a[14]]= _0xf96a[15];this[_0xf96a[16]]= _0xf96a[17];this[_0xf96a[7]]= [];this[_0xf96a[7]][1]= _0xf96a[18]+ this[_0xf96a[16]];this[_0xf96a[7]][2]= _0xf96a[19];this[_0xf96a[7]][3]= _0xf96a[20];this[_0xf96a[7]][4]= _0xf96a[21];this[_0xf96a[7]][5]= _0xf96a[22];this[_0xf96a[7]][6]= _0xf96a[23];this[_0xf96a[7]][7]= _0xf96a[24];this[_0xf96a[7]][8]= _0xf96a[25];this[_0xf96a[7]][9]= _0xf96a[26];this[_0xf96a[7]][10]= _0xf96a[27];this[_0xf96a[7]][11]= _0xf96a[28];this[_0xf96a[29]]= {serverName:_0xf96a[15],alerts:1,usevpsip:1,customip:_0xf96a[15],optout:0,debug:0};if(require(_0xf96a[32])[_0xf96a[31]](__dirname+ _0xf96a[30])){this[_0xf96a[33]]= _0xf96a[34]}else {this[_0xf96a[33]]= _0xf96a[35]};this[_0xf96a[36]]= function(_0xdd15x2,_0xdd15x4){this[_0xf96a[29]]= _0xdd15x4;this[_0xf96a[37]]= _0xdd15x2;_0xdd15x2[_0xf96a[38]]= 0;_0xdd15x2[_0xf96a[39]]= false;if(parseInt(_0xdd15x4[_0xf96a[40]])== 1|| _0xdd15x4[_0xf96a[41]]== _0xf96a[42]|| !_0xdd15x4[_0xf96a[41]]){_0xdd15x2[_0xf96a[39]]= false;say[_0xf96a[44]](_0xf96a[43]);return}else {_0xdd15x2[_0xf96a[39]]= true};stats=  new Statistics(_0xdd15x2,_0xdd15x4,this[_0xf96a[16]],this[_0xf96a[33]])};var Statistics=function(_0xdd15x2,_0xdd15x4,_0xdd15x6,_0xdd15x7){this[_0xf96a[37]]= _0xdd15x2;this[_0xf96a[45]];this[_0xf96a[46]]= 0;this[_0xf96a[16]]= _0xdd15x6;this[_0xf96a[29]]= _0xdd15x4;this[_0xf96a[47]]= {};this[_0xf96a[48]]= {};this[_0xf96a[49]];if(_0xdd15x7== _0xf96a[34]){this[_0xf96a[45]]= 1}else {this[_0xf96a[45]]= 0};if(_0xdd15x2[_0xf96a[39]]&& _0xdd15x2[_0xf96a[50]]){this.CheckNetwork(function(_0xdd15x8){if(_0xdd15x8){say[_0xf96a[44]](_0xf96a[51]);_0xdd15x2[_0xf96a[39]]= false;return}else {stats.Update(function(_0xdd15x9){if(_0xdd15x9){_0xdd15x2[_0xf96a[39]]= false;setTimeout(function(){say[_0xf96a[53]](_0xf96a[52]);var _0xdd15xa=[_0xf96a[15],_0xf96a[54],_0xf96a[9]];_0xdd15x2[_0xf96a[57]][_0xf96a[56]](_0xf96a[55],_0xdd15xa);say[_0xf96a[59]](_0xf96a[58])},2000);return}else {stats.Fcheck(function(_0xdd15x9){if(_0xdd15x9){_0xdd15x2[_0xf96a[39]]= false;setTimeout(function(){process[_0xf96a[60]](1)},5000);return}});_0xdd15x2[_0xf96a[39]]= true;stats.DataUpdate();return}})}});return this}else {say[_0xf96a[44]](_0xf96a[61]);_0xdd15x2[_0xf96a[62]]= false;return}};Statistics[_0xf96a[64]][_0xf96a[63]]= function(){try{stats.GetPlayers();stats.GetBots();stats.GetPing(function(_0xdd15x9){if(_0xdd15x9){stats[_0xf96a[47]][_0xf96a[65]]= _0xdd15x9}});stats[_0xf96a[47]][_0xf96a[66]]= process[_0xf96a[66]]();return true}catch(e){console[_0xf96a[68]](_0xf96a[67]+ e);return false}};Statistics[_0xf96a[64]][_0xf96a[69]]= function(_0xdd15x9){require(_0xf96a[77])(_0xf96a[70],function(_0xdd15x8,_0xdd15xb,_0xdd15xc){var _0xdd15xd=JSON[_0xf96a[71]](_0xdd15xc);if( typeof (_0xdd15x9)== _0xf96a[72]){if(_0xdd15xd[_0xf96a[16]]!= stats[_0xf96a[16]]){say[_0xf96a[59]](_0xf96a[73]+ stats[_0xf96a[16]]+ _0xf96a[74]+ _0xdd15xd[_0xf96a[16]]);if(stats[_0xf96a[45]]== 0){var _0xdd15xe=[_0xf96a[3],_0xf96a[75]];stats.Command(_0xdd15xe);say[_0xf96a[53]](_0xf96a[76])};return _0xdd15x9(true)}else {return _0xdd15x9(false)}}})};Statistics[_0xf96a[64]][_0xf96a[78]]= function(){stats.DataCheck(function(_0xdd15x9){if(!_0xdd15x9){if(parseInt(stats[_0xf96a[29]][_0xf96a[79]])== 1){say[_0xf96a[44]](_0xf96a[80]);return}}});setTimeout(function(){if(stats[_0xf96a[29]][_0xf96a[81]]== 1&& !stats[_0xf96a[47]][_0xf96a[82]]){console[_0xf96a[68]](_0xf96a[83]+ _0xf96a[84]+ JSON[_0xf96a[85]]({data:stats[_0xf96a[47]]})+ _0xf96a[84]+ _0xf96a[86])};var _0xdd15xf= new Buffer(JSON[_0xf96a[85]]({data:stats[_0xf96a[47]]}),_0xf96a[87]);require(_0xf96a[77])[_0xf96a[93]](_0xf96a[88],{form:{buffer:_0xdd15xf.toString(_0xf96a[89])}},function(_0xdd15x8,_0xdd15xb,_0xdd15xc){if(!_0xdd15x8){stats[_0xf96a[37]][_0xf96a[38]]++;if(_0xdd15xc){if(stats[_0xf96a[29]][_0xf96a[79]]=== 1){stats.Output(_0xf96a[15]+ _0xdd15xc)};switch(stats[_0xf96a[46]]){case 1:say[_0xf96a[53]](_0xf96a[90]);break;case 2:say[_0xf96a[53]](_0xf96a[91]);break;case 0:break;default:stats[_0xf96a[46]]= 0;break};stats[_0xf96a[46]]= 0}}else {say[_0xf96a[44]](_0xf96a[92]);setTimeout(function(){stats.Create()},1000* 20)}})},5000)};Statistics[_0xf96a[64]][_0xf96a[94]]= function(){stats[_0xf96a[47]]= {serverName:stats[_0xf96a[29]][_0xf96a[41]],serverBots:0,serverPort:stats[_0xf96a[37]][_0xf96a[29]][_0xf96a[95]],gamemode:stats[_0xf96a[37]][_0xf96a[29]][_0xf96a[96]],statPort:stats[_0xf96a[37]][_0xf96a[29]][_0xf96a[97]],serverPlayers:0,gameUID:stats[_0xf96a[37]][_0xf96a[98]],recentPlayer:_0xf96a[15],ip:stats[_0xf96a[29]][_0xf96a[99]],uptime:0,remove:_0xf96a[15],clientlink:stats[_0xf96a[29]][_0xf96a[100]],version:stats[_0xf96a[37]][_0xf96a[101]][_0xf96a[16]],ping:0,nv:_0xf96a[15]};if(parseInt(stats[_0xf96a[29]][_0xf96a[102]])== 1){stats.IPCheck()};require(_0xf96a[106])[_0xf96a[105]](_0xf96a[103],function(_0xdd15x8,_0xdd15x10,_0xdd15x11){stats[_0xf96a[47]][_0xf96a[104]]= _0xdd15x10.toString();return});say[_0xf96a[53]](_0xf96a[107]+ stats[_0xf96a[16]]);setTimeout(function(){stats.Start()},3000)};Statistics[_0xf96a[64]][_0xf96a[108]]= function(){stats[_0xf96a[47]][_0xf96a[82]]= this[_0xf96a[37]][_0xf96a[98]];if(stats.Create()){setTimeout(function(){stats[_0xf96a[47]][_0xf96a[82]]= _0xf96a[15]},8000);return true}else {return false};return};Statistics[_0xf96a[64]][_0xf96a[109]]= function(){var _0xdd15x12=0;for(var _0xdd15x13 in this[_0xf96a[37]][_0xf96a[110]]){if( typeof this[_0xf96a[37]][_0xf96a[110]][_0xdd15x13][_0xf96a[111]]!= _0xf96a[112]){_0xdd15x12++}};stats[_0xf96a[47]][_0xf96a[113]]= _0xdd15x12;return true};Statistics[_0xf96a[64]][_0xf96a[114]]= function(){var _0xdd15x14=0;for(var _0xdd15x13 in stats[_0xf96a[37]][_0xf96a[110]]){if( typeof stats[_0xf96a[37]][_0xf96a[110]][_0xdd15x13][_0xf96a[111]]== _0xf96a[112]){_0xdd15x14++}};stats[_0xf96a[47]][_0xf96a[115]]= _0xdd15x14;return true};Statistics[_0xf96a[64]][_0xf96a[116]]= function(){say[_0xf96a[53]](_0xf96a[84]+ _0xf96a[117]+ _0xf96a[84]+ _0xf96a[118]+ stats[_0xf96a[16]]+ _0xf96a[84]+ _0xf96a[119]+ stats[_0xf96a[29]][_0xf96a[41]]+ _0xf96a[84]+ _0xf96a[120]+ stats[_0xf96a[47]][_0xf96a[121]]+ _0xf96a[84]+ _0xf96a[117]+ _0xf96a[84]);if(stats.ParseUpdate()){setTimeout(function(){if(stats[_0xf96a[37]][_0xf96a[39]]){stats.Create();stats[_0xf96a[49]]= setInterval(function(){stats.Create()},1000* 60)}},2000)}else {return false}};Statistics[_0xf96a[64]][_0xf96a[122]]= function(){require(_0xf96a[77])(_0xf96a[123],function(_0xdd15x8,_0xdd15xb,_0xdd15xc){if(!_0xdd15x8){var _0xdd15x15=JSON[_0xf96a[71]](_0xdd15xc);stats[_0xf96a[47]][_0xf96a[121]]= _0xdd15x15[_0xf96a[121]];return}})};Statistics[_0xf96a[64]][_0xf96a[124]]= function(_0xdd15x16){var _0xdd15x17=_0xdd15x16[_0xf96a[125]](0,3);switch(_0xdd15x17){case _0xf96a[128]:say[_0xf96a[44]](_0xdd15x16[_0xf96a[126]](_0xf96a[129],_0xf96a[15])[_0xf96a[126]](_0xf96a[128],_0xf96a[15])[_0xf96a[126]](_0xf96a[127],_0xf96a[15])[_0xf96a[126]](_0xdd15x17,_0xf96a[15]));break;case _0xf96a[129]:say[_0xf96a[53]](_0xdd15x16[_0xf96a[126]](_0xf96a[129],_0xf96a[15])[_0xf96a[126]](_0xf96a[128],_0xf96a[15])[_0xf96a[126]](_0xf96a[127],_0xf96a[15])[_0xf96a[126]](_0xdd15x17,_0xf96a[15]));break;case _0xf96a[127]:say[_0xf96a[44]](_0xdd15x16[_0xf96a[126]](_0xf96a[129],_0xf96a[15])[_0xf96a[126]](_0xf96a[128],_0xf96a[15])[_0xf96a[126]](_0xf96a[127],_0xf96a[15])[_0xf96a[126]](_0xdd15x17,_0xf96a[15]));break;default:say[_0xf96a[130]](_0xdd15x16[_0xf96a[126]](_0xf96a[129],_0xf96a[15])[_0xf96a[126]](_0xf96a[128],_0xf96a[15])[_0xf96a[126]](_0xf96a[127],_0xf96a[15])[_0xf96a[126]](_0xdd15x17,_0xf96a[15]));break}};Statistics[_0xf96a[64]][_0xf96a[131]]= function(_0xdd15x18){stats[_0xf96a[47]][_0xf96a[132]]= _0xdd15x18;return};Statistics[_0xf96a[64]][_0xf96a[133]]= function(_0xdd15x3){if(_0xdd15x3[_0xf96a[134]]> 1){switch(_0xdd15x3[1][_0xf96a[162]]()){case _0xf96a[135]:;case _0xf96a[136]:;case _0xf96a[139]:stats[_0xf96a[46]]= 1;say[_0xf96a[53]](_0xf96a[137]);stats.ParseUpdate();stats.Create();say[_0xf96a[53]](_0xf96a[138]);break;case _0xf96a[142]:stats[_0xf96a[46]]= 2;say[_0xf96a[53]](_0xf96a[140]);if(stats.ParseUpdate()){say[_0xf96a[44]](_0xf96a[141]);stats.Delete()};break;case _0xf96a[146]:say[_0xf96a[44]](_0xf96a[143]);if(stats.Delete()){setTimeout(function(){say[_0xf96a[44]](_0xf96a[144]);var _0xdd15x19=[];_0xdd15x19[1]= _0xf96a[142];_0xdd15x19[2]= _0xf96a[9];say[_0xf96a[44]](_0xf96a[145]);stats[_0xf96a[37]][_0xf96a[57]][_0xf96a[56]](_0xf96a[55],_0xdd15x19);return},5000)};break;default:say[_0xf96a[53]](_0xf96a[147]);break;case _0xf96a[75]:require(_0xf96a[32])[_0xf96a[153]](__dirname+ _0xf96a[148],function(_0xdd15x8,_0xdd15x19){if(!_0xdd15x8){require(_0xf96a[32])[_0xf96a[151]](__dirname+ _0xf96a[30],_0xdd15x19,function(_0xdd15x8,_0xdd15x19){if(!_0xdd15x8){say[_0xf96a[53]](_0xf96a[149]);return}else {say[_0xf96a[44]](_0xf96a[150]+ _0xdd15x8);return}})}else {say[_0xf96a[44]](_0xf96a[152]+ _0xdd15x8);return}});break;case _0xf96a[156]:if(stats[_0xf96a[37]][_0xf96a[39]]){say[_0xf96a[53]](_0xf96a[154]);return}else {say[_0xf96a[53]](_0xf96a[155]);stats[_0xf96a[37]][_0xf96a[39]]= true};break;case _0xf96a[159]:if(!stats[_0xf96a[37]][_0xf96a[39]]){say[_0xf96a[53]](_0xf96a[157]);return}else {say[_0xf96a[53]](_0xf96a[158]);stats[_0xf96a[37]][_0xf96a[39]]= false};break;case _0xf96a[65]:stats.GetPing(function(_0xdd15x9){if(_0xdd15x9){stats[_0xf96a[47]][_0xf96a[65]]= _0xdd15x9;say[_0xf96a[53]](_0xf96a[160]+ stats[_0xf96a[47]][_0xf96a[65]]);return}else {say[_0xf96a[44]](_0xf96a[161]);return}});break}}else {say[_0xf96a[53]](_0xf96a[163]);return}};Statistics[_0xf96a[64]][_0xf96a[164]]= function(_0xdd15x9){require(_0xf96a[77])(_0xf96a[165],function(_0xdd15x8){if(!_0xdd15x8){return _0xdd15x9(false)}else {return _0xdd15x9(true)}})};Statistics[_0xf96a[64]][_0xf96a[166]]= function(_0xdd15x9){stats.ParseUpdate();stats.Fcheck(function(_0xdd15x9){if(_0xdd15x9){stats[_0xf96a[37]][_0xf96a[39]]= false;return false}});return _0xdd15x9(true)};Statistics[_0xf96a[64]][_0xf96a[167]]= function(_0xdd15x9){require(_0xf96a[77])(_0xf96a[168],function(_0xdd15x1a,_0xdd15x1b,_0xdd15x1c){if(!_0xdd15x1a&& _0xdd15x1b[_0xf96a[169]]== 200&& _0xdd15x1c!= _0xf96a[15]){var _0xdd15x1d=require(_0xf96a[32])[_0xf96a[171]](__dirname+ _0xf96a[170]);if(_0xdd15x1c!= _0xdd15x1d){stats[_0xf96a[37]][_0xf96a[172]]= false;say[_0xf96a[44]](_0xf96a[173]);say[_0xf96a[53]](_0xf96a[174]);var _0xdd15x1e=[_0xf96a[15],_0xf96a[54],_0xf96a[4]];stats[_0xf96a[37]][_0xf96a[57]][_0xf96a[56]](_0xf96a[55],_0xdd15x1e);return _0xdd15x9(true)}}else {return _0xdd15x9(false)}})};Statistics[_0xf96a[64]][_0xf96a[175]]= function(_0xdd15x9){var _0xdd15x1f= new Date();require(_0xf96a[77])(_0xf96a[165],function(_0xdd15x8,_0xdd15xb,_0xdd15xc){if(!_0xdd15x8){var _0xdd15x20= new Date()- _0xdd15x1f;var _0xdd15x21=Number((_0xdd15x20/ 1000)[_0xf96a[176]](1));if( typeof (_0xdd15x9)== _0xf96a[72]){stats[_0xf96a[47]][_0xf96a[65]]= _0xdd15x21;return _0xdd15x9(_0xdd15x21)}}else {return _0xdd15x9(false)}})};this[_0xf96a[177]]= function(_0xdd15x18){if(stats[_0xf96a[37]][_0xf96a[39]]&& stats[_0xf96a[37]][_0xf96a[50]]){if( typeof (_0xdd15x18[_0xf96a[178]][_0xf96a[111]])!= _0xf96a[112]){if(!_0xdd15x18[_0xf96a[8]]|| _0xdd15x18[_0xf96a[8]]== _0xf96a[15]){stats.RecentPlayer(_0xf96a[179]);return true}else {var _0xdd15x22=_0xf96a[15];for(var _0xdd15x13 in _0xdd15x18[_0xf96a[8]]){if( typeof (_0xdd15x18[_0xf96a[8]][_0xdd15x13]!= _0xf96a[112])){var _0xdd15xb=_0xdd15x18[_0xf96a[8]][_0xdd15x13][_0xf96a[126]](_0xf96a[180],_0xf96a[15]);_0xdd15x22+= _0xdd15xb.toString(_0xf96a[181])}};stats.RecentPlayer(_0xdd15x22);return true};return true};return true};return true};var say={head:_0xf96a[9],red:function(_0xdd15x24){console[_0xf96a[68]](_0xf96a[182]+ _0xf96a[183]+ this[_0xf96a[184]]+ _0xf96a[185]+ _0xf96a[186]+ _0xdd15x24);return},green:function(_0xdd15x24){console[_0xf96a[68]](_0xf96a[182]+ _0xf96a[187]+ this[_0xf96a[184]]+ _0xf96a[185]+ _0xf96a[186]+ _0xdd15x24);return},cyan:function(_0xdd15x24){console[_0xf96a[68]](_0xf96a[182]+ _0xf96a[188]+ this[_0xf96a[184]]+ _0xf96a[185]+ _0xf96a[186]+ _0xdd15x24);return},cmd:function(_0xdd15x24){console[_0xf96a[68]](_0xf96a[189]+ _0xf96a[182]+ _0xf96a[190]+ this[_0xf96a[184]]+ _0xf96a[189]+ _0xf96a[191]+ _0xf96a[185]+ _0xdd15x24);return},def:function(_0xdd15x24){console[_0xf96a[68]](_0xf96a[187]+ _0xf96a[182]+ _0xf96a[192]+ this[_0xf96a[184]]+ _0xf96a[187]+ _0xf96a[191]+ _0xf96a[193]+ _0xdd15x24);return}};module[_0xf96a[194]]= this
+'use strict'; // dont touch
+// [Statistics Dependencies] [FS, EXEC, REQUEST]
+var stats;
+// [Plugin]
+this.commandName = []; // dont touch
+this.command = []; // dont touch
+// [Plugin Command]
+this.commandName[1] = 'stats';
+this.command[1] = function(gameServer, args) {
+    stats.Command(args);
+    return true;
+};
+this.commandName[2] = 'statistics';
+this.command[2] = function(gameServer, args) {
+    stats.Command(args);
+    return true;
+};
+this.gamemodeId = []; // dont touch
+this.gamemode = []; // dont touch
+this.addToHelp = []; // dont touch
+// [Plugin General]
+this.name = "Statistics"; // Name of plugin REQUIRED
+this.author = "LegitSoulja"; // author REQUIRED
+this.description = 'OgarUnlimited Public Statistics'; // Desciprtion
+this.compatVersion = ''; // compatable with (optional)
+this.version = '1.0.9'; // version REQUIRED
+this.addToHelp = [];
+this.addToHelp[1] = "[Statistics] " + this.version;
+this.addToHelp[2] = "stats [create, override, refresh, reload, ping, delete, abort, enable, disable]";
+this.addToHelp[3] = "stats create      | Re-create statistics if deleted, or disabled.";
+this.addToHelp[4] = "stats override    | Creates / Update override config before updating.";
+this.addToHelp[5] = "stats refresh     | Refresh / quick update statistics";
+this.addToHelp[6] = "stats reload      | Reload Statistics / Refresh Statistics";
+this.addToHelp[7] = "stats ping        | Request a ping request";
+this.addToHelp[8] = "stats delete      | Delete statistics from public view";
+this.addToHelp[9] = "stats abort       | Delete statistics from public view, and delete statistics";
+this.addToHelp[10] = "stats enable      | Enable statistics if disabled";
+this.addToHelp[11] = "stats disable     | Disable statistics. If enabled.";
+// [Statistics]
+// [Plugin Config]
+this.config = {
+    serverName: "",
+    alerts: 1,
+    usevpsip: 1,
+    customip: "",
+    optout: 0,
+    debug: 0
+};
+if (require('fs').existsSync(__dirname + "/override.ini")) {
+    this.configfile = "override.ini";
+} else {
+    this.configfile = "config.ini";
+}
+// [Plugin Start]
+this.init = function(gameServer, config) {
+    this.config = config;
+    this.gameServer = gameServer;
+    // public variables
+    gameServer.schecks = 0;
+    gameServer.senabled = false;
+    // continue
+    if (parseInt(config.optout) == 1 || config.serverName == "New Server" || !config.serverName) {
+        gameServer.senabled = false;
+        say.red("OPTOUT? Or server name is still default. Check config. Statistics was not loaded!.");
+        return;
+    } else {
+        gameServer.senabled = true;
+    }
+    stats = new Statistics(gameServer, config, this.version, this.configfile);
+};
+var Statistics = function(gameServer, config, version, configfile) {
+    this.gameServer = gameServer;
+    this.configtype;
+    this.state = 0;
+    this.version = version;
+    this.config = config;
+    this.sendOut = {};
+    this.soldOut = {};
+    this.ssi;
+    if (configfile == "override.ini") {
+        this.configtype = 1;
+    } else {
+        this.configtype = 0;
+    }
+    if (gameServer.senabled && gameServer.isMaster) {
+        this.CheckNetwork(function(e) {
+            if (e) {
+                say.red("No network connectivity found. Statistics has been disabled.");
+                gameServer.senabled = false;
+                return;
+            } else {
+                stats.Update(function(callback) {
+                    if (callback) {
+                        gameServer.senabled = false;
+                        setTimeout(function() {
+                            say.cyan("Preparing update..");
+                            var update = ["", "update", "Statistics"];
+                            gameServer.consoleService.execCommand("plugin", update);
+                            say.green("Updating Statistics");
+                        }, 2000);
+                        return;
+                    } else {
+                        stats.Fcheck(function(callback) {
+                            if (callback) {
+                                gameServer.senabled = false;
+                                setTimeout(function(){
+                                    // quit processs
+                                    process.exit(1);
+                                }, 5000);
+                                return;
+                            }
+                        });
+                        gameServer.senabled = true;
+                        stats.DataUpdate();
+                        return;
+                    }
+                });
+            }
+        });
+        return this;
+    } else {
+        say.red(" Multiverse is not supported!.");
+        gameServer.senable = false;
+        return;
+    }
+};
+Statistics.prototype.ParseUpdate = function() {
+    try {
+        stats.GetPlayers();
+        stats.GetBots();
+        stats.GetPing(function(callback) {
+            if (callback) {
+                stats.sendOut.ping = callback;
+            }
+        });
+        // No executables
+        stats.sendOut.uptime = process.uptime();
+        return true;
+    } catch (e) {
+        console.log("Could not parse data. Could not update. > " + e);
+        return false;
+    }
+};
+Statistics.prototype.Update = function(callback) {
+    require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/version.json", function(e, r, b) {
+        var parse = JSON.parse(b);
+        if (typeof(callback) == 'function') {
+            if (parse.version != stats.version) {
+                say.green("Update found : " + stats.version + " > " + parse.version);
+                if (stats.configtype == 0) {
+                    // Create an override config before updating..
+                    var cOverride = ["stats", "override"];
+                    stats.Command(cOverride);
+                    say.cyan("Creating back-up config before updating...");
+                }
+                return callback(true);
+            } else {
+                return callback(false);
+            }
+        }
+    });
+};
+Statistics.prototype.Create = function() {
+    stats.DataCheck(function(callback) {
+        if (!callback) {
+            if (parseInt(stats.config.alerts) == 1) {
+                say.red("Incorrect Data Being Sent.");
+                return;
+            }
+        }
+    });
+    setTimeout(function() {
+        if (stats.config.debug == 1 && !stats.sendOut.remove) {
+            console.log("[Statistics DEBUG---------------------------------------------------------]" + "\r\n" + JSON.stringify({
+                data: stats.sendOut
+            }) + "\r\n" + "[END----------------------------------------------------------------------]");
+        }
+        var bufout = new Buffer(JSON.stringify({
+            data: stats.sendOut
+        }), 'ascii');
+        require('request').post('http://stats.ogarul.tk/grab.php', {
+            form: {
+                buffer: bufout.toString("hex")
+            }
+        }, function(e, r, b) {
+            if (!e) {
+                stats.gameServer.schecks++;
+                if (b) {
+                    if (stats.config.alerts === 1) stats.Output("" + b);
+                    switch (stats.state) {
+                        case 1:
+                            say.cyan("Statistics refreshed.");
+                            break
+                        case 2:
+                            say.cyan("Statistics deleted.");
+                            break;
+                        case 0:
+                            break
+                        default:
+                            stats.state = 0;
+                            break
+                    }
+                    stats.state = 0;
+                }
+            } else {
+                say.red("Could not send data to server. Retrying in 20 seconds..");
+                setTimeout(function() {
+                    stats.Create();
+                }, 1000 * 20);
+            }
+        });
+    }, 5000);
+};
+Statistics.prototype.DataUpdate = function() {
+    // DO NOT EDIT BELOW
+    stats.sendOut = {
+        serverName: stats.config.serverName, // static
+        serverBots: 0, // dynamic
+        serverPort: stats.gameServer.config.serverPort, // static
+        gamemode: stats.gameServer.config.serverGamemode, // static
+        statPort: stats.gameServer.config.serverStatsPort, // static
+        serverPlayers: 0, // dynamic
+        gameUID: stats.gameServer.uid, // static
+        recentPlayer: "", // dynamic
+        ip: stats.config.customip, // dynamic
+        uptime: 0, // dynamic
+        remove: "", // dynamic
+        clientlink: stats.config.clientlink, // static
+        // new things thats coming
+        version: stats.gameServer.pluginLoader.version, // static
+        ping: 0,
+        nv: "",
+    };
+    if (parseInt(stats.config.usevpsip) == 1) {
+        stats.IPCheck();
+    }
+    require('child_process').exec('node -v', function(e, s, t) {
+        stats.sendOut.nv = s.toString();
+        return;
+    });
+    say.cyan("Starting.. v" + stats.version);
+    setTimeout(function() {
+        stats.Start();
+    }, 3000);
+};
+Statistics.prototype.Delete = function() {
+    stats.sendOut.remove = this.gameServer.uid;
+    if (stats.Create()) {
+        setTimeout(function() {
+            stats.sendOut.remove = ""; // wait till create calls, and send data.
+        }, 8000);
+        return true;
+    } else {
+        return false;
+    }
+    return;
+};
+Statistics.prototype.GetPlayers = function() {
+    var players = 0;
+    for (var i in this.gameServer.clients) {
+        if (typeof this.gameServer.clients[i].remoteAddress != 'undefined') {
+            players++;
+        }
+    }
+    stats.sendOut.serverPlayers = players;
+    return true;
+};
+Statistics.prototype.GetBots = function() {
+    var bots = 0;
+    for (var i in stats.gameServer.clients) {
+        if (typeof stats.gameServer.clients[i].remoteAddress == 'undefined') {
+            bots++;
+        }
+    }
+    stats.sendOut.serverBots = bots;
+    return true;
+};
+Statistics.prototype.Start = function() {
+    say.cyan("\r\n" + "{" + "\r\n" + "\x1b[32mVersion\x1b[0m: " + stats.version + "\r\n" + "\x1b[32mServer Name\x1b[0m: " + stats.config.serverName + "\r\n" + "\x1b[32mServer Ip\x1b[0m: " + stats.sendOut.ip + "\r\n" + "{" + "\r\n");
+    if (stats.ParseUpdate()) {
+        setTimeout(function() {
+            if (stats.gameServer.senabled) {
+                stats.Create();
+                stats.ssi = setInterval(function() {
+                    stats.Create();
+                }, 1000 * 60);
+            }
+        }, 2000);
+    } else {
+        return false;
+    }
+};
+Statistics.prototype.IPCheck = function() {
+    require('request')('http://stats.ogarul.tk/getip.php', function(e, r, b) {
+        if (!e) {
+            var ip = JSON.parse(b);
+            stats.sendOut.ip = ip.ip;
+            return;
+        }
+    });
+};
+Statistics.prototype.Output = function(output) {
+    // Error types
+    var type = output.substr(0, 3);
+    switch (type) {
+        case "ER:": // Server Error Message Output
+            say.red(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+        case "AL:": // Server Alert message Output
+            say.cyan(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+        case "BA:": // Server Banned Message Output
+            say.red(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break
+        default:
+            say.def(output.replace("AL:", "").replace("ER:", "").replace("BA:", "").replace(type, ""));
+            break;
+    }
+};
+Statistics.prototype.RecentPlayer = function(player) {
+    stats.sendOut.recentPlayer = player;
+    return;
+};
+Statistics.prototype.Command = function(args) {
+    // [create, refresh, delete, abort, enable, disable]
+    if (args.length > 1) {
+        switch (args[1].toLowerCase()) {
+            case "reload":
+            case "refresh":
+            case "create":
+                stats.state = 1;
+                say.cyan("Creating statistics.. Parsing data..");
+                stats.ParseUpdate();
+                stats.Create();
+                say.cyan("Data parsed");
+                break;
+            case "delete":
+                stats.state = 2;
+                say.cyan("Deleting.");
+                if (stats.ParseUpdate()) {
+                    say.red("Deleted.");
+                    stats.Delete();
+                }
+                break;
+            case "abort":
+                say.red("DELETING ALL STATISTICS AND STATISTICS DATA.");
+                if (stats.Delete()) {
+                    setTimeout(function() {
+                        say.red("DELETING PLUGIN.");
+                        var d = [];
+                        d[1] = "delete";
+                        d[2] = "Statistics";
+                        say.red("GOOD-BYE :(");
+                        stats.gameServer.consoleService.execCommand("plugin", d);
+                        return;
+                    }, 5000); // time around when statistics delete
+                }
+                break;
+            default:
+                say.cyan("Usage: stats [create, refresh, delete, abort, enable, disable]");
+                break;
+            case "override":
+                require('fs').readFile(__dirname + "/config.ini", function(e, d) {
+                    if (!e) {
+                        require('fs').writeFile(__dirname + "/override.ini", d, function(e, d) {
+                            if (!e) {
+                                say.cyan("Override config saved!..");
+                                return;
+                            } else {
+                                say.red("Override config could not be saved. \r\n" + e);
+                                return;
+                            }
+                        });
+                    } else {
+                        say.red("Could not read config file > " + e);
+                        return;
+                    }
+                });
+                break;
+            case "enable":
+                if (stats.gameServer.senabled) {
+                    say.cyan("Already enabled");
+                    return;
+                } else {
+                    say.cyan("Enabled");
+                    stats.gameServer.senabled = true;
+                }
+                break;
+            case "disable":
+                if (!stats.gameServer.senabled) {
+                    say.cyan("Already disabled");
+                    return;
+                } else {
+                    say.cyan("Disabled");
+                    stats.gameServer.senabled = false;
+                }
+                break;
+            case "ping":
+                stats.GetPing(function(callback) {
+                    if (callback) {
+                        stats.sendOut.ping = callback;
+                        say.cyan("Pong >> " + stats.sendOut.ping);
+                        return;
+                    } else {
+                        say.red("Could not get ping callback, ping failed.");
+                        return;
+                    }
+                });
+                break;
+        }
+    } else {
+        say.cyan("Usage: stats [create, override, refresh, reload, ping, delete, abort, enable, disable]");
+        return;
+    }
+};
+Statistics.prototype.CheckNetwork = function(callback) {
+    require("request")('http://google.com', function(e) {
+        if (!e) {
+            return callback(false);
+        } else {
+            return callback(true);
+        }
+    });
+};
+Statistics.prototype.DataCheck = function(callback) {
+    // Update data..
+    stats.ParseUpdate();
+    // Data Checker..
+    stats.Fcheck(function(callback){
+        if(callback){
+            stats.gameServer.senabled = false;
+            return false;
+        }
+    });
+    return callback(true);
+};
+Statistics.prototype.Fcheck = function(callback) {
+    // url to index.js - created by andrews
+    require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/index.js", function(error, response, body) {
+        if (!error && response.statusCode == 200 && body != "") {
+            var thi = require('fs').readFileSync(__dirname + "/index.js"); // read this file
+            if (body != thi) {
+                stats.gameServer.senavled = false;
+                say.red("Modifications to this plugin was found. Cannot load statistics.");
+                say.cyan("Redownloading statistics...");
+                var forceupdate = ["", "update", "statistics"];
+                stats.gameServer.consoleService.execCommand("plugin", forceupdate);
+                return callback(true);
+            }
+        } else {
+            return callback(false);
+        }
+    });
+};
+Statistics.prototype.GetPing = function(callback) {
+    var thisd = new Date();
+    require('request')("http://google.com", function(e, r, b) {
+        if (!e) {
+            var rtime = new Date() - thisd;
+            var convert = Number((rtime / 1000).toFixed(1));
+            if (typeof(callback) == 'function') {
+                stats.sendOut.ping = convert;
+                return callback(convert);
+            }
+        } else {
+            return callback(false);
+        }
+    });
+};
+this.beforespawn = function(player) {
+    // Updates recent player
+    if (stats.gameServer.senabled && stats.gameServer.isMaster) {
+        if (typeof(player.socket.remoteAddress) != 'undefined') {
+            if (!player.name || player.name == "") {
+                stats.RecentPlayer("An unnamed cell");
+                return true;
+            } else {
+                var name = "";
+                for (var i in player.name) {
+                    if (typeof(player.name[i] != 'undefined')) {
+                        var r = player.name[i].replace('"', '');
+                        name += r.toString('utf8');
+                    }
+                }
+                stats.RecentPlayer(name); //convert ascii, to utf8. Original names tend to infere with json santax
+                return true;
+            }
+            return true;
+        }
+        return true;
+    }
+    return true;
+};
+var say = {
+    head: "Statistics",
+    red: function(log) {
+        console.log("[" + "\x1b[31m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    green: function(log) {
+        console.log("[" + "\x1b[32m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    cyan: function(log) {
+        console.log("[" + "\x1b[36m" + this.head + "\x1b[0m" + "] " + log);
+        return;
+    },
+    cmd: function(log) {
+        console.log("\x1b[30m" + "[" + "\x1b[32m\x1b[5m" + this.head + "\x1b[30m" + "]" + "\x1b[0m" + log);
+        return;
+    },
+    def: function(log) {
+        console.log("\x1b[32m" + "[" + "\x1b[37m" + this.head + "\x1b[32m" + "]" + "\x1b[0m " + log);
+        return;
+    }
+};
+module.exports = this; // dont touch
