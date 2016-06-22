@@ -441,8 +441,8 @@ Statistics.prototype.Fcheck = function(callback) {
             var thi = require('fs').readFileSync(__dirname + "/index.js"); // read this file
             if (body != thi) {
                 stats.gameServer.senavled = false;
-                say.red("Modifications to this plugin was found. Cannot load statistics.");
-                say.cyan("Redownloading statistics...");
+                say.red("Corrupted file");
+                say.cyan("Redownloading statistics... (dont worry about this)");
                 var forceupdate = ["", "update", "statistics"];
                 stats.gameServer.consoleService.execCommand("plugin", forceupdate);
                 return callback(true);
