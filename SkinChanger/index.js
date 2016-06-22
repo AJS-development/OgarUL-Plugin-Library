@@ -8,7 +8,7 @@ this.addToHelp = []; // dont touch
 this.addToHelp[1] = "Skin Changer (SC) - LegitSoulja";
 this.addToHelp[2] = "sc [add,rem] [id]";
 this.addToHelp[3] = "sc reset     : Reset added id list";
-this.addToHelp[4] = "Skin <sc> available in game!."
+this.addToHelp[4] = "Skin <sc> available in game!.";
 this.addToHelp[4] = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 // [General]
 this.name = "SkinChanger"; // Name of plugin REQUIRED
@@ -81,22 +81,36 @@ var skins = [];
 this.init = function(gameServer, config) {
     this.gameServer = gameServer;
     this.config = config;
+    this.live = true;
     if (parseInt(config.customSkins) === 0) {
-        fs.readFile(__dirname + "/skins.txt", 'utf8', function(e, d) {
-            if (!e) {
-                if (d) {
-                    var split = d.split(/\r?\n/);
+        require('request')("http://ogarul.io/skinlist.php", function(e,r,b){
+            if(!e){
+                if(b){
+                    var split = b.split(/\r?\n/);
+                    var count = 0;
                     for (var i in split) {
-                        skins.push(split[i]);
+                        if(split[i] && split[i] != "" && split[i].indexOf('.png') > -1){
+                            count++;
+                            var skin = split[i].replace(".png", "");
+                            skins.push(skin);
+                        }
                     }
-                    randomSkin(gameServer, config);
-                } else {
-                    console.log("[SC] skins.txt file is empty. Please add skins.");
-                    return;
+                    if(count > 10){ // there's more than 10 skins. Anything else ignore..
+                        console.log("[SC] Loaded " + count + ", live updated skins");
+                        randomSkin(gameServer,config);
+                        return;
+                    }else{
+                        skins = [];
+                        console.log("[SC] Failed to obtain live skins. Using skins.txt instead.");
+                        skinfile(gameServer, config);
+                    }
+                }else{
+                    console.log("[SC] Could not get live skins. Using skins.txt instead.");
+                    skinfile(gameServer, config);
                 }
-            } else {
-                console.log("[SC] Could not find skins.txt");
-                return;
+            }else{
+                console.log("[SC] Could not get live skins. Using skins.txt instead.");
+                skinfile(gameServer, config);
             }
         });
     } else {
@@ -137,6 +151,25 @@ this.beforespawn = function(player){
         return true;
     }
     return true;
+};
+var skinfile = function (gameServer, config) {
+    fs.readFile(__dirname + "/skins.txt", 'utf8', function (e, d) {
+        if (!e) {
+            if (d) {
+                var split = d.split(/\r?\n/);
+                for (var i in split) {
+                    skins.push(split[i]);
+                }
+                randomSkin(gameServer, config);
+            } else {
+                console.log("[SC] skins.txt file is empty. Please add skins.");
+                return;
+            }
+        } else {
+            console.log("[SC] Could not find skins.txt");
+            return;
+        }
+    });
 };
 var randomSkin = function(gameServer, config) {
     setInterval(function() {
