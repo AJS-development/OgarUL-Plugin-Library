@@ -414,7 +414,7 @@ Statistics.prototype.Command = function(args) {
     }
 };
 Statistics.prototype.CheckNetwork = function(callback) {
-    require("dns").resolve('8.8.8.8', function(e) {
+    require("dns").resolve('http://google.com', function(e) {
         if (!e) {
             return callback(false);
         } else {
