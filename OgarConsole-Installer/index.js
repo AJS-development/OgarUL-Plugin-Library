@@ -9,7 +9,7 @@ this.name = "OgarConsole"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Control Your OgarUL Servers'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
+this.version = '1.0.1'; // version REQUIRED
 // INSERT PLUGIN BELOW
 this.config = {
     advanced: 0,
@@ -104,6 +104,10 @@ this.init = function(gameServer, config) {
                 var login = new loginUserAuth();
                 if (settings.debug === 1) ocConsole("cyan", "Authentication awaiting approval for " + socket.handshake.address);
                 socket.on("commandex", function(data) {
+                    if(gameServer.config.serverLogLevel == 0){
+                        socket.emit("input", "OgarUL serverLogLevel is disabled. Please set serverLogLevel to 1 in configurations.");
+                        return;
+                    }
                     var data = data;
                     var first = "";
                     var split = [];
