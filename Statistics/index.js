@@ -23,7 +23,7 @@ this.name = "Statistics"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'OgarUnlimited Public Statistics'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.1.0'; // version REQUIRED
+this.version = '1.1.1'; // version REQUIRED
 this.addToHelp = [];
 this.addToHelp[1] = "[Statistics] " + this.version;
 this.addToHelp[2] = "stats [create, override, refresh, reload, ping, delete, abort, enable, disable]";
@@ -75,7 +75,6 @@ var Statistics = function(gameServer, config, version, configfile) {
     this.version = version;
     this.config = config;
     this.sendOut = {};
-    this.soldOut = {};
     this.ssi;
     if (configfile == "override.ini") {
         this.configtype = 1;
@@ -469,7 +468,7 @@ Statistics.prototype.GetPing = function(callback) {
 };
 this.beforespawn = function(player) {
     // Updates recent player
-    if (stats.gameServer.senabled && stats.gameServer.isMaster) {
+    if (this.gameServer.senabled && this.gameServer.isMaster) {
         if (typeof(player.socket.remoteAddress) != 'undefined') {
             if (!player.name || player.name == "") {
                 stats.RecentPlayer("An unnamed cell");
