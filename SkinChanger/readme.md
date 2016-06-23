@@ -2,6 +2,7 @@
 
 **Commands**
 - sc [add,rem] [id]
+- sc reset
 
 **Skin Changer Skin Usage**
  ```
