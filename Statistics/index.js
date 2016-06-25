@@ -202,10 +202,7 @@ Statistics.prototype.Create = function() {
                     stats.state = 0;
                 }
             } else {
-                say.red("Could not send data to server. Retrying in 20 seconds..");
-                setTimeout(function() {
-                    stats.Create();
-                }, 1000 * 20);
+                //say.red("Could not send data to server. Retrying in 20 seconds..");
             }
         });
     }, 5000);
