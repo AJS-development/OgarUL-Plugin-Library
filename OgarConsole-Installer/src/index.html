@@ -103,7 +103,7 @@
               }
               // socket.io
               socket.on("input", function(data) {
-                  console.empty().append("\n" + data); // show data from server/ogarconsole host
+                  console.empty().append(data); // show data from server/ogarconsole host
                   $('textarea').scrollTop($('textarea')[0].scrollHeight); // Scroll towards the bottom of textarea, instead of top
                   command.focus(); // focus
               });
