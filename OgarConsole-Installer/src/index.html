@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>OgarConsole</title>
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="public/js/jquery.js?s"></script>
+    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    
+    <style>
+      @font-face {
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 400;
+        src: url(public/fonts/Nunito.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+      }
+      body {
+        margin: 0; 
+        background: url(public/img/bgn.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      .OgarConsole {
+        height: 500px;
+        margin: 0;
+      }
+      .console[readonly] { 
+        margin: 0px -3px 0px 0px;
+        background-color: #141414;
+        height: 500px; 
+        width: 100%;
+        border: 0;
+        font-family: 'Nunito', sans-serif;
+        color: green;
+        border-radius: 0;
+        resize: none;
+      }
+      .command{
+        color: green;
+        width: 100%;
+        border: 0;
+        border-radius: 0;
+        background-color: #141414;
+      }
+      .half {
+        position: relative;
+        top: 30px;
+        text-align: center;
+      }
+      hr {
+          border: 0;
+          height: 0; /* Firefox... */
+          box-shadow: 0 0 10px 1px black;
+        width: 40%;
+      }
+      hr:after {  /* Not really supposed to work, but does */
+          content: "\00a0";  /* Prevent margin collapse */
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form class="OgarConsole">
+        <textarea class="form-control console" style="height: 500px; width: 100%;" readonly>Type 'help' for commands!</textarea>
+        <input type="text" class="form-control command" name="command" autocomplete="on" placeholder="help"/>
+      </form>
+    </section>
+    <section class="half">
+      <h3>
+        OgarConsole
+      </h3>
+      <hr/>
+      <p>
+        The best, Console for Ogar!<br/>
+        Created By LegitSoulja
+      </p>
+    </section>
+    <script>
+      $(document).ready(function() {
+          $(".command").focus();
+          var socket = io.connect();
+          $(".OgarConsole").on("submit", function(e) {
+              e.preventDefault(); // stop event
+              e.stopPropagation(); // stop event
+              var console, command;
+              console = $(".console");
+              command = $(".command");
+              // check clearing
+              if (command && command.val() == "clr" || command.val() == "clear") {
+                  socket.emit("commandex", command.val()); // send command
+                  command.val(''); // clear command input
+                  console.empty(); // clear console
+                  return;
+              } else {
+                  socket.emit("commandex", command.val()); // send command
+                  command.val('').focus(); // focus
+              }
+              // socket.io
+              socket.on("input", function(data) {
+                  console.empty().append("\n" + data); // show data from server/ogarconsole host
+                  $('textarea').scrollTop($('textarea')[0].scrollHeight); // Scroll towards the bottom of textarea, instead of top
+                  command.focus(); // focus
+              });
+              socket.on("disconnect", function() {
+                  console.append("\n" + "Console Disconnected.");
+              });
+              socket.on("connect", function() {
+                  console.append("\n" + "Console Connected.");
+              });
+          });
+      });
+    </script>
+  </body>
+</html>
