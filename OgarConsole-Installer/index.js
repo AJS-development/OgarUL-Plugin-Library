@@ -330,8 +330,23 @@ var checkUpdate = function(gameServer) {
             var data = b;
             var liveVersion = JSON.parse(data);
             if (liveVersion.version !== version) {
-                require("fs").unlinkSync(__dirname + "/src");
-                require("fs").rmdirSync(__dirname + "/src");
+                var deleteFolderRecursive = function(path) {
+                    var files = [];
+                    var fs = require('fs');
+                    if( fs.existsSync(path) ) {
+                        files = fs.readdirSync(path);
+                        files.forEach(function(file,index){
+                            var curPath = path + "/" + file;
+                            if(fs.lstatSync(curPath).isDirectory()) { // recurse
+                                deleteFolderRecursive(curPath);
+                            } else { // delete file
+                                fs.unlinkSync(curPath);
+                            }
+                        });
+                        fs.rmdirSync(path);
+                    }
+                };
+                deleteFolderRecursive(__dirname + "/src");
                 ocConsole("green", "Preparing OgarConsole update!." + version + " > " + liveVersion.version);
                 var uc = [];
                 uc[0] = "plugin";
