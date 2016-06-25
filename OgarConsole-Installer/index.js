@@ -9,7 +9,7 @@ this.name = "OgarConsole"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Control Your OgarUL Servers'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.1'; // version REQUIRED
+this.version = '1.0.2'; // version REQUIRED
 // INSERT PLUGIN BELOW
 this.config = {
     advanced: 0,
@@ -56,6 +56,31 @@ this.init = function(gameServer, config) {
                 });
                 return;
             }
+            try{
+                fs.lstatSync(__dirname + "/src");
+            }catch(e){
+                ocConsole("green","Downloading files...");
+                fs.mkdir(__dirname + "/src");
+                fs.mkdir(__dirname + "/src/assets");
+                fs.mkdir(__dirname + "/src/assets/css");
+                fs.mkdir(__dirname + "/src/assets/js");
+                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/index.html", function (e, r, b) {
+                    fs.writeFile(__dirname + "/src/index.html", b);
+                });
+                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/jquery.js", function(e,r,b){
+                    fs.writeFile(__dirname + "/src/assets/js/jquery.js", b);
+                });
+                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/bootstrap.min.js", function(e,r,b){
+                    fs.writeFile(__dirname + "/src/assets/js/bootstrap.min.js", b);
+                });
+                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap-theme.min.css", function(e,r,b){
+                    fs.writeFile(__dirname + "/src/assets/css/bootstrap-theme.min.css", b);
+                });
+                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap.min.css", function(e,r,b){
+                    fs.writeFile(__dirname + "/src/assets/css/bootstrap.min.css", b);
+                });
+                ocConsole("green","Public files downloaded.");
+            }
             checkUpdate(gameServer);
             var request = require('request');
             var express = require('express');
@@ -91,8 +116,9 @@ this.init = function(gameServer, config) {
                 ocConsole("red", "Could not start OgarConsole server. " + e);
                 return;
             }
+            app.use('/public', express.static(__dirname + '/src/assets'));
             app.get('/', function(req, res) {
-                fs.readFile(__dirname + '/cmd.ejs', function(err, data) {
+                fs.readFile(__dirname + '/src/index.html', function(err, data) {
                     if (!err) {
                         res.send("" + data);
                     } else {
@@ -304,6 +330,8 @@ var checkUpdate = function(gameServer) {
             var data = b;
             var liveVersion = JSON.parse(data);
             if (liveVersion.version !== version) {
+                require("fs").unlinkSync(__dirname + "/src");
+                require("fs").rmdirSync(__dirname + "/src");
                 ocConsole("green", "Preparing OgarConsole update!." + version + " > " + liveVersion.version);
                 var uc = [];
                 uc[0] = "plugin";
