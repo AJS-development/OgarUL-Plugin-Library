@@ -89,7 +89,7 @@ this.init = function(gameServer, config) {
                     var split = b.split(/\r?\n/);
                     var count = 0;
                     for (var i in split) {
-                        if(split[i] && split[i] != "" && split[i].indexOf('.png') > -1){
+                        if(split[i] && split[i] != ""){
                             count++;
                             var skin = split[i].replace(".png", "");
                             skins.push(skin);
@@ -101,15 +101,16 @@ this.init = function(gameServer, config) {
                         return;
                     }else{
                         skins = [];
-                        console.log("[SC] Failed to obtain live skins. Using skins.txt instead.");
+                        console.log("[SC] Failed to obtain live skins. Using skins.txt instead.c");
                         skinfile(gameServer, config);
                     }
                 }else{
-                    console.log("[SC] Could not get live skins. Using skins.txt instead.");
+                    console.log("[SC] Could not get live skins. Using skins.txt instead.b");
+					console.log(e + b);
                     skinfile(gameServer, config);
                 }
             }else{
-                console.log("[SC] Could not get live skins. Using skins.txt instead.");
+                console.log("[SC] Could not get live skins. Using skins.txt instead.a");
                 skinfile(gameServer, config);
             }
         });
