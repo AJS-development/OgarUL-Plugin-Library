@@ -15,7 +15,7 @@ this.name = "SkinChanger"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'SkinChanger FTW!'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.2'; // version REQUIRED
+this.version = '1.0.3'; // version REQUIRED
 // [Commands]
 this.commandName[1] = "sc";
 this.command[1] = function(gameServer, split) {
@@ -80,6 +80,13 @@ var skins = [];
 // [Functions]
 this.init = function(gameServer, config) {
     this.gameServer = gameServer;
+	if(typeof(gameServer.skinchanger) != 'undefined'){
+		if(gameServer.skinchanger == true){
+			return;
+		}else{
+			this.gameServer.skinChanger = true;
+		}
+	}
     this.config = config;
     this.live = true;
     if (parseInt(config.customSkins) === 0) {
