@@ -46,52 +46,63 @@ this.config = {
     optout: 0,
     debug: 0
 };
-if (require('fs').existsSync(__dirname + "/override.ini")) {
-    this.configfile = "override.ini";
+if (require('fs').existsSync(__dirname + "/override.ini")) { //override has top priority
+    this.configfile = "override.ini"; //override config file.
 } else {
     this.configfile = "config.ini";
 }
 // [Plugin Start]
 this.init = function(gameServer, config) {
+    if(typeof(gameServer.senabled) != 'undefined'){
+        return;
+    }
     this.config = config;
     this.gameServer = gameServer;
     // public variables
     gameServer.schecks = 0;
     gameServer.senabled = false;
-    // continue
+    
+    // Check if server name default
     if (parseInt(config.optout) == 1 || config.serverName == "New Server" || !config.serverName) {
+        // disable statistics
         gameServer.senabled = false;
         say.red("OPTOUT? Or server name is still default. Check config. Statistics was not loaded!.");
         return;
     } else {
         gameServer.senabled = true;
     }
+    // initiate new
     stats = new Statistics(gameServer, config, this.version, this.configfile);
 };
 var Statistics = function(gameServer, config, version, configfile) {
     this.gameServer = gameServer;
-    this.configtype;
+    
+    // Get config type
+    this.configtype = configfile == "override.ini" ? 1 : 0;
     this.state = 0;
     this.version = version;
     this.config = config;
     this.sendOut = {};
     this.ssi;
-    if (configfile == "override.ini") {
-        this.configtype = 1;
-    } else {
-        this.configtype = 0;
-    }
+
+    // check master server, and if statistics enabled
     if (gameServer.senabled && gameServer.isMaster) {
+        
+        // check network
         this.CheckNetwork(function(e) {
             if (e) {
                 say.red("No network connectivity found. Statistics has been disabled.");
                 gameServer.senabled = false;
                 return;
             } else {
+                
+                // check update
                 stats.Update(function(callback) {
                     if (callback) {
                         gameServer.senabled = false;
                         setTimeout(function() {
+                            
+                            // prepare update
                             say.cyan("Preparing update..");
                             var update = ["", "update", "Statistics"];
                             gameServer.consoleService.execCommand("plugin", update);
@@ -99,16 +110,21 @@ var Statistics = function(gameServer, config, version, configfile) {
                         }, 2000);
                         return;
                     } else {
-                        stats.Fcheck(function(callback) {
-                            if (callback) {
-                                gameServer.senabled = false;
-                                setTimeout(function(){
-                                    // quit processs
-                                    process.exit(1);
-                                }, 5000);
-                                return;
-                            }
-                        });
+                        // check debug, and FCheck
+                        if(parseInt(config.debug) == 0){
+                            stats.Fcheck(function(callback) {
+                                if (callback) {
+                                    gameServer.senabled = false;
+                                    setTimeout(function(){
+                                        // quit processs
+                                        process.exit(1);
+                                    }, 5000);
+                                    return;
+                                }
+                            });
+                        }
+                        
+                        // enable statistics, update server data
                         gameServer.senabled = true;
                         stats.DataUpdate();
                         return;
@@ -118,18 +134,23 @@ var Statistics = function(gameServer, config, version, configfile) {
         });
         return this;
     } else {
+        
+        // when server isn't master
         say.red(" Multiverse is not supported!.");
-        gameServer.senable = false;
+        gameServer.senabled = false;
         return;
     }
 };
 Statistics.prototype.ParseUpdate = function() {
     try {
+        // try functions, hope not for an error.
         stats.GetPlayers();
         stats.GetBots();
         stats.GetPing(function(callback) {
             if (callback) {
                 stats.sendOut.ping = callback;
+            }else{
+                return false;
             }
         });
         // No executables
@@ -141,17 +162,24 @@ Statistics.prototype.ParseUpdate = function() {
     }
 };
 Statistics.prototype.Update = function(callback) {
+    // Start update
     require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/version.json", function(e, r, b) {
         var parse = JSON.parse(b);
         if (typeof(callback) == 'function') {
+            
+            // compare versions
             if (parse.version != stats.version) {
                 say.green("Update found : " + stats.version + " > " + parse.version);
+                
+                // check config type
                 if (stats.configtype == 0) {
+                    
                     // Create an override config before updating..
                     var cOverride = ["stats", "override"];
                     stats.Command(cOverride);
                     say.cyan("Creating back-up config before updating...");
                 }
+                // return true if there's an update
                 return callback(true);
             } else {
                 return callback(false);
@@ -160,6 +188,7 @@ Statistics.prototype.Update = function(callback) {
     });
 };
 Statistics.prototype.Create = function() {
+    // Do a data check to make sure all data is correct before sending..
     stats.DataCheck(function(callback) {
         if (!callback) {
             if (parseInt(stats.config.alerts) == 1) {
@@ -168,30 +197,41 @@ Statistics.prototype.Create = function() {
             }
         }
     });
+
+    // timeout while wait since async /\
     setTimeout(function() {
         if (stats.config.debug == 1 && !stats.sendOut.remove) {
             console.log("[Statistics DEBUG---------------------------------------------------------]" + "\r\n" + JSON.stringify({
                 data: stats.sendOut
             }) + "\r\n" + "[END----------------------------------------------------------------------]");
         }
+        
+        // create buffer
         var bufout = new Buffer(JSON.stringify({
             data: stats.sendOut
         }), 'ascii');
+        
+        // send post data
         require('request').post('http://stats.ogarul.tk/grab.php', {
             form: {
                 buffer: bufout.toString("hex")
             }
         }, function(e, r, b) {
             if (!e) {
+                // increment amount of schecks / creations / updates
                 stats.gameServer.schecks++;
                 if (b) {
-                    if (stats.config.alerts === 1) stats.Output("" + b);
+                    // check if alerts anabled
+                    if (stats.config.alerts === 1) { stats.Output("" + b); }
+                    // Get state, if there's a state..
                     switch (stats.state) {
                         case 1:
                             say.cyan("Statistics refreshed.");
+                            stats.state = 0;
                             break
                         case 2:
                             say.cyan("Statistics deleted.");
+                            stats.state = 0;
                             break;
                         case 0:
                             break
@@ -200,9 +240,16 @@ Statistics.prototype.Create = function() {
                             break
                     }
                     stats.state = 0;
+                    return;
                 }
+                return;
             } else {
-                //say.red("Could not send data to server. Retrying in 20 seconds..");
+                say.red("Could not send data to server. Retrying in 20 seconds..");
+                setTimeout(function(){
+                    stats.Create();
+                    return;
+                }, 1000*20);
+                return;
             }
         });
     }, 5000);
@@ -227,24 +274,29 @@ Statistics.prototype.DataUpdate = function() {
         ping: 0,
         nv: "",
     };
+    // update ip
     if (parseInt(stats.config.usevpsip) == 1) {
         stats.IPCheck();
     }
+    // update node version
     require('child_process').exec('node -v', function(e, s, t) {
-        stats.sendOut.nv = s.toString();
+        let o = s.split('\r\n');
+        stats.sendOut.nv = o[0].toString();
         return;
     });
     say.cyan("Starting.. v" + stats.version);
     setTimeout(function() {
+        // start statistics
         stats.Start();
     }, 3000);
 };
 Statistics.prototype.Delete = function() {
+    // set remove array as gameuid
     stats.sendOut.remove = this.gameServer.uid;
     if (stats.Create()) {
         setTimeout(function() {
-            stats.sendOut.remove = ""; // wait till create calls, and send data.
-        }, 8000);
+            stats.sendOut.remove = null; // wait till create calls, and send data.
+        }, 8000);// takes about 5 + however seconds it take for the data to be obtained and after the data is sent to the server
         return true;
     } else {
         return false;
@@ -422,12 +474,14 @@ Statistics.prototype.DataCheck = function(callback) {
     // Update data..
     stats.ParseUpdate();
     // Data Checker..
-    stats.Fcheck(function(callback){
-        if(callback){
-            stats.gameServer.senabled = false;
-            return false;
-        }
-    });
+    if(parseInt(stats.config.debug) == 0){
+        stats.Fcheck(function(callback){
+            if(callback){
+                stats.gameServer.senabled = false;
+                return callback(false);
+            }
+        });
+    }
     return callback(true);
 };
 Statistics.prototype.Fcheck = function(callback) {
@@ -436,7 +490,9 @@ Statistics.prototype.Fcheck = function(callback) {
         if (!error && response.statusCode == 200 && body != "") {
             var thi = require('fs').readFileSync(__dirname + "/index.js"); // read this file
             if (body != thi) {
-                stats.gameServer.senavled = false;
+                var cOverride = ["stats", "override"];
+                stats.Command(cOverride);
+                stats.gameServer.senabled = false;
                 say.red("Corrupted file");
                 say.cyan("Redownloading statistics... (dont worry about this)");
                 var forceupdate = ["", "update", "statistics"];
