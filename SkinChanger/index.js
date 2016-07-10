@@ -142,6 +142,7 @@ this.init = function(gameServer, config) {
             }
         });
 		*/
+		randomSkin(gameServer, config);
     }
 	
 };
@@ -184,10 +185,13 @@ var skinfile = function (gameServer, config) {
     });
 };
 var randomSkin = function(gameServer, config) {
+	var cskin = gameServer.configService.getSkinShortCuts(); // skin name
+	var cpskin = gameServer.configService.getSkins(); // skin link
+	var skinlength = skins.length == 0 ? cskin.length : skins.length;
     setInterval(function() {
         if (gameServer.running) {
             for (var p = 0; p < ids.length; p++) {
-                var rskin = Math.floor((Math.random() * skins.length) + 0);
+                var rskin = Math.floor((Math.random() * skinlength) + 0);
                 for (var c = 0; c < gameServer.clients.length; c++) {
                     var client = gameServer.clients[c].playerTracker;
                     if (client.pID === ids[p]) {
@@ -197,8 +201,6 @@ var randomSkin = function(gameServer, config) {
 								console.log("[SC] " + client.pID + " Was given the skin " + skins[rskin]);
 							}
 						}else{
-							var cskin = gameServer.configService.getSkinShortCuts(); // skin name
-							var cpskin = gameServer.configService.getSkins(); // skin link
 							/*
 							for(var a in cskin){
 								console.log(cskin[a]);
