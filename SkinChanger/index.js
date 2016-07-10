@@ -69,10 +69,10 @@ this.command[1] = function(gameServer, split) {
     }
 };
 this.config = {
-    changeInterval: 1, // *60 in minutes. 1 minute default
+    changeInterval: 10, // Every 10 seconds
     customSkins: 0, // false
     debug: 0, // false
-    usersskin: 1
+    usescskin: 1
 };
 this.configfile = 'config.ini';
 var ids = [];
@@ -122,6 +122,8 @@ this.init = function(gameServer, config) {
             }
         });
     } else {
+		// Deprecated!. Custom skins file is no longer supported!.. Use custom skins by using main custom skins. Enable custom skins in config!.
+		/*
         fs.readFile(__dirname + "/customskins.txt", 'utf8', function(e, d) {
             if (!e) {
                 if (d && d != "") {
@@ -139,11 +141,13 @@ this.init = function(gameServer, config) {
                 return;
             }
         });
+		*/
     }
+	
 };
 this.beforespawn = function(player){
     var name = player.name;
-    if(this.config.usersskin == 1){
+    if(this.config.usescskin == 1){
         if(name.substr(0,1) == "<"){
             if(name.substr(0,4) == "<sc>"){
                 if(ids.indexOf(player.pID) > -1){
@@ -187,14 +191,38 @@ var randomSkin = function(gameServer, config) {
                 for (var c = 0; c < gameServer.clients.length; c++) {
                     var client = gameServer.clients[c].playerTracker;
                     if (client.pID === ids[p]) {
-                        client.premium = "%" + skins[rskin];
-                        if (config.debug == 1) {
-                            console.log("[SC] " + client.pID + " Was given the skin " + skins[rskin]);
-                        }
+						if(parseInt(config.customSkins) === 0){
+							client.premium = "%" + skins[rskin];
+							if (config.debug == 1) {
+								console.log("[SC] " + client.pID + " Was given the skin " + skins[rskin]);
+							}
+						}else{
+							var cskin = gameServer.configService.getSkinShortCuts(); // skin name
+							var cpskin = gameServer.configService.getSkins(); // skin link
+							/*
+							for(var a in cskin){
+								console.log(cskin[a]);
+								console.log(cpskin[a]);
+							}
+							*/
+							client.premium = cpskin[rskin];
+							if (config.debug == 1) {
+								console.log("[SC] " + client.pID + " Was given the skin " + cskin[rskin]);
+								console.log(cpskin[rskin]);
+							}
+							/* customskins.txt file by skin changer is no longer supported. ConfigService custom skins instead.
+							var cskin = skins[rskin].split(" ");
+							client.premium = cskin[1];
+							console.log(cskin[1]);
+							if (config.debug == 1) {
+								console.log("[SC] " + client.pID + " sWas given the skin " + cskin[0]);
+							}
+							*/
+						}
                     }
                 }
             }
         }
-    }, parseInt(config.changeInterval) * 1000); // minutes..
+    }, parseInt(config.changeInterval) * 1000); // seconds..
 };
 module.exports = this; // dont touch
