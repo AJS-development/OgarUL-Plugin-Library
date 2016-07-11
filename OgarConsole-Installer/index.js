@@ -15,6 +15,7 @@ this.config = {
     advanced: 0,
     allowExit: 0,
     allowRestart: 0,
+    allowChange: 0,
     consolePort: 1000,
     debug: 0,
     password: "OgarConsole123", //default. Change password in ./config.ini
@@ -91,6 +92,7 @@ this.init = function(gameServer, config) {
                 advanced: config.advanced,
                 consolePort: config.consolePort,
                 debug: config.debug,
+                allowChange: config.allowChange,
                 requirePassword: config.requirePassword,
                 password: config.password,
                 consolePassword: config.password,
@@ -220,6 +222,11 @@ var sendCommand = function(args, login, socket, gameServer, settings) {
         case "clear":
             fs.truncate(settings.logFile, "", function() {});
             return;
+        case "change":
+            if(settings.allowChange === 0){
+                socket.emit("input", "You are not allowed to change server settings!.");
+                return;
+            }
         case "-exit":
         case "exit":
         case "-stop":
