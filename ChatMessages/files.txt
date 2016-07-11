@@ -1,0 +1,4 @@
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/index.js
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/config.ini
+messages.json|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/messages.json
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/README.md
