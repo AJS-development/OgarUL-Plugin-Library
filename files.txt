@@ -16,3 +16,4 @@ Statistics|Share your server information with OgarUl|https://raw.githubuserconte
 SkinChanger|Skin Changer FTW!!|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/SkinChanger/files.txt
 Ads|Allows you to host ads on the client|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/fmoneyclip---Ads-plugin/files.txt
 shortcuts|Command shortcuts|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/files.txt
+ChatMessages|Periodic Chat Messages|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/files.txt
