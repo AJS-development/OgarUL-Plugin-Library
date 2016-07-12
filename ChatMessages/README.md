@@ -17,8 +17,10 @@
 		{"2":"This is a second message!. Don't hate me!"},
 		{"3": "Make sure every message is seperated by a comma!"},
 		{"4": "This is another message!"}
-	]
+	],
+	"joinmessage": "Welcome {player} to this server!"
 }
+
 ```
 
 You can add more than one messages, followed by the same pattern, seperated by commas!.
