@@ -7,6 +7,7 @@
 ##### Chat Messages
 ###### Configuration
 - messageInterval = Time in seconds, of which a message will be sent to all players
+- joinmessage = Enable join message when player joins the game. 1 = true, 0 = false
 
 ###### Json Configuration
 ```
