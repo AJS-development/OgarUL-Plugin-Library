@@ -14,12 +14,15 @@ this.version = '1.0.0'; // version REQUIRED
 
 // INSERT PLUGIN BELOW
 this.config = {
+	enabled: 1,
 	messageInterval: 60, // seconds 60 - 1 minute
 	joinMessage: 1
 }
 
 this.configfile = "config.ini";
 
+// stores player id's. When they die, join message wont repeat
+var ids = [];
 // [Functions]
 this.init = function (gameServer, config) {
 	this.gameServer = gameServer;
@@ -68,28 +71,34 @@ var joinMessage = function(gameServer, config, player){
 	
 	// check if join message enabled
 	if(parseInt(config.joinMessage) === 1){
-		// settimeout so there's time for when the player get into the game
-		setTimeout(function(){
-			// make sure player is not a bot!.
-			if(typeof(player.socket.remoteAddress) != "undefined"){
-				// grab json
-				var j = require(__dirname + "/messages.json");
-				
-				// convert to string
-				var message = j.joinmessage.toString();
-				
-				// create args
-				var sendmsg = [];
-				sendmsg[1] = "all";
-				
-				// replace {player} with player name
-				sendmsg[2] = message.replace(/{player}/g, player.name);
-				
-				// send message
-				gameServer.consoleService.execCommand("chat", sendmsg);
-			}
-			// 2 second timeout
-		}, 2000);
+		if(ids.indexOf(player.pID) > -1){
+			// if player dies, but join back and his id is still the same, return.
+			return;
+		}else{
+			// settimeout so there's time for when the player get into the game
+			setTimeout(function(){
+				// make sure player is not a bot!.
+				if(typeof(player.socket.remoteAddress) != "undefined"){
+					// grab json
+					var j = require(__dirname + "/messages.json");
+					
+					// convert to string
+					var message = j.joinmessage.toString();
+					
+					// create args
+					var sendmsg = [];
+					sendmsg[1] = "all";
+					
+					// replace {player} with player name
+					sendmsg[2] = message.replace(/{player}/g, player.name);
+					
+					// send message
+					gameServer.consoleService.execCommand("chat", sendmsg);
+					ids.push(player.pID);
+				}
+				// 2 second timeout
+			}, 2000);
+		}
 	}
 }
 var startMessaging = function(gameServer, config, messages, msgcount){
@@ -97,21 +106,23 @@ var startMessaging = function(gameServer, config, messages, msgcount){
 	var count = parseInt(msgcount);
 	
 	// start interval
-	gameServer.chatInterval = setInterval(function(){
-		
-		// get random message
-		var randomMsg = Math.floor((Math.random() * count) + 0);
-		
-		// I couldnt figure out how to get the message, instead of an object so im doing it this way instead..
-		var con = JSON.stringify(messages.messages[randomMsg]);
-		var conr = con.replace("{", "").replace("}", "").replace(/"/g, "");
-		var msg = conr.split(':');
-		
-		// send message
-		var sendmsg = [];
-		sendmsg[1] = "all";
-		sendmsg[2] = msg[1];
-		gameServer.consoleService.execCommand("chat", sendmsg);
-	}, parseInt(config.messageInterval) * 1000); // seconds
+	if(parseInt(config.enabled) === 1){
+		gameServer.chatInterval = setInterval(function(){
+			
+			// get random message
+			var randomMsg = Math.floor((Math.random() * count) + 0);
+			
+			// I couldnt figure out how to get the message, instead of an object so im doing it this way instead..
+			var con = JSON.stringify(messages.messages[randomMsg]);
+			var conr = con.replace("{", "").replace("}", "").replace(/"/g, "");
+			var msg = conr.split(':');
+			
+			// send message
+			var sendmsg = [];
+			sendmsg[1] = "all";
+			sendmsg[2] = msg[1];
+			gameServer.consoleService.execCommand("chat", sendmsg);
+		}, parseInt(config.messageInterval) * 1000); // seconds
+	}
 }
 module.exports = this; // dont touch
