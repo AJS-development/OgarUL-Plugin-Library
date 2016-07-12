@@ -15,6 +15,7 @@ this.version = '1.0.0'; // version REQUIRED
 // INSERT PLUGIN BELOW
 this.config = {
 	messageInterval: 60, // seconds 60 - 1 minute
+	joinMessage: 1
 }
 
 this.configfile = "config.ini";
@@ -56,6 +57,41 @@ this.init = function (gameServer, config) {
 		}
 	}, 5000);
 };
+this.beforespawn = function(player){
+	// send message function. This has to go first so player can spawn in the game before command execution.
+	joinMessage(this.gameServer, this.config, player);
+	
+	// enable player to join
+	return true;
+}
+var joinMessage = function(gameServer, config, player){
+	
+	// check if join message enabled
+	if(parseInt(config.joinMessage) === 1){
+		// settimeout so there's time for when the player get into the game
+		setTimeout(function(){
+			// make sure player is not a bot!.
+			if(typeof(player.socket.remoteAddress) != "undefined"){
+				// grab json
+				var j = require(__dirname + "/messages.json");
+				
+				// convert to string
+				var message = j.joinmessage.toString();
+				
+				// create args
+				var sendmsg = [];
+				sendmsg[1] = "all";
+				
+				// replace {player} with player name
+				sendmsg[2] = message.replace(/{player}/g, player.name);
+				
+				// send message
+				gameServer.consoleService.execCommand("chat", sendmsg);
+			}
+			// 2 second timeout
+		}, 2000);
+	}
+}
 var startMessaging = function(gameServer, config, messages, msgcount){
 	// set messages length
 	var count = parseInt(msgcount);
