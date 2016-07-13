@@ -16,7 +16,7 @@ this.version = '1.0.0'; // version REQUIRED
 this.config = {
 	enabled: 1,
 	messageInterval: 60, // seconds 60 - 1 minute
-	joinMessage: 1
+	joinMessages: 1
 }
 
 this.configfile = "config.ini";
@@ -68,36 +68,37 @@ this.beforespawn = function(player){
 	return true;
 }
 var joinMessage = function(gameServer, config, player){
-	
 	// check if join message enabled
-	if(parseInt(config.joinMessage) === 1){
-		if(ids.indexOf(player.pID) > -1){
-			// if player dies, but join back and his id is still the same, return.
-			return;
-		}else{
-			// settimeout so there's time for when the player get into the game
-			setTimeout(function(){
-				// make sure player is not a bot!.
-				if(typeof(player.socket.remoteAddress) != "undefined"){
-					// grab json
-					var j = require(__dirname + "/messages.json");
-					
-					// convert to string
-					var message = j.joinmessage.toString();
-					
-					// create args
-					var sendmsg = [];
-					sendmsg[1] = "all";
-					
-					// replace {player} with player name
-					sendmsg[2] = message.replace(/{player}/g, player.name);
-					
-					// send message
-					gameServer.consoleService.execCommand("chat", sendmsg);
-					ids.push(player.pID);
-				}
-				// 2 second timeout
-			}, 2000);
+	if(parseInt(config.joinMessages) === 1){
+		if(player.name && player.name.length > 1 && player.name != "" && player.name != " "){
+			if(ids.indexOf(player.pID) > -1){
+				// if player dies, but join back and his id is still the same, return.
+				return;
+			}else{
+				// settimeout so there's time for when the player get into the game
+				setTimeout(function(){
+					// make sure player is not a bot!.
+					if(typeof(player.socket.remoteAddress) != "undefined"){
+						// grab json
+						var j = require(__dirname + "/messages.json");
+						
+						// convert to string
+						var message = j.joinmessage.toString();
+						
+						// create args
+						var sendmsg = [];
+						sendmsg[1] = "all";
+						
+						// replace {player} with player name
+						sendmsg[2] = message.replace(/{player}/g, player.name);
+						
+						// send message
+						gameServer.consoleService.execCommand("chat", sendmsg);
+						ids.push(player.pID);
+					}
+					// 2 second timeout
+				}, 2000);
+			}
 		}
 	}
 }
