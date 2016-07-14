@@ -23,7 +23,7 @@ this.name = "Statistics"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'OgarUnlimited Public Statistics'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.1.3'; // version REQUIRED
+this.version = '1.1.4'; // version REQUIRED
 this.addToHelp = [];
 this.addToHelp[1] = "[Statistics] " + this.version;
 this.addToHelp[2] = "stats [create, override, refresh, reload, ping, delete, abort, enable, disable]";
@@ -220,7 +220,7 @@ Statistics.prototype.Create = function() {
             if (!e) {
                 // increment amount of schecks / creations / updates
                 stats.gameServer.schecks++;
-                if (b) {
+                if (b && !b.length > 100) { // don't load anything over the length of 100, this can be an error.
                     // check if alerts anabled
                     if (stats.config.alerts === 1) { stats.Output("" + b); }
                     // Get state, if there's a state..
