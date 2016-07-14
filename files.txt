@@ -1,15 +1,15 @@
 Auth|Adds auth to Ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt
 AccountRewards|Gives rewards to those who logged in using Auth|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt
 Devtools|Tools for developers|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt
-LBstats|Adds stats to the end of the Leaderboard|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt
+LBstats|Adds stats to the end of the Leaderboard|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Leaderboard-Stats-Plugin/files.txt|featured
 NameBlock|Blocks certain usernames|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Name-Block/files.txt
 OgarConsole|Allows you to control server like pocketdockconsole for Pocketmine|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/files.txt
 Template|A plugin template for devs|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Template-Plugin/files.txt
 EssentialCommands|Adds essential commands to ogar unlimited and adds shortcuts|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Essential-Commands/files.txt
-SuperMinions|Adds minions with powers|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt
+SuperMinions|Adds minions with powers|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Super-Minions/files.txt|featured
 Client|Adds the ogarUl client repo implemented into ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Client-Implementation/files.txt
 GiveMeMinions|Gives minions to random people (DISCONTINUED! Redirects to give me minions too)|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
-GiveMeMinionsToo|A enhanced version of givememinions|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt
+GiveMeMinionsToo|A enhanced version of givememinions|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/givememinionstoo/files.txt|featured
 PermsSolver|Unlocks locked files in src|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Permissions-Issue-Solver/files.txt
 MinionStart|Gives people minions when they join|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MinionStart/files.txt
 Statistics|Share your server information with OgarUl|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Statistics/files.txt
