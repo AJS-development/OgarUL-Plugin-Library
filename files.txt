@@ -17,3 +17,4 @@ SkinChanger|Skin Changer FTW!!|https://raw.githubusercontent.com/AJS-development
 Ads|Allows you to host ads on the client|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/fmoneyclip---Ads-plugin/files.txt
 shortcuts|Command shortcuts|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/files.txt
 ChatMessages|Periodic Chat Messages|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/files.txt
+tpa|Teleport to player ID instead of coordinates|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/tpa/files.txt
