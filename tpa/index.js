@@ -12,9 +12,9 @@ this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.0'; // version REQUIRED
 this.commandName[0] = "tpa";
 this.command[0] = function(gameServer, split) {
-   var pid = parseInt(split[1]);
-   var id = parseInt(split[2]);
    if (split.length === 3) {
+      var pid = parseInt(split[1]);
+      var id = parseInt(split[2]);
       if (isNaN(pid) || isNaN(id)) {
          console.log("Please specify ID's");
          return;
