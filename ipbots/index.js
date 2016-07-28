@@ -111,8 +111,8 @@ var ipbots = function(gameServer, config, version) {
 
     // checks for update..
     this.checkUpdate(version);
+
     if (typeof(gameServer.ibot) != "undefined" && gameServer.ibot == true) {
-        console.log("ipbots starting.");
         this.cachetimer = setInterval(function() {
             // update log.json every 30 seconds.
             ibot.cache();
@@ -126,10 +126,9 @@ ipbots.prototype.checkUpdate = function(version) {
     require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/package.json", function(e, r, b) {
         if (!e && b && r) {
             if (r.statusCode == 200) { // ok
-                console.log(b);
-                //var j = JSON.parse(b);
-                if (JSON.parse(b).version != version) {
-                    say.cyan("Found IPBots update " + version + " >> " + JSON.parse(b).version);
+                var j = JSON.parse(b);
+                if (j.version != version) {
+                    say.cyan("Found IPBots update " + version + " >> " + j.version);
                     ibot.gameServer.ibot = false;
                     var up = [null, "update", "ipbots"];
                     ibot.gameServer.consoleService.execCommand("plugin", up);
@@ -171,7 +170,7 @@ ipbots.prototype.loadPresent = function() {
         require("fs").lstatSync(__dirname + "/log.json");
         var log = require(__dirname + "/log.json");
         say.green("Loading present bot file");
-        let c = 0;
+        var c = 0;
         for (var o in log) {
             var i = log[o].split('||');
             this.botcache.push(i[0] + "||" + i[1]);
