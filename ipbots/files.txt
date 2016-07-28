@@ -1,0 +1,4 @@
+index.js|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/index.js
+config.ini|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/config.ini
+files.txt|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/files.txt
+README.md|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/README.md
