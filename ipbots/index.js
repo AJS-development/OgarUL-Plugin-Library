@@ -128,7 +128,6 @@ ipbots.prototype.checkUpdate = function (version) {
     require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/package.json", function (e, r, b) {
         if (!e && b && r) {
             if (r.statusCode == 200) {// ok
-                console.log(b);
                 //var j = JSON.parse(b);
                 if (JSON.parse(b).version != version) {
                     say.cyan("Found IPBots update " + version + " >> " + JSON.parse(b).version);
