@@ -28,7 +28,7 @@ this.name = "ipbots"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'ip bots, bots handler'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.0'; // version REQUIRED
+this.version = '1.0.1'; // version REQUIRED
 var ibot; // DO NOT REMOVE
 this.commandName[1] = "ipbot";
 this.command[1] = function (gameServer, split) {
@@ -42,9 +42,9 @@ this.command[1] = function (gameServer, split) {
 };
 this.config = {
     botname: "",
-	superminions: 0,
-	supermass: 10,
-	superspeed: 35
+    superminions: 0,
+    supermass: 10,
+    superspeed: 35
 };
 this.configfile = "config.ini";
 this.init = function (gameServer, config) {
@@ -65,7 +65,7 @@ this.init = function (gameServer, config) {
     if (gameServer.isMaster) {
         if (typeof (gameServer.ibot) == "undefined") {
             gameServer.ibot = true;
-            ibot = new ipbots(gameServer, config);
+            ibot = new ipbots(gameServer, config, this.version);
         } else {
             say.red("Stopped another instance launch. ipbots cannot be loaded twice.");
             return;
@@ -96,32 +96,72 @@ this.beforespawn = function (player) {
         return true;
     }
 };
-var ipbots = function (gameServer, config) {
+var ipbots = function (gameServer, config, version) {
     this.pulse = process.uptime(); // future use
+    this.version = version;
     this.botcache = [];
     this.gameServer = gameServer;
     this.config = config;
-	this.superminions = config.superminions == 1?true:false;
-	if(this.superminions){say.cyan("SuperMinions was enabled for ipbots");}
+    this.superminions = config.superminions == 1 ? true : false;
+    if (this.superminions) {
+        say.cyan("SuperMinions was enabled for ipbots");
+    }
     this.loadPresent();
-    setInterval(function () {
-        // update log.json every 30 seconds.
-        ibot.cache();
-    }, 1000 * 30);
+
+
+    // checks for update..
+    this.checkUpdate(version);
+    
+    say.cyan("Starting....................................");
+    if (typeof (gameServer.ibot) != "undefined" && gameServer.ibot == true) {
+        console.log("ipbots starting.");
+        this.cachetimer = setInterval(function () {
+            // update log.json every 30 seconds.
+            ibot.cache();
+        }, 1000 * 30);
+        return;
+    } else {
+        say.red("COULD NOT BE STARTED!.");
+    }
+};
+ipbots.prototype.checkUpdate = function (version) {
+    require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/package.json", function (e, r, b) {
+        if (!e && b && r) {
+            if (r.statusCode == 200) {// ok
+                console.log(b);
+                //var j = JSON.parse(b);
+                if (JSON.parse(b).version != version) {
+                    say.cyan("Found IPBots update " + version + " >> " + JSON.parse(b).version);
+                    ibot.gameServer.ibot = false;
+                    var up = [null, "update", "ipbots"];
+                    ibot.gameServer.consoleService.execCommand("plugin", up);
+                    // disable ibots
+                    ibot.gameServer.ibot = false;
+                    clearInterval(ibot.cachetimer);
+                } else {
+                    say.green("No updates was found.");
+                }
+            } else {
+                say.red("Could not update :/");
+            }
+        } else {
+            console.log("Failed to get ipbot latest version.");
+        }
+    });
 };
 ipbots.prototype.setBot = function (player, amount) {
     setTimeout(function () {
         if (typeof (player.ipbots) == "undefined") {
             player.ipbots = true; // used to determine if player already have bots or not..
-			if(!ibot.superminions){
-				var gp = ["minion", player.pID, amount, ibot.config.botname];
-				ibot.gameServer.consoleService.execCommand("minion", gp);
-				return;
-			}else{
-				var sm = ["superminion", player.pID, amount, ibot.config.botname, ibot.config.supermass, ibot.config.superspeed];
-				ibot.gameServer.consoleService.execCommand("superminion", sm);
-				return;
-			}
+            if (!ibot.superminions) {
+                var gp = ["minion", player.pID, amount, ibot.config.botname];
+                ibot.gameServer.consoleService.execCommand("minion", gp);
+                return;
+            } else {
+                var sm = ["superminion", player.pID, amount, ibot.config.botname, ibot.config.supermass, ibot.config.superspeed];
+                ibot.gameServer.consoleService.execCommand("superminion", sm);
+                return;
+            }
             return;
         }
         // player already has bots.. Fixed if ipbot add was executed twice after being removed..
@@ -139,7 +179,7 @@ ipbots.prototype.loadPresent = function () {
             this.botcache.push(i[0] + "||" + i[1]);
             c++;
         }
-        say.cyan("Loaded (" + c + ") ip" + (c > 1 ? "'s":"") + " from previous bot list.");
+        say.cyan("Loaded (" + c + ") ip" + (c > 1 ? "'s" : "") + " from previous bot list.");
     } catch (e) {
         say.green("Creating new bot log file..");
         require("fs").writeFile(__dirname + "/log.json", JSON.stringify(this.botcache));
@@ -224,8 +264,8 @@ ipbots.prototype.command = function (gameServer, split) {
                                 ibot.botcache.push(ip + "||" + parseInt(split[3]));
                                 say.green("Player (" + split[2] + ")(" + ip + "), has recieved (" + split[3] + ") bots, and will get bots each time he/she joins");
                                 ibot.cache(); // quick save 
-                                for (var i in ibot.gameServer.clients) {
-                                    var client = ibot.gameServer.clients[i].playerTracker;
+                                for (var i in gameServer.clients) {
+                                    var client = gameServer.clients[i].playerTracker;
                                     if (client.pID == parseInt(split[2])) {
                                         ibot.setBot(client, split[3]); // give player bots when ip is added.
                                         return;
@@ -255,10 +295,10 @@ ipbots.prototype.command = function (gameServer, split) {
                                     ibot.botcache.push(split[2] + "||" + split[3]);
                                     say.green("Player IP (" + split[2] + "), has recieved (" + split[3] + ") bots, and will get bots each time he/she joins.");
                                     ibot.cache(); // quick save 
-                                    for (var i in ibot.gameServer.clients) {
+                                    for (var i in gameServer.clients) {
                                         var id = ibot.getID(split[2]);
                                         if (id != 0) {
-                                            var client = ibot.gameServer.clients[i].playerTracker;
+                                            var client = gameServer.clients[i].playerTracker;
                                             if (client.pID == id) {
                                                 ibot.setBot(client, split[3]); // give player bots when ip is added.
                                                 return;
