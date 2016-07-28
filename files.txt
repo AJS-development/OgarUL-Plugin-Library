@@ -18,4 +18,4 @@ Ads|Allows you to host ads on the client|https://raw.githubusercontent.com/AJS-d
 shortcuts|Command shortcuts|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/shortcuts/files.txt
 ChatMessages|Periodic Chat Messages|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ChatMessages/files.txt
 tpa|Teleport to player ID instead of coordinates|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/tpa/files.txt
-ipbots|More control over who gets bots|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/files.txt
+ipbots|More control over who gets bots (bot listing)|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/files.txt
