@@ -31,7 +31,7 @@ this.compatVersion = ''; // compatable with (optional)
 this.version = '1.0.1'; // version REQUIRED
 var ibot; // DO NOT REMOVE
 this.commandName[1] = "ipbot";
-this.command[1] = function (gameServer, split) {
+this.command[1] = function(gameServer, split) {
     if (gameServer.ibot) {
         ibot.command(gameServer, split);
         return;
@@ -47,13 +47,13 @@ this.config = {
     superspeed: 35
 };
 this.configfile = "config.ini";
-this.init = function (gameServer, config) {
+this.init = function(gameServer, config) {
     this.gameServer = gameServer;
     this.config = config;
     for (var o in gameServer.pluginLoader.plugins) {
         if (gameServer.pluginLoader.plugins[o].name == "GiveMeMinionsToo") {
             say.red("Plugin (GiveMeMinions) WAS FOUND!. THIS INTERFERES WITH (IPBOTS), AND SHOULD BE REMOVED!.");
-            setTimeout(function () {
+            setTimeout(function() {
                 say.red("Plugin (GiveMeMinions) WAS FOUND!. THIS INTERFERES WITH (IPBOTS), AND SHOULD BE REMOVED!.");
                 say.green("Reason?? Is because GiveMeMinions resets bots every sowhat minutes from EVERY player.");
                 say.green("IPBOTS does not listen to when a player does, or doesn't have bots. This is bad for a person to have bots then taken away and never given back.");
@@ -63,7 +63,7 @@ this.init = function (gameServer, config) {
         // continue
     }
     if (gameServer.isMaster) {
-        if (typeof (gameServer.ibot) == "undefined") {
+        if (typeof(gameServer.ibot) == "undefined") {
             gameServer.ibot = true;
             ibot = new ipbots(gameServer, config, this.version);
         } else {
@@ -75,10 +75,10 @@ this.init = function (gameServer, config) {
         return;
     }
 };
-this.beforespawn = function (player) {
+this.beforespawn = function(player) {
     // todo
     if (ibot.gameServer.ibot && ibot.gameServer.isMaster) {
-        if (typeof (player.ipbots) == 'undefined') {
+        if (typeof(player.ipbots) == 'undefined') {
             // instead of getting data from log.json, just get it from botcache..
             for (var i in ibot.botcache) {
                 var o = ibot.botcache[i].split("||");
@@ -96,7 +96,7 @@ this.beforespawn = function (player) {
         return true;
     }
 };
-var ipbots = function (gameServer, config, version) {
+var ipbots = function(gameServer, config, version) {
     this.pulse = process.uptime(); // future use
     this.version = version;
     this.botcache = [];
@@ -111,11 +111,9 @@ var ipbots = function (gameServer, config, version) {
 
     // checks for update..
     this.checkUpdate(version);
-    
-    say.cyan("Starting....................................");
-    if (typeof (gameServer.ibot) != "undefined" && gameServer.ibot == true) {
+    if (typeof(gameServer.ibot) != "undefined" && gameServer.ibot == true) {
         console.log("ipbots starting.");
-        this.cachetimer = setInterval(function () {
+        this.cachetimer = setInterval(function() {
             // update log.json every 30 seconds.
             ibot.cache();
         }, 1000 * 30);
@@ -124,10 +122,10 @@ var ipbots = function (gameServer, config, version) {
         say.red("COULD NOT BE STARTED!.");
     }
 };
-ipbots.prototype.checkUpdate = function (version) {
-    require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/package.json", function (e, r, b) {
+ipbots.prototype.checkUpdate = function(version) {
+    require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/ipbots/package.json", function(e, r, b) {
         if (!e && b && r) {
-            if (r.statusCode == 200) {// ok
+            if (r.statusCode == 200) { // ok
                 console.log(b);
                 //var j = JSON.parse(b);
                 if (JSON.parse(b).version != version) {
@@ -149,9 +147,9 @@ ipbots.prototype.checkUpdate = function (version) {
         }
     });
 };
-ipbots.prototype.setBot = function (player, amount) {
-    setTimeout(function () {
-        if (typeof (player.ipbots) == "undefined") {
+ipbots.prototype.setBot = function(player, amount) {
+    setTimeout(function() {
+        if (typeof(player.ipbots) == "undefined") {
             player.ipbots = true; // used to determine if player already have bots or not..
             if (!ibot.superminions) {
                 var gp = ["minion", player.pID, amount, ibot.config.botname];
@@ -168,7 +166,7 @@ ipbots.prototype.setBot = function (player, amount) {
         return;
     }, 2000);
 };
-ipbots.prototype.loadPresent = function () {
+ipbots.prototype.loadPresent = function() {
     try {
         require("fs").lstatSync(__dirname + "/log.json");
         var log = require(__dirname + "/log.json");
@@ -185,7 +183,7 @@ ipbots.prototype.loadPresent = function () {
         require("fs").writeFile(__dirname + "/log.json", JSON.stringify(this.botcache));
     }
 };
-ipbots.prototype.command = function (gameServer, split) {
+ipbots.prototype.command = function(gameServer, split) {
     var first = split[1];
     if (split.length > 1) {
         switch (first) {
@@ -360,7 +358,7 @@ ipbots.prototype.command = function (gameServer, split) {
         return;
     }
 };
-ipbots.prototype.getID = function (ip) {
+ipbots.prototype.getID = function(ip) {
     for (var o in ibot.gameServer.clients) {
         var p = ibot.gameServer.clients[o].playerTracker;
         if (p.socket.remoteAddress == ip) {
@@ -369,13 +367,12 @@ ipbots.prototype.getID = function (ip) {
     }
     return 0;
 };
-ipbots.prototype.getIP = function (id) {
+ipbots.prototype.getIP = function(id) {
     for (var o in ibot.gameServer.clients) {
         var p = ibot.gameServer.clients[o].playerTracker;
         if (p.pID == id) {
-            if (typeof (p.socket.remoteAddress) != "undefined") {
-                if (ibot.gameServer.clients.indexOf(parseInt(id)) > -1) {
-                } else {
+            if (typeof(p.socket.remoteAddress) != "undefined") {
+                if (ibot.gameServer.clients.indexOf(parseInt(id)) > -1) {} else {
                     return p.socket.remoteAddress;
                 }
             } else {
@@ -386,29 +383,29 @@ ipbots.prototype.getIP = function (id) {
     }
     return 0;
 };
-ipbots.prototype.cache = function () {
+ipbots.prototype.cache = function() {
     require("fs").writeFile(__dirname + "/log.json", JSON.stringify(this.botcache));
 };
 var say = {
     // Special say console logger, used in most plugins by LegitSoulja :_)
     head: this.name,
-    red: function (log) {
+    red: function(log) {
         console.log("[" + "\x1b[31m" + this.head + "\x1b[0m" + "] " + log);
         return;
     },
-    green: function (log) {
+    green: function(log) {
         console.log("[" + "\x1b[32m" + this.head + "\x1b[0m" + "] " + log);
         return;
     },
-    cyan: function (log) {
+    cyan: function(log) {
         console.log("[" + "\x1b[36m" + this.head + "\x1b[0m" + "] " + log);
         return;
     },
-    cmd: function (log) {
+    cmd: function(log) {
         console.log("\x1b[30m" + "[" + "\x1b[32m\x1b[5m" + this.head + "\x1b[30m" + "]" + "\x1b[0m" + log);
         return;
     },
-    def: function (log) {
+    def: function(log) {
         console.log("\x1b[32m" + "[" + "\x1b[37m" + this.head + "\x1b[32m" + "]" + "\x1b[0m " + log);
         return;
     }
