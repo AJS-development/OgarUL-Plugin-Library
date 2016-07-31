@@ -94,7 +94,7 @@ this.init = function(gameServer, config) {
                 consolePort: config.consolePort,
                 debug: config.debug,
                 allowChange: config.allowChange,
-                allowPlugin: config.allowPlugin
+                allowPlugin: config.allowPlugin,
                 requirePassword: config.requirePassword,
                 password: config.password,
                 consolePassword: config.password,
