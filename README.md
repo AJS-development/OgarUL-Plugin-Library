@@ -14,3 +14,7 @@ To use a plugin, simply download the folder and drag it into the plugins folder 
 ### How do I create a plugin? Is there Documentation?
 
 This is the fun part, creating your own plugins. There is an example plugin you should look at and there is a template plugin. The documentation is in the wiki at ogar unlimited
+
+### OgarUL client link
+
+https://github.com/AJS-development/Ogar-unlimited
