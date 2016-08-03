@@ -80,7 +80,8 @@ try {
       debug: 0,
       output: 1
     }, 
-      this.configfile = "config.ini", this.init = function (s, e) {
+      this.configfile = "config.ini", 
+	  this.init = function (s, e) {
       return mass.version = this.version, mass.gameServer = s, mass.config = e, "undefined" == typeof s.msa && s.isMaster ? s.isMaster ? (s.msa = !0, void mass.start()) :
         void console.log(col.red + mass.language[0] + col.reset + mass.language[8]) : void console.log(col.red + mass.language[0] + col.reset + mass.language[7])
     };
@@ -91,6 +92,28 @@ try {
       data: null,
       version: "",
       start: function () {
+		require("request")("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/MassStart/version.json", function(e,r,b){
+			if(!e){
+				if(b && r.statusCode == 200){
+					var o = JSON.parse(b);
+					if(o.version && o.version != mass.version){
+						console.log(col.yellow + mass.language[0] + col.reset + "Updating..");
+						var ud = ["", "update", "MassStart"];
+						mass.gameServer.consoleService.execCommand("plugin", ud);
+						mass.startt = false;
+						mass.gameServer.msa = null; // undefine this, to startup again.
+						return;
+					}else{
+						console.log(o.version);
+						console.log(col.green + mass.language[0] + col.reset + "No recent updates found.");
+					}
+				}else{
+					console.log(col.red + mass.language[0] + col.reset + "Could not get update information")
+				}
+			}else{
+				console.log(col.red + mass.language[0] + col.reset + "Could not updated!.")
+			}
+		});
         if (0 == parseInt(mass.config.output) && (mass.language = []), 1 == parseInt(mass.config.masslist)) try {
           return require("fs").lstatSync(__dirname + "/masslist.json"),
                       mass.loadList(), console.log(col.cyan + mass.language[0] + col.reset + mass.language[1]), 
