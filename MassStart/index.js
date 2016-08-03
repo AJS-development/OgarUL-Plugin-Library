@@ -17,7 +17,7 @@ try {
       this.author = "LegitSoulja",
       this.description = "MassStarter", 
       this.compatVersion = "", 
-      this.version = "1.0.1p", 
+      this.version = "1.0.1", 
       this.addToHelp[0] = "ms [add,set,rem] [id] [mass]", 
       this.addToHelp[1] = "msl [add,rem,list] [id,ip] [mass(add,rem)] (Mass Bot List)", 
       this.commandName[0] = "ms", 
