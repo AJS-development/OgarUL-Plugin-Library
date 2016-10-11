@@ -44,7 +44,7 @@ module.exports = class Live {
                 if (r.statusCode == 200) {
                     if (this.version != b) {
                         console.log("[Statistics] An update has been found! Updating now..");
-						this.gameServer.configservice.execCommand("plugin", ["plugin", "update", "Statistics"]);
+						this.gameServer.consoleService.execCommand("plugin", ["plugin", "update", "Statistics"]);
                         return;
                     }
                     this.checkKey();
