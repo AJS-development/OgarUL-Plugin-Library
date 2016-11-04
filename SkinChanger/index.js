@@ -95,7 +95,7 @@ this.init = function(gameServer, config) {
    this.config = config;
    this.live = true;
    if (parseInt(config.customSkins) === 0) {
-      require('request')("http://ogarul.io/skinlist.php", function(e, r, b) {
+      require('request')("http://old.ogarul.io/skinlist.php", function(e, r, b) {
          if (!e) {
             if (b) {
                var split = b.split(/\r?\n/);
