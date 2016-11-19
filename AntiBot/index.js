@@ -72,7 +72,7 @@ try{
 	}
 	// check name
 	var name = player.name.toLowerCase();
-	console.log(name);
+	
 	
 	if(blockedNames.indexOf(name) > -1){
 		this.gameServer.pm(player.pID, "Welp, Your name prevents you to join this server", "[Anti-Bot]");
