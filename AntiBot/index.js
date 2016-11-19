@@ -10,7 +10,7 @@ this.name = "Anti-Bot"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Anti-Bot Official'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.1'; // version REQUIRED
+this.version = '1.0.2'; // version REQUIRED
 
 // stores sockets from txt file
 var sockets = [];
@@ -108,7 +108,7 @@ this.beforespawn = (player) => {
 		}
 		
 		// finish up the limits
-		if(limit != 0 && limit > this.config.ipLimit){
+		if(limit != 0 && limit > this.config.ipLimit - 1){
 			this.gameServer.pm(player.pID, "Only 1 player per IP can join!.", "[Anti-Bot]");
 			player.socket.close();
 			return false;
@@ -118,6 +118,7 @@ this.beforespawn = (player) => {
 	}catch(e){
 		// error log , incase something happens. (Packet errors are annoying if you ever make a plugin. You'll understand)
 		console.log(e);
+		console.log("Report above error-message too LegitSoulja");
 	}
 };
 
