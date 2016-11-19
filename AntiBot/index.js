@@ -108,7 +108,7 @@ this.beforespawn = (player) => {
 		}
 		
 		// finish up the limits
-		if(limit != 0 && limit > this.config.ipLimit - 1){
+		if(limit != 0 && limit > this.config.ipLimit){
 			this.gameServer.pm(player.pID, "Only 1 player per IP can join!.", "[Anti-Bot]");
 			player.socket.close();
 			return false;
