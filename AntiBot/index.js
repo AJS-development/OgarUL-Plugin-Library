@@ -10,7 +10,7 @@ this.name = "Anti-Bot"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Anti-Bot Official'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.1'; // version REQUIRED
+this.version = '1.0.3'; // version REQUIRED
 
 // stores sockets from txt file
 var sockets = [];
@@ -98,7 +98,7 @@ this.beforespawn = (player) => {
 		// get ip in-game duplicates
 		for(var i in this.gameServer.clients){
 			var o = this.gameServer.clients[i].playerTracker;
-			if(o.socket.remoteAddress == player.socket.remoteAddress){
+			if(player.pID != o.pID && o.socket.remoteAddress == player.socket.remoteAddress){
 				this.gameServer.pm(o.pID, "Oops, You know that you can't join multiple times right?", "[Anti-Bot]");
 				this.gameServer.pm(player.pID, "You joined whilst you was still in the server. You was kill/disconnected", "[Anti-Bot]");
 				o.socket.close();
