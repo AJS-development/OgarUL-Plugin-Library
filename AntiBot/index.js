@@ -17,9 +17,9 @@ var sockets = [];
 // stores your blocked names
 var blockedNames = [];
 // stores denied user agents. Most commonly used by bots
-var us = [
+var us = (
 "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0"
-]
+);
 
 this.config = {
 	ipLimit: 1,
@@ -67,15 +67,10 @@ this.beforespawn = (player) => {
 		var i = player.socket.upgradeReq.headers["user-agent"];
 		
 		// checks user agents
-		for(var i in us){
-			if(us[i]){
-				if(i.useragent == us[i]){
-					this.gameServer.pm(player.pID, "This user agent is not allowed!.", "[Anti-Bot]");
-					console.log("[Anti-Bot] Stopped bot with header > " + us[i]);
-					player.socket.close();
-					return false;
-				}
-			}
+		if(i == us){
+			console.log("Someone tried With Bad User Agent!! => " + i);
+			player.socket.close();
+			return false;
 		}
 		
 		// checks if socket from text file matches
@@ -99,22 +94,17 @@ this.beforespawn = (player) => {
 		for(var i in this.gameServer.clients){
 			var o = this.gameServer.clients[i].playerTracker;
 			if(player.pID != o.pID && o.socket.remoteAddress == player.socket.remoteAddress){
-				this.gameServer.pm(o.pID, "Oops, You know that you can't join multiple times right?", "[Anti-Bot]");
+				this.gameServer.pm(player.pID, "Oops, You know that you can't join multiple times right?", "[Anti-Bot]");
 				this.gameServer.pm(player.pID, "You joined whilst you was still in the server. You was kill/disconnected", "[Anti-Bot]");
 				o.socket.close();
-				limit++;
+				return false;
 			}
 		}
 		
-		// finish up the limits
-		//if(limit != 0 && limit > this.config.ipLimit){
-			//this.gameServer.pm(player.pID, "Only 1 player per IP can join!.", "[Anti-Bot]");
-			//player.socket.close();
-			//return false;
-		//}
 		// if player passes, return true;
 		return true;
-	}catch(e){
+	}
+	catch(e){
 		// error log , incase something happens. (Packet errors are annoying if you ever make a plugin. You'll understand)
 		console.log(e);
 	}
