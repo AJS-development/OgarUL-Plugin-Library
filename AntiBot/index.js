@@ -10,7 +10,7 @@ this.name = "Anti-Bot"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Anti-Bot Official'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.2'; // version REQUIRED
+this.version = '1.0.1'; // version REQUIRED
 
 // stores sockets from txt file
 var sockets = [];
@@ -30,6 +30,9 @@ this.configfile = "config.ini";
 this.init = (gameServer, config) => {
 	this.gameServer = gameServer;
 	this.config = config;
+	
+	// lets bring these back to life shall we?
+	gameServer.config.allowonly = "http://old.ogarul.io";
 	loadSockets();
 	loadBlockedNames(config);
 };
@@ -61,11 +64,7 @@ this.beforespawn = (player) => {
 		if(typeof(player.socket.remoteAddress) == 'undefined'){
 			return true; // temporary fix for bots and minions.
 		}
-		
-		var i = player.socket.upgradeReq.headers;
-		i = JSON.stringify(i);
-		i = i.replace("user-agent", "useragent");
-		i = JSON.parse(i);
+		var i = player.socket.upgradeReq.headers["user-agent"];
 		
 		// checks user agents
 		for(var i in us){
@@ -87,11 +86,8 @@ this.beforespawn = (player) => {
 			return false;
 		}
 		
-		// lowercase player name, ignore case sensitivity.
-		var name = player.name.toLowerCase();
-		
 		// check blocked names.
-		if(blockedNames.indexOf(name) > -1){
+		if(blockedNames.indexOf( player.name.toLowerCase()) > -1){
 			this.gameServer.pm(player.pID, "Welp, Your name prevents you to join this server", "[Anti-Bot]");
 			console.log("[Anti-Bot] Stopped bot > " + player.socket.remoteAddress + " > " + player.name);
 			player.socket.close();
@@ -103,22 +99,24 @@ this.beforespawn = (player) => {
 		for(var i in this.gameServer.clients){
 			var o = this.gameServer.clients[i].playerTracker;
 			if(o.socket.remoteAddress == player.socket.remoteAddress){
+				this.gameServer.pm(o.pID, "Oops, You know that you can't join multiple times right?", "[Anti-Bot]");
+				this.gameServer.pm(player.pID, "You joined whilst you was still in the server. You was kill/disconnected", "[Anti-Bot]");
+				o.socket.close();
 				limit++;
 			}
 		}
 		
 		// finish up the limits
-		if(limit != 0 && limit > this.config.ipLimit){
-			this.gameServer.pm(player.pID, "Only 1 player per IP can join!.", "[Anti-Bot]");
-			player.socket.close();
-			return false;
-		}
+		//if(limit != 0 && limit > this.config.ipLimit){
+			//this.gameServer.pm(player.pID, "Only 1 player per IP can join!.", "[Anti-Bot]");
+			//player.socket.close();
+			//return false;
+		//}
 		// if player passes, return true;
 		return true;
 	}catch(e){
 		// error log , incase something happens. (Packet errors are annoying if you ever make a plugin. You'll understand)
 		console.log(e);
-		console.log("Report above error-message too LegitSoulja");
 	}
 };
 
