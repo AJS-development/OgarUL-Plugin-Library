@@ -64,12 +64,12 @@ this.beforespawn = (player) => {
 		if(typeof(player.socket.remoteAddress) == 'undefined'){
 			return true; // temporary fix for bots and minions.
 		}
-		var i = player.socket.upgradeReq.headers["user-agent"];
+		var header = player.socket.upgradeReq.headers["user-agent"];
 		
 		// checks user agents
 		for(var i in us){
 			if(us[i]){
-				if(i.useragent == us[i]){
+				if(header.useragent == us[i]){
 					this.gameServer.pm(player.pID, "This user agent is not allowed!.", "[Anti-Bot]");
 					console.log("[Anti-Bot] Stopped bot with header > " + us[i]);
 					player.socket.close();
@@ -96,8 +96,8 @@ this.beforespawn = (player) => {
 		let limit = 0;
 		
 		// get ip in-game duplicates
-		for(var i in this.gameServer.clients){
-			var o = this.gameServer.clients[i].playerTracker;
+		for(var c in this.gameServer.clients){
+			var o = this.gameServer.clients[c].playerTracker;
 			if(player.pID != o.pID && o.socket.remoteAddress == player.socket.remoteAddress){
 				this.gameServer.pm(o.pID, "Oops, You know that you can't join multiple times right?", "[Anti-Bot]");
 				this.gameServer.pm(player.pID, "You joined whilst you was still in the server. You was kill/disconnected", "[Anti-Bot]");
