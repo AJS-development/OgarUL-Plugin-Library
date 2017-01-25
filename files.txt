@@ -1,4 +1,3 @@
-AntiBot|Protects your server from botters. By legitSoulja|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/AntiBot/files.txt|featured
 Auth|Adds auth to Ogar|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/Auth-plugin/files.txt
 AccountRewards|Gives rewards to those who logged in using Auth|https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/account-rewards/files.txt
 Devtools|Tools for developers|http://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/devtools-plugin/files.txt
