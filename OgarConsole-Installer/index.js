@@ -10,7 +10,7 @@ this.name = "OgarConsole"; // Name of plugin REQUIRED
 this.author = "LegitSoulja"; // author REQUIRED
 this.description = 'Control Your OgarUL Servers'; // Desciprtion
 this.compatVersion = ''; // compatable with (optional)
-this.version = '1.0.2'; // version REQUIRED
+this.version = '1.0.3'; // version REQUIRED
 // INSERT PLUGIN BELOW
 this.config = {
     advanced: 0,
