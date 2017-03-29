@@ -1,4 +1,5 @@
 'use strict'; // dont touch
+const request = require('request');
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -62,25 +63,21 @@ this.init = function(gameServer, config) {
                 fs.lstatSync(__dirname + "/src");
             }catch(e){
                 ocConsole("green","Downloading files...");
-                fs.mkdir(__dirname + "/src");
-                fs.mkdir(__dirname + "/src/assets");
-                fs.mkdir(__dirname + "/src/assets/css");
-                fs.mkdir(__dirname + "/src/assets/js");
-                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/index.html", function (e, r, b) {
-                    fs.writeFile(__dirname + "/src/index.html", b);
-                });
-                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/jquery.js", function(e,r,b){
-                    fs.writeFile(__dirname + "/src/assets/js/jquery.js", b);
-                });
-                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/bootstrap.min.js", function(e,r,b){
-                    fs.writeFile(__dirname + "/src/assets/js/bootstrap.min.js", b);
-                });
-                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap-theme.min.css", function(e,r,b){
-                    fs.writeFile(__dirname + "/src/assets/css/bootstrap-theme.min.css", b);
-                });
-                require('request')("https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap.min.css", function(e,r,b){
-                    fs.writeFile(__dirname + "/src/assets/css/bootstrap.min.css", b);
-                });
+                fs.mkdirSync(__dirname + "/src");
+                fs.mkdirSync(__dirname + "/src/assets");
+                fs.mkdirSync(__dirname + "/src/assets/css");
+                fs.mkdirSync(__dirname + "/src/assets/js");
+                var a = {
+                    "/src/index.html": "https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/index.html",
+                    "/src/assets/js/jquery.js":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/jquery.js",
+                    "/src/assets/js/bootstrap.min.js":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/bootstrap.min.js",
+                "/src/assets/css/bootstrap-theme.min.css":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap-theme.min.css",
+                    "/src/assets/css/bootstrap.min.css":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap.min.css"
+                }
+                for(var i in a){
+                    let bytes = (c) => request(c, (e,r,b)=>{return b;});
+                    fs.writeFileSync(__dirname + i, request(bytes(a[i])));
+                }
                 ocConsole("green","Public files downloaded.");
             }
             checkUpdate(gameServer);
