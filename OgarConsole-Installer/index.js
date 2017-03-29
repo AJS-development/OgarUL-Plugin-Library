@@ -1,5 +1,5 @@
 'use strict'; // dont touch
-const request = require('request');
+var request = require('request'); // global
 this.command = []; // dont touch
 this.commandName = []; // dont touch
 this.gamemodeId = []; // dont touch
@@ -81,7 +81,6 @@ this.init = function(gameServer, config) {
                 ocConsole("green","Public files downloaded.");
             }
             checkUpdate(gameServer);
-            var request = require('request');
             var express = require('express');
             var app = express();
             var server = require('http').createServer(app);
