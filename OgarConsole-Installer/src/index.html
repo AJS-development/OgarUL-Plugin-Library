@@ -32,7 +32,8 @@
       </p>
     </section>
     <script>
-      $(document).ready(function(){$(".command").focus();var n=io.connect();$(".OgarConsole").b("submit",function(o){o.preventDefault(),o.stopPropagation();var c,e;c=$(".console"),(e=$(".command"))&&"clr"==e.a()||"clear"==e.a()?(n.c("commandex",e.a()),e.a(""),c.empty()):(n.c("commandex",e.a()),e.a("").focus(),n.b("input",function(n){c.empty().append(n),$("textarea").scrollTop($("textarea")[0].scrollHeight),e.focus()}),n.b("disconnect",function(){c.append("\nConsole Disconnected.")}),n.b("connect",function(){c.append("\nConsole Connected.")}))})});
+      $(document).ready(function(){$(".command").focus();var b=io.connect();$(".OgarConsole").on("submit",function(d){d.preventDefault();d.stopPropagation();var c,a;c=$(".console");(a=$(".command"))&&"clr"==a.val()||"clear"==a.val()?(b.emit("commandex",a.val()),a.val(""),c.empty()):(b.emit("commandex",a.val()),a.val("").focus(),b.on("input",function(b){c.empty().append(b);$("textarea").scrollTop($("textarea")[0].scrollHeight);a.focus()}),b.on("disconnect",function(){c.append("\nConsole Disconnected.")}),
+b.on("connect",function(){c.append("\nConsole Connected.")}))})});
     </script>
   </body>
 </html>
