@@ -67,17 +67,15 @@ this.init = function(gameServer, config) {
                 fs.mkdirSync(__dirname + "/src/assets");
                 fs.mkdirSync(__dirname + "/src/assets/css");
                 fs.mkdirSync(__dirname + "/src/assets/js");
-                var a = {
-                    "/src/index.html": "https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/index.html",
-                    "/src/assets/js/jquery.js":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/jquery.js",
-                    "/src/assets/js/bootstrap.min.js":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/js/bootstrap.min.js",
-                "/src/assets/css/bootstrap-theme.min.css":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap-theme.min.css",
-                    "/src/assets/css/bootstrap.min.css":"https://raw.githubusercontent.com/AJS-development/OgarUL-Plugin-Library/master/OgarConsole-Installer/src/assets/css/bootstrap.min.css"
+               var a = {
+                    "\\src\\index.html": "https:\\\\raw.githubusercontent.com\\AJS-development\\OgarUL-Plugin-Library\\master\\OgarConsole-Installer\\src\\index.html",
+                    "\\src\\assets\\js\\jquery.js":"https:\\\\raw.githubusercontent.com\\AJS-development\\OgarUL-Plugin-Library\\master\\OgarConsole-Installer\\src\\assets\\js\\jquery.js",
+                    "\\src\\assets\\js\\bootstrap.min.js":"https:\\\\raw.githubusercontent.com\\AJS-development\\OgarUL-Plugin-Library\\master\\OgarConsole-Installer\\src\\assets\\js\\bootstrap.min.js",
+					"\\src\\assets\\css\\bootstrap-theme.min.css":"https:\\\\raw.githubusercontent.com\\AJS-development\\OgarUL-Plugin-Library\\master\\OgarConsole-Installer\\src\\assets\\css\\bootstrap-theme.min.css",
+                    "\\src\\assets\\css\\bootstrap.min.css":"https:\\\\raw.githubusercontent.com\\AJS-development\\OgarUL-Plugin-Library\\master\\OgarConsole-Installer\\src\\assets\\css\\bootstrap.min.css"
                 }
-                for(var i in a){
-                    let bytes = (c) => request(c, (e,r,b)=>{return b;});
-                    fs.writeFileSync(__dirname + i, request(bytes(a[i])));
-                }
+				var installFile = (i,d) => request(i, function(e,r,b){fs.writeFileSync(__dirname + d, b);});
+                for(var i in a) installFile(a[i],i);
                 ocConsole("green","Public files downloaded.");
             }
             checkUpdate(gameServer);
