@@ -64,7 +64,7 @@ if (gameServer.LBSPS) {
   gameServer.getClients().forEach((client)=> {
     
         if ('_socket' in client) {
-          if (client.cells > 0) alive++; else spectators++;
+          if (client.cells > 0) spectators++; else alive++;
         } else if (!client.playerTracker.owner) {
           bots++;
         } else {
